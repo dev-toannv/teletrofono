@@ -16,7 +16,9 @@
 			}
 			else{
 				$row=mysqli_fetch_assoc($result);
-				$sql1="select phone.phonenumber as phone1 from phone  inner join superadmin on phone.user_id = superadmin.id where phone.usertype=superadmin.admin_phonenumbertype";
+				$admin_id=$row['id'];
+				$admin_type=$row['admin_phonenumbertype'];
+				$sql1="select phone.phonenumber as phone1 from phone  inner join superadmin on phone.user_id = '$admin_id' where phone.usertype='$admin_type'";
 				$result1=mysqli_query($conn,$sql1);
 				$row1=mysqli_fetch_assoc($result1);
 				$admin_acc=$row['admin_acc'];
@@ -26,7 +28,16 @@
 				$admin_phone=$row1['phone1'];
 				$admin_avatar=$row['admin_avatar'];
 				$admin_address=$row['admin_address'];
-				echo $admin_phone;
+				echo $admin_phone."<br>";
+				echo $admin_acc."<br>";
+				echo $admin_pass."<br>";
+				echo $admin_name."<br>";
+				echo $admin_email."<br>";
+				echo $admin_phone."<br>";
+				echo $admin_avatar."<br>";
+				echo $admin_address."<br>";
+				echo $admin_id."<br>";
+				echo $admin_type."<br>";
 			}
 		}
 	}
