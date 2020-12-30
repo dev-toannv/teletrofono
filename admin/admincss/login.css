@@ -75,12 +75,6 @@
 	outline-style: none;
 	
 }
-/* #admin_pass:focus{
-	outline: 0;     
-   	outline-style: none;     
-   	outline-width: 0;
-
-} */
 #label_sub{
 	display: inline-block;
 	width:150px;
@@ -92,7 +86,8 @@
 	background-color: #bbc2ce;
 	border-color: black;
 	margin-top: 10px;
-	/* border-radius: 20px; */
+	border-radius: 20px;
+	outline-style: none;
 }
 
 #label_sub:hover{

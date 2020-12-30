@@ -3,7 +3,7 @@
 	session_start();
 	$error='';
 	if(isset($_SESSION['acc'])==true && isset($_SESSION['pass'])==true){
-		//header("Location:admin_infor.php");
+		header("Location:admin_infor.php");
 	}
 	else{
 		if(isset($_POST['sub'])){
