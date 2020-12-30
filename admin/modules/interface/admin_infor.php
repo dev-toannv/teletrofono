@@ -24,7 +24,6 @@
 				$admin_phone=$row1['phone1'];
 				$admin_avatar=$row['admin_avatar'];
 				$admin_address=$row['admin_address'];
-				echo $admin_phone."<br>";
 				echo $admin_acc."<br>";
 				echo $admin_pass."<br>";
 				echo $admin_name."<br>";
