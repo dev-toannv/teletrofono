@@ -36,4 +36,7 @@
 				echo "abc";
 		}
 	}
+	else{
+		header("Location:index.php");
+	}
 ?>
