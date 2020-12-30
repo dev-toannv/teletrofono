@@ -1,4 +1,36 @@
 
+<?php
+	$error='';
+	if(isset($_SESSION['acc'])==true && isset($_SESSION['pass'])==true){
+		header('Locaion:admin_infor.php');
+	}
+	else{
+		if(isset($_POST['sub'])){
+			$acc=$_POST['admin_acc'];
+			$pass=$_POST['admin_pass'];
+			$conn=mysqli_connect('localhost','root','','teletrofono');
+			if(!$conn){
+				die("Connect error : ".mysqli_connect_error());
+			}
+			else{
+				$sql="select * from superadmin where admin_acc='$acc' and admin_pass='$pass'";
+				$result=mysqli_query($conn,$sql);
+				$count=mysqli_num_rows($result);
+				if($count<=0){
+					$error="Ban khong phai admin";
+				}
+				else{
+					// session
+						session_start();
+						$_SESSION['acc']=$acc;
+						$_SESSION['pass']=$pass;
+						header("Location:admin_infor.php");
+				}
+			}
+		}
+	}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +42,19 @@
 <body>
 	<div id="head">
 			<a href="login.php"><img src="img/logo3.png" id="logo"></a>
-				
 	</div>
 
 	<div id="body">
 		<div id="error">
 				<?php 
-					if(isset($_GET['error'])){
-						echo "<p>".$_GET['error']."</p>";
+					if(!empty($error)){
+						echo "<p>".$error."</p>";
+						echo $_SESSION['acc'];
 					}
 				 ?>
 		</div>
 		<div id="form">
-			<form action="admin_infor.php" method="POST" >
+			<form action="login.php" method="POST" >
 				<input type="text" id="admin_acc" name="admin_acc" placeholder="Account"> <br>
 				<input type="password" id="admin_pass" name="admin_pass" placeholder="Password"> <br>
 				<label for="sub">

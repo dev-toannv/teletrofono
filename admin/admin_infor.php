@@ -1,7 +1,8 @@
 <?php  
-	if(isset($_POST['sub'])){
-		$acc=$_POST['admin_acc'];
-		$pass=$_POST['admin_pass'];
+	session_start();
+	if(isset($_SESSION['acc']) && isset($_SESSION['pass'])){
+		$acc=$_SESSION['acc'];
+		$pass=$_SESSION['pass'];
 		$conn=mysqli_connect('localhost','root','','teletrofono');
 		if(!$conn){
 			die("Connect error : ".mysqli_connect_error());
@@ -9,12 +10,7 @@
 		else{
 			$sql="select * from superadmin where admin_acc='$acc' and admin_pass='$pass'";
 			$result=mysqli_query($conn,$sql);
-			$count=mysqli_num_rows($result);
-			if($count<=0){
-				$error="Ban khong phai admin";
-				header("Location:login.php?error=$error");
-			}
-			else{
+			
 				$row=mysqli_fetch_assoc($result);
 				$admin_id=$row['id'];
 				$admin_type=$row['admin_phonenumbertype'];
@@ -38,7 +34,7 @@
 				echo $admin_address."<br>";
 				echo $admin_id."<br>";
 				echo $admin_type."<br>";
-			}
+			session_destroy();
 		}
 	}
 ?>
