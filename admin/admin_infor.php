@@ -34,7 +34,6 @@
 				echo $admin_address."<br>";
 				echo $admin_id."<br>";
 				echo $admin_type."<br>";
-			session_destroy();
 		}
 	}
 ?>

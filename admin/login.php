@@ -2,7 +2,7 @@
 <?php
 	$error='';
 	if(isset($_SESSION['acc'])==true && isset($_SESSION['pass'])==true){
-		header('Locaion:admin_infor.php');
+		header("Location:admin_infor.php");
 	}
 	else{
 		if(isset($_POST['sub'])){
@@ -49,7 +49,6 @@
 				<?php 
 					if(!empty($error)){
 						echo "<p>".$error."</p>";
-						echo $_SESSION['acc'];
 					}
 				 ?>
 		</div>
