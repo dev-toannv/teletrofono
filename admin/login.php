@@ -1,8 +1,9 @@
 
 <?php
+	session_start();
 	$error='';
 	if(isset($_SESSION['acc'])==true && isset($_SESSION['pass'])==true){
-		header("Location:admin_infor.php");
+		//header("Location:admin_infor.php");
 	}
 	else{
 		if(isset($_POST['sub'])){
@@ -19,9 +20,7 @@
 				if($count<=0){
 					$error="Ban khong phai admin";
 				}
-				else{
-					// session
-						session_start();
+				else{	
 						$_SESSION['acc']=$acc;
 						$_SESSION['pass']=$pass;
 						header("Location:admin_infor.php");
