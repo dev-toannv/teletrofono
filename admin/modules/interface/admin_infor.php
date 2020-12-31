@@ -1,6 +1,7 @@
 <?php  
 	session_start();
 	if(isset($_SESSION['acc']) && isset($_SESSION['pass'])){
+		
 		$acc=$_SESSION['acc'];
 		$pass=$_SESSION['pass'];
 		$conn=mysqli_connect('localhost','root','','teletrofono');
