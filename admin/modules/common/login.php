@@ -3,7 +3,7 @@
 	session_start();
 	$error='';
 	if(isset($_SESSION['acc'])==true && isset($_SESSION['pass'])==true){
-		header("Location:modules/interface/admin_infor.php");
+		header("Location:index.php?module=interface&action=admin_infor");
 	}
 	else{
 		if(isset($_POST['sub'])){
@@ -23,12 +23,12 @@
 				else{	
 						$_SESSION['acc']=$acc;
 						$_SESSION['pass']=$pass;
-						header("Location:modules/interface/admin_infor.php");
+						header("Location:index.php?module=interface&action=admin_infor");
 				}
 			}
 		}
 	}
- ?>
+?>
 
 <!DOCTYPE html>
 <html>

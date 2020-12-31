@@ -34,6 +34,7 @@
 				echo $admin_id."<br>";
 				echo $admin_type."<br>";
 				echo "abc";
+				echo "<img src='../common/img/logo3.png'/>";
 		}
 	}
 	else{
