@@ -1,5 +1,4 @@
 <?php 
-		session_start();
 		if(isset($_POST['sub'])){
 			$acc=$_POST['acc'];
 			$pass=$_POST['pass'];
