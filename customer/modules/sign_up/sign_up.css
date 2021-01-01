@@ -40,7 +40,7 @@
 .ff{
 	height: 100%;
 	float: left;
-	border:solid 2px green;
+	border:solid 1px green;
 	text-align:center;
 }
 
@@ -67,14 +67,14 @@
 	height: 100%;
 	border-style: solid;
 	border-color: green;
-	border-width: 2px;
+	border-width: 1px;
 	float: left;
 }
 #bodyright{
 	width:80%;
 	border-style: solid;
 	border-color: #ffff00;
-	border-width: 2px;
+	border-width: 1px;
 	float: left;
 	height: 100%;
 	display: flex;

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="head">
-			<a href="login.php"><img src="modules/common/img/logo3.png" id="logo"></a>
+			<a href="index.php?module=common&action=login"><img src="modules/common/img/logo3.png" id="logo"></a>
 	</div>
 
 	<div id="body">

@@ -22,7 +22,7 @@
 			</div>
 			<div class='ff' id="chu">
 				<p id="chu1">
-					Đăng ký tài khoản ISTORE
+					Đăng ký tài khoản <span style="color:#8c247d">ISTORE</span>
 				</p>
 			</div>
 		</div>
