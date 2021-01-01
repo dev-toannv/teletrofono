@@ -1,6 +1,6 @@
 <?php 
-	require_once("config/processlogin.php");
-	require_once("fix_confirm_form_resubmission.php");
+	require_once("modules/common/config/processlogin.php");
+	require_once("modules/common/config/fix_confirm_form_resubmission.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AdminLogin</title>
-	<link rel="stylesheet" type="text/css" href="modules/common/login.css">
+	<link rel="stylesheet" type="text/css" href="modules/common/common_css/login.css">
 </head>
 <body>
 	<div id="head">
