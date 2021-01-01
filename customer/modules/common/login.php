@@ -6,6 +6,8 @@
 	<title>Customer login</title>
 </head>
 <body>
-	
+	<p>
+		dang ky thanh cong
+	</p>
 </body>
 </html>

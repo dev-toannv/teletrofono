@@ -77,6 +77,72 @@
 	border-width: 2px;
 	float: left;
 	height: 100%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+
 }
 
+#divform{
+	width:780px;
+	height: 620px;
+	border-style: solid;
+	border-color: red;
+	border-width: 1px;
+	text-align:center;
+	margin:auto;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
 
+#acc{
+	width:280px;
+	height:40px;
+	/*margin-right:-250px;*/
+	margin-bottom:15px;
+}
+#nameuser{
+	width:280px;
+	height:40px;
+	/*margin-right:-250px;*/
+	margin-bottom:15px;
+}
+#pass{
+	width:280px;
+	height:40px;
+	/*margin-right:-250px;*/
+}
+
+.formll{
+	width:260px;
+	height:40px;
+	margin-bottom:15px;
+}
+
+.leftform{
+	width:150px;
+	text-align:left;
+}
+
+#sub{
+	display: none;
+}
+
+#label_sub{
+	width:100px;
+	height: 40px;
+	border:solid 1px red;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-right: 0px;
+}
+
+#label_sub:hover{
+	background-color: red;
+}
+
+#bot div{
+	text-align:bottom;
+}
