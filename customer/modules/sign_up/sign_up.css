@@ -130,13 +130,12 @@
 }
 
 #label_sub{
-	width:100px;
+	width: 100px;
 	height: 40px;
 	border:solid 1px red;
 	display: flex;
   	justify-content: center;
   	align-items: center;
-  	margin-right: 0px;
 }
 
 #label_sub:hover{
@@ -145,4 +144,8 @@
 
 #bot div{
 	text-align:bottom;
+}
+
+#lb{
+	display: inline-block;
 }

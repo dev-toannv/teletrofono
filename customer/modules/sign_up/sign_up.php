@@ -64,11 +64,12 @@
 
 							<tr align="right">
 								<td colspan="2" id="bot">
-									<label for="sub">
+									<label for="sub" id="lb">
 										<div id="label_sub">
-											<p id="chu2">Đăng ký</p>
+											Đăng ký
 										</div>
 									</label>
+									
 									<button type="submit" id="sub" name="sub"></button>
 								</td>
 							</tr>

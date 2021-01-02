@@ -33,9 +33,7 @@
 			</div>
 		</div>
 		<div id="body">
-			<div id="bodyleft">
-				
-			</div>
+			<div id="bodyleft"></div>
 			<div id="bodyright">
 				<div id="divform">
 					<table>
@@ -60,9 +58,9 @@
 
 							<tr align="right">
 								<td colspan="2" id="bot">
-									<label for="sub">
+									<label for="sub" id="bb">
 										<div id="label_sub">
-											<p id="chu2">Đăng nhập</p>
+											Đăng nhập
 										</div>
 									</label>
 									<button type="submit" id="sub" name="sub"></button>
@@ -87,12 +85,9 @@
 						</tr>	
 					</table>
 				</div>
-
 			</div>
 		</div>
-		<div id="footer">
-			
-		</div>
+		<div id="footer"></div>
 	</div>
 </body>
 </html>
