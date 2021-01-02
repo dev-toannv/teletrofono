@@ -69,6 +69,13 @@
 								</td>
 							</tr>
 						</form>
+						<tr align="right">
+							<td colspan="2">
+								<p>
+									Bạn chưa có tài khoản? <a href='index.php?module=sign_up&action=sign_up'> Đăng ký tài khoản</a>
+					  			</p>
+							</td>
+						</tr>
 						<tr>
 							<td colspan="2">
 								<p>

@@ -12,6 +12,6 @@
 			header("Location:index.php?module=interface_customer&action=interface");
 		}
 		else{
-			$error="Đăng nhập thất bại, quý khách vui lòng"." "."<a href='index.php?module=sign_up&action=sign_up'>đăng ký tài khoản</a>";
+			$error="Đăng nhập thất bại, quý khách vui lòng đăng nhập lại!";
 		}
 	}
