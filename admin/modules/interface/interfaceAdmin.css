@@ -58,3 +58,17 @@ a:hover{
 		color:red;
 }
 
+#label{
+	width:100%;
+	height:80px;
+	display: block;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size:26px;
+  	background-color:#c8bac6; 
+}
+
+#label:hover{
+	background-color:red;
+}

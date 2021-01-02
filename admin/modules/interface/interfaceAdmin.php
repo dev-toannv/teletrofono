@@ -3,6 +3,10 @@
 	if(isset($_SESSION['acc'])==false || isset($_SESSION['pass'])==false){
 		header("Location:index.php");
 	}
+	if(isset($_POST['sub'])){
+		session_destroy();
+		header("Location:index.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,38 +26,50 @@
 			<table cellspacing="10px">
 				<tr id="row1">
 					<td id="infor" class="col">
-						<a href="modules/inforAdmin">Thông tin ADMIN</a>
+						<a href="index.php?module=inforAdmin&action=inforAdmin">Thông tin ADMIN</a>
 					</td>
 					<td id="customer" class="col">
-						<a href="modules/customer">Khách hàng</a>
+						<a href="index.php?module=customer&action=customerManagement">Khách hàng</a>
 					</td>
 					<td id="staff" class="col">
-						<a href="modules/staff">Nhân viên</a>
+						<a href="index.php?module=staff&action=staffManagement">Nhân viên</a>
 					</td>
 					<td id="product" class="col">
-						<a href="modules/product">Sản phẩm</a>
+						<a href="index.php?module=product&action=productManagement">Sản phẩm</a>
 					</td>
 				</tr>
 				<tr id="row2">
 					<td id="supplier" class="col">
-						<a href="modules/supplier">Nhà cung cấp</a>
+						<a href="index.php?module=supplier&action=supplierManagement">Nhà cung cấp</a>
 					</td>
 					<td id="bill" class="col">
-						<a href="modules/bill">Hóa đơn</a>
+						<a href="index.php?module=bill&action=billManagement">Hóa đơn</a>
 					</td>
 					<td id="history" class="col">
-						<a href="modules/history">Nhật ký</a>
+						<a href="index.php?module=history&action=historyManagement">Nhật ký</a>
 					</td>
 					<td id="ConceptPage" class="col">
-						<a href="modlues/ConceptPage">Concept</a>
+						<a href="index.php?module=ConceptPage&action=ConceptManagement">Concept</a>
 					</td>
 				</tr>
 				<tr id="row3">
 					<td id="importProduct" class="col" colspan="2">
-						<a href="modules/importProduct">Nhập hàng</a>
+						<a href="index.php?module=importProduct&action=importManagement">Nhập hàng</a>
 					</td>
 					<td id="revenue" class="col" colspan="2">
-						<a href="modules/revenue">Doanh thu</a>
+						<a href="index.php?module=revenue&action=revenueManagement">Doanh thu</a>
+					</td>
+				</tr>
+				<tr id="row4">
+					<td id="dangxuat" class="col" colspan="4" >
+						<form action="" method="POST">
+							<label for="sub">
+								<div id="label">
+									Đăng xuất
+								</div>
+							</label>
+							<button id="sub" name="sub" type="submit" style="display:none"></button>
+						</form>
 					</td>
 				</tr>
 			</table>
