@@ -8,7 +8,8 @@
 		if($all>0){
 			$row=mysqli_fetch_assoc($result);
 			$_SESSION['id']=$row['id'];
-			$_SESSION['acc']=$row['acc'];
+			$_SESSION['acc']=$row['customer_account'];
+			$_SESSION['pass']=$row['customer_password'];
 			header("Location:index.php?module=interface_customer&action=interface");
 		}
 		else{

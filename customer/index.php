@@ -5,8 +5,8 @@
 		$action=$_GET['action'];
 	}
 	if($module=='' || $action==''){
-		$module='common';
-		$action='login';
+		$module='interface_customer';
+		$action='interface';
 	}
 	$path="modules/$module/$action.php";
 	if(file_exists($path)){
