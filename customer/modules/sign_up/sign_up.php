@@ -17,7 +17,7 @@
 	<div id="container">
 		<div id="header">
 			<div class="ff" id="lg">
-				<a href="index.php?module=sign_up&action=sign_up">
+				<a href="index.php?module=interface_customer&action=interface">
 					<img src="modules/sign_up/img/logo3.png" id="logo"alt="">
 				</a>
 			</div>

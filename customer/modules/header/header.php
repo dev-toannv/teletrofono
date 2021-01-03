@@ -30,6 +30,6 @@
 					echo"</form>";
 				echo"</div>";
 			echo "</div>";
-		} 
+		}
 	?>
 </div>	

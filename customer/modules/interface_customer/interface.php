@@ -1,5 +1,6 @@
 
 <?php
+	session_start();
 	require_once("modules/interface_customer/config/fix_confirm_form_resubmission.php");
 ?>
 <!DOCTYPE html>
@@ -13,7 +14,6 @@
 </head>
 <body>
 	<?php 
-		session_start();
 		require_once("modules/header/header.php");
 	?>
 	<?php 
