@@ -16,19 +16,19 @@
 		else{
 			echo "<div id='username'>";
 
-				echo"<div id='nhan'>";
-					echo $_SESSION['acc'];
+				echo"<div id='tennguoidung'>";
+					echo $_SESSION['username'];
 				echo"</div>";
 
 				
 				echo"<div id='manage' class='hov'>";
-					echo"<a href='index.php?module=infor_customer&action=infor'>Tài khoản của tôi</a>
-				</div>";
+					echo"<a href='index.php?module=infor_customer&action=infor'>Tài khoản của tôi</a></div>";
 				echo"<div id='dangxuat' class='hov'>";
 					echo"<form action='' method='POST'>";
 						echo"<button type='submit' name='logout' id='logout'>dangxuat</button>";
 					echo"</form>";
 				echo"</div>";
+
 			echo "</div>";
 		}
 	?>
