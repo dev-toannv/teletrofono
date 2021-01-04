@@ -16,7 +16,7 @@
 			 width: 100px;
 			 height: 100px;
 			 background: purple;
-			 -webkit-transition: width 2s; /* Safari */
+			 -webkit-transition: width 2s; 
 			 transition: width 2s;
 			}
 		#div1:hover {
@@ -31,9 +31,6 @@
 	<?php 
 		require_once("modules/body/body.php");
 	?>
-	<div id="div1">
-		
-	</div>
 
 </body>
 </html>

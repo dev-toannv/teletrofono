@@ -31,7 +31,7 @@
 #username{
 	width:150px;
 	height: 30px;
-	border:solid 1px green;
+	/*border:solid 1px green;*/
 	text-align:center;
 	display: inline-block;
 	-webkit-transition: 0.6s;
@@ -79,7 +79,7 @@
 	width:150px;
 	height: 100%;
 	overflow-x: scroll;
-	border:solid 1px green;
+	/*border:solid 1px green;*/
 	text-align:center;
 	display: flex;
   	/*justify-content: center;*/
@@ -98,9 +98,49 @@
 
 #username:hover .hov{
 	height: 40px;
-	border:solid 1px green;
+	/*border:solid 1px green;*/
 }
 
 #tennguoidung::-webkit-scrollbar {
     display: none;
+}
+
+#logout{
+	display: none;
+}
+
+#lb{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+#lb:hover{
+	background-color: #b5c8c8;
+}
+
+#label_sub{
+	width: 150px;
+	height: 40px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#manage:hover{
+	background-color: #b5c8c8;
+}
+
+#username:hover #manage{
+	height: 40px;
+	border-left:solid 1px green;
+	border-right:solid 1px green;
+	border-top:solid 1px green;
+}
+
+#username:hover #dangxuat{
+	height: 40px;
+	border-left:solid 1px green;
+	border-right:solid 1px green;
+	border-bottom:solid 1px green;
 }

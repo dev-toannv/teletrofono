@@ -1,9 +1,9 @@
 <?php  
 	session_start();
-	if(isset($_SESSION['acc']) && isset($_SESSION['pass'])){
+	if(isset($_SESSION['admin_acc']) && isset($_SESSION['admin_pass'])){
 		
-		$acc=$_SESSION['acc'];
-		$pass=$_SESSION['pass'];
+		$acc=$_SESSION['admin_acc'];
+		$pass=$_SESSION['admin_pass'];
 		$conn=mysqli_connect('localhost','root','','teletrofono');
 		if(!$conn){
 			die("Connect error : ".mysqli_connect_error());

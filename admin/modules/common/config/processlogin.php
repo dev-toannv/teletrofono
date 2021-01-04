@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$error='';
-	if(isset($_SESSION['acc'])==true && isset($_SESSION['pass'])==true){
+	if(isset($_SESSION['admin_acc'])==true && isset($_SESSION['admin_pass'])==true){
 		header("Location:index.php?module=interface&action=interfaceAdmin");
 	}
 	else{
@@ -20,8 +20,8 @@
 					$error="You are not an administrator";
 				}
 				else{	
-						$_SESSION['acc']=$acc;
-						$_SESSION['pass']=$pass;
+						$_SESSION['admin_acc']=$acc;
+						$_SESSION['admin_pass']=$pass;
 						header("Location:index.php?module=interface&action=interfaceAdmin");
 				}
 			}

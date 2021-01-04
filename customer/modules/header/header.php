@@ -25,6 +25,11 @@
 					echo"<a href='index.php?module=infor_customer&action=infor'>Tài khoản của tôi</a></div>";
 				echo"<div id='dangxuat' class='hov'>";
 					echo"<form action='' method='POST'>";
+						echo"<label for='logout' id='lb'>";
+							echo"<div id='label_sub'>";
+								echo"Đăng xuất";
+							echo"</div>";
+						echo"</label>";
 						echo"<button type='submit' name='logout' id='logout'>dangxuat</button>";
 					echo"</form>";
 				echo"</div>";
@@ -33,3 +38,4 @@
 		}
 	?>
 </div>	
+ 

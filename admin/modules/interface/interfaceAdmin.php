@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	if(isset($_SESSION['acc'])==false || isset($_SESSION['pass'])==false){
+	if(isset($_SESSION['admin_acc'])==false || isset($_SESSION['admin_pass'])==false){
 		header("Location:index.php");
 	}
 	if(isset($_POST['sub'])){
