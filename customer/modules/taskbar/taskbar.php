@@ -9,8 +9,8 @@
 				Sản phẩm
 			</p>
 		</div>
-		<div id="close" onclick="close1()">
-			
+		<div id="close">
+				<div id="dong" onclick="close1()">X</div>
 		</div>
 		<div id="taskbar_iphone">
 			Iphone
