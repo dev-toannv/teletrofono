@@ -7,16 +7,27 @@ function hienthi(){
 	b.style.height="80%";
 	c.style.height="80%";
 	d.style.height="80%";
-
+	a.style.width="100%";
+	b.style.width="100%";
+	c.style.width="100%";
+	d.style.width="100%";
+	
 }
+
 
 function close1(){
 	var a= document.getElementById('close');
 	var b= document.getElementById('taskbar_iphone');
 	var c=document.getElementById('taskbar_oppo');
 	var d=document.getElementById('taskbar_samsung');
-	a.style.height="0%"
-	b.style.height="0%"
-	c.style.height="0%"
-	d.style.height="0%"
+	a.style.height="0%";
+	b.style.height="0%";
+	c.style.height="0%";
+	d.style.height="0%";
+
+	a.style.width="0%";
+	b.style.width="0%";
+	c.style.width="0%";
+	d.style.width="0%";
+
 }

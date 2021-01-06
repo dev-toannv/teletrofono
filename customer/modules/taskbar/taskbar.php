@@ -13,13 +13,13 @@
 			
 		</div>
 		<div id="taskbar_iphone">
-			
+			Iphone
 		</div>
 		<div id="taskbar_oppo">
-			
+			Oppo
 		</div>
 		<div id="taskbar_samsung">
-			
+			SamSung
 		</div>
 	</div>
 	<div id="taskbar_fanpage">
