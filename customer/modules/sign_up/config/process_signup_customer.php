@@ -10,7 +10,8 @@
 				mysqli_close($conn);
 				$_SESSION['acc']=$acc;
 				$_SESSION['pass']=$pass;
-				header("Location:index.php?module=common&action=login");
+				$_SESSION['username']=$nameuser;
+				header("Location:index.php?module=interface_customer&action=interface");
 			}
 			else{
 				mysqli_close($conn);

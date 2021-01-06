@@ -3,6 +3,7 @@ function hienthi(){
 	var b= document.getElementById('taskbar_iphone');
 	var c=document.getElementById('taskbar_oppo');
 	var d=document.getElementById('taskbar_samsung');
+	var e=document.getElementById('taskbar_sanpham');
 	a.style.height="30%";
 	b.style.height="80%";
 	c.style.height="80%";
@@ -11,6 +12,7 @@ function hienthi(){
 	b.style.width="100%";
 	c.style.width="100%";
 	d.style.width="100%";
+	e.style.background="#ebebeb";
 	
 }
 
@@ -20,6 +22,7 @@ function close1(){
 	var b= document.getElementById('taskbar_iphone');
 	var c=document.getElementById('taskbar_oppo');
 	var d=document.getElementById('taskbar_samsung');
+	var e=document.getElementById('taskbar_sanpham');
 	a.style.height="0%";
 	b.style.height="0%";
 	c.style.height="0%";
@@ -29,5 +32,7 @@ function close1(){
 	b.style.width="0%";
 	c.style.width="0%";
 	d.style.width="0%";
+
+	e.style.background="none";
 
 }

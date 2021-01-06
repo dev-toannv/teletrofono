@@ -1,4 +1,5 @@
 <?php
+
 	if(isset($_POST["sub"])){
 		$acc=$_POST['acc'];
 		$pass=$_POST['pass'];
@@ -7,7 +8,6 @@
 		$all=mysqli_affected_rows($conn);
 		if($all>0){
 			$row=mysqli_fetch_assoc($result);
-			$_SESSION['id']=$row['id'];
 			$_SESSION['acc']=$row['customer_account'];
 			$_SESSION['pass']=$row['customer_password'];
 			$_SESSION['username']=$row['customer_name'];

@@ -25,7 +25,7 @@
 #taskbar_fanpage{
 	width:45%;
 	height: 100%;
-	background-color:#ff55ff;
+	/*background-color:#ff55ff;*/
 
 }
 #taskbar_search{
@@ -35,7 +35,7 @@
 #close{
 	width: 100%;
 	height:0%;
-	background-color: black;
+	background-color: #3a3a3a;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	border-bottom:none;
@@ -48,15 +48,17 @@
 
 #dong{
 	color: #78837d;
-	font-size:35px;
+	font-size:33px;
 	display: inline-block;
 	height: 100%;
 	width: 20%;
 	text-align:center;
+	transition: 0.4s;
 }
 
 #dong:hover{
 	color: white;
+	font-size:36px;
 }
 
 #taskbar_sanpham{
@@ -68,60 +70,78 @@
 	display: flex;
   	justify-content: center;
   	align-items: center;
+  	border-radius: 6px;
 }
 #taskbar_iphone{
 	width: 0%;
 	height:0%;
-	background-color: #d0d0d0;
+	/*background-color: #ebebeb;*/
 	-webkit-transition: 0.8s;
 	transition: 0.8s;
 	border-bottom:none;
 	border-top:none;
 	overflow: hidden;
-}
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 
-#taskbar_oppo{
-	width: 0%;
-	height:0%;
-	background-color: green;
-	-webkit-transition: 1.1s;
-	transition: 1.1s;
-	border-bottom:none;
-	border-top:none;
-	overflow: hidden;
 }
 
 #taskbar_samsung{
 	width: 0%;
 	height: 0%;
-	background-color:#61a3cf;
+	/*background-color:#9cc4b3;*/
+	-webkit-transition: 1.1s;
+	transition: 1.1s;
+	border-bottom:none;
+	border-top:none;
+	overflow: hidden;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#taskbar_oppo{
+	width: 0%;
+	height:0%;
+	/*background-color: green;*/
 	-webkit-transition: 1.4s;
 	transition: 1.4s;
 	border-bottom:none;
 	border-top:none;
 	overflow: hidden;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
 
 
-#taskbar_product img{
+
+
+#taskbar_sanpham img{
 	max-height: 70%;
 	max-width: 70%;
-	-webkit-transition: 1.9s;
-	transition: 1.9s;
+	-webkit-transition: 1s;
+	transition: 1s;
 }
 
 #taskbar_product p{
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 53px;
 
 }
 
 #taskbar_sanpham:hover img{
-	max-height: 74%;
-	max-width: 74%;
+	max-height: 75%;
+	max-width: 75%;
 	
 }
 
-#taskbar_sanpham:hover {
-	background-color: #d4dedc;
+.icon{
+	max-height: 70%;
+	max-width: 70%;
+}
+
+.logo:hover{
+	background-color: #ebebeb;
 }
