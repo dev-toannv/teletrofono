@@ -4,7 +4,10 @@
 	</div>
 	<div id="taskbar_product">
 		<div id="taskbar_sanpham" onclick="hienthi()">
-			Sản phẩm
+			<img src="modules/interface_customer/img/Menu_icon_icon-icons.com_71858.png" alt="">
+			<p>
+				Sản phẩm
+			</p>
 		</div>
 		<div id="close" onclick="close1()">
 			

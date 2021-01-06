@@ -3,10 +3,10 @@ function hienthi(){
 	var b= document.getElementById('taskbar_iphone');
 	var c=document.getElementById('taskbar_oppo');
 	var d=document.getElementById('taskbar_samsung');
-	a.style.height="30%"
-	b.style.height="80%"
-	c.style.height="80%"
-	d.style.height="80%"
+	a.style.height="30%";
+	b.style.height="80%";
+	c.style.height="80%";
+	d.style.height="80%";
 
 }
 
