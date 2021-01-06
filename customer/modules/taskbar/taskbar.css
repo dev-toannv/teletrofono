@@ -35,45 +35,52 @@
 }
 #close{
 	width: 100%;
-	height: 30%;
-	background-color: #c85f4c;
-	display: none;
+	height:0%;
+	background-color: #dedede;
+	-webkit-transition: 1.2s;
+	transition: 1.2s;
+	border-bottom:none;
+	border-top:none;
+	overflow: hidden;
 }
 #taskbar_sanpham{
 	width: 100%;
 	height: 100%;
-
+	-webkit-transition: 1.2s;
+	transition: 1.2s;
+	border-bottom:none;
 }
 #taskbar_iphone{
 	width: 100%;
-	height: 80%;
+	height:0%;
 	background-color: blue;
-	display: none;
+	-webkit-transition: 1.2s;
+	transition: 1.2s;
+	border-bottom:none;
+	border-top:none;
+	overflow: hidden;
 }
 
 #taskbar_oppo{
 	width: 100%;
-	height: 80%;
+	height:0%;
 	background-color: green;
-	display: none;
+	-webkit-transition: 1.2s;
+	transition: 1.2s;
+	border-bottom:none;
+	border-top:none;
+	overflow: hidden;
 }
 
 #taskbar_samsung{
 	width: 100%;
-	height: 80%;
+	height: 0%;
 	background-color: black;
-	display: none;
+	-webkit-transition: 1.2s;
+	transition: 1.2s;
+	border-bottom:none;
+	border-top:none;
+	overflow: hidden;
 }
 
-/*#taskbar_product:hover #taskbar_iphone{
-	display: block;
-}
-
-#taskbar_product:hover #taskbar_oppo{
-	display: block;
-}
-
-#taskbar_product:hover #taskbar_samsung{
-	display: block;
-}*/
 
