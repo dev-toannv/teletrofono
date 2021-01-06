@@ -6,17 +6,17 @@
 	}
 	if(isset($_SESSION['id'])==false&&isset($_SESSION['acc'])==false){
 			echo "<div class='ss' id='dangnhap'>";
-				echo "<a href='index.php?module=common&action=login'>Đăng nhập</a>";
+				echo "<a href='index.php?module=common&action=login' class='thanhtren'>Đăng nhập</a>";
 			echo "</div>";	
 
 			echo "<div class='ss' id='dangky'>";
-				echo "<a href='index.php?module=sign_up&action=sign_up'>Đăng ký</a>";
+				echo "<a href='index.php?module=sign_up&action=sign_up' class='thanhtren'>Đăng ký</a>";
 			echo "</div>";
 		}
 	else{
 		echo "<div id='username'>";
 
-			echo"<div id='tennguoidung'>";
+			echo"<div id='tennguoidung' class='thanhtren'>";
 				echo $_SESSION['username'];
 			echo"</div>";
 

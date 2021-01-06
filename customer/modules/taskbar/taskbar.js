@@ -36,3 +36,21 @@ function close1(){
 	e.style.background="none";
 
 }
+
+// function logoiphone(){
+// 	var a = document.getElementById('hang');
+// 	a.innerHTML="<img src='modules/taskbar/img/iPhone_logo.png' class='icon'>";
+// }
+
+
+
+// function logosamsung(){
+// 	var a = document.getElementById('hang');
+// 	a.innerHTML="<img src='modules/taskbar/img/sam.png' class='icon'>";
+// }
+
+
+// function logooppo(){
+// 	var a = document.getElementById('hang');
+// 	a.innerHTML="<img src='modules/taskbar/img/OPPO_logo.png' class='icon'>";
+// }

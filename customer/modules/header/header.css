@@ -4,15 +4,18 @@
 #header{
 	width: 100%;
 	height: 30px;
-	border:solid 1px red;
 	text-align:right;
 	vertical-align: bottom;
 	position: relative;
 	z-index: 1;
+	background-color:#474747; 
 }
 
 .ss{
-	display: inline-block;
+	float: right;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
 
 #dangnhap{
@@ -165,3 +168,13 @@
 #manage a:active{
 	color:red;
 }
+.thanhtren{
+	color:white;
+}
+
+#tennguoidung:hover{
+	color:#8ed915;
+}
+
+
+
