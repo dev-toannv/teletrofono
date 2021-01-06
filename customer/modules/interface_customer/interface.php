@@ -10,9 +10,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="modules/header/header.css">
+	<link rel="stylesheet" type="text/css" href="modules/taskbar/taskbar.css">
 	<link rel="stylesheet" type="text/css" href="modules/body/body.css">
-	<style type="text/css">
-		#div1{
+	<!-- <style type="text/css">
+		/*#div1{
 			 width: 100px;
 			 height: 100px;
 			 background: purple;
@@ -21,12 +22,17 @@
 			}
 		#div1:hover {
 		 width: 300px;
-		}
-	</style>
+		}*/
+	</style> -->
+
+	<script type="text/javascript" src="modules/taskbar/taskbar.js"></script>
 </head>
 <body>
 	<?php 
 		require_once("modules/header/header.php");
+	?>
+	<?php 
+		require_once("modules/taskbar/taskbar.php");
 	?>
 	<?php 
 		require_once("modules/body/body.php");
