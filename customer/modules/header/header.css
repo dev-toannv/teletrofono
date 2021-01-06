@@ -16,6 +16,7 @@
 	display: flex;
   	justify-content: center;
   	align-items: center;
+
 }
 
 #dangnhap{
@@ -176,5 +177,7 @@
 	color:#8ed915;
 }
 
-
+.ss a{
+	text-decoration:none;
+}
 
