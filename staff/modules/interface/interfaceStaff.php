@@ -7,8 +7,31 @@
 	if(isset($_POST['logout'])){
 		unset($_SESSION['staff_code']);
 		unset($_SESSION['staff_password']);
+		unset($_SESSION['right_display']);
 		header("Location:index.php");
 	}
+
+
+	if(isset($_SESSION['right_display'])==false){
+		$_SESSION['right_display']='infor';
+	}
+	else{
+		if(isset($_GET['choose'])){
+			if($_GET['choose']=="infor"){
+				$_SESSION['right_display']="infor";
+			}
+			if($_GET['choose']=="mproduct"){
+				$_SESSION['right_display']="mproduct";
+			}
+			if($_GET['choose']=="mbill"){
+				$_SESSION['right_display']="mbill";
+			}
+			if($_GET['choose']=="mcustomer"){
+				$_SESSION['right_display']="mcustomer";
+			}
+		}
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +42,30 @@
 	<link rel="stylesheet" type="text/css" href="modules/interface/interfaceStaff.css">
 	<link rel="stylesheet" type="text/css" href="modules/left/left.css">
 	<title>Staff</title>
+	<style type="text/css">
+		<?php
+		if($_SESSION['right_display']=="infor"){
+			echo"#left_infor{
+				background:#e7e4ec;
+			}";
+		}
+		if($_SESSION['right_display']=="mproduct"){
+			echo"#left_product{
+				background:#e7e4ec;
+			}";
+		}
+		if($_SESSION['right_display']=="mbill"){
+			echo"#left_bill{
+				background:#e7e4ec;
+			}";
+		}
+		if($_SESSION['right_display']=="mcustomer"){
+			echo"#left_customer{
+				background:#e7e4ec;
+			}";
+		}
+		?>
+	</style>
 </head>
 <body>
 	<div id="container">
