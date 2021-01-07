@@ -1,10 +1,11 @@
 <div id="header">
 	<?php
 	if(isset($_POST['logout'])){
-		session_destroy();
+		unset($_SESSION['acc']);
+		unset($_SESSION['pass']);
 		header("Location:index.php");
 	}
-	if(isset($_SESSION['id'])==false&&isset($_SESSION['acc'])==false){
+	if(isset($_SESSION['acc'])==false&&isset($_SESSION['pass'])==false){
 			echo "<div class='ss' id='dangnhap'>";
 				echo "<a href='index.php?module=common&action=login' class='thanhtren'>Đăng nhập</a>";
 			echo "</div>";	

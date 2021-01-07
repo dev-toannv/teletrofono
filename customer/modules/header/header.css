@@ -20,17 +20,17 @@
 }
 
 #dangnhap{
-	width:130px;
+	width:8%;
 	height: 100%;
 	height: 100%;
-	border:solid 1px green;
+	border:solid 2px green;
 	text-align:center;
 }
 
 #dangky{
-	width:130px;
+	width:8%;
 	height: 100%;
-	border:solid 1px green;
+	border:solid 2px green;
 	text-align:center;
 }
 
@@ -170,7 +170,8 @@
 	color:red;
 }
 .thanhtren{
-	color:white;
+	color:#aaaaaa;
+	font-size: 20px;
 }
 
 #tennguoidung:hover{
@@ -179,5 +180,9 @@
 
 .ss a{
 	text-decoration:none;
+}
+
+.thanhtren:hover{
+	color:white;
 }
 

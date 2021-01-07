@@ -11,7 +11,7 @@
 			$_SESSION['acc']=$row['customer_account'];
 			$_SESSION['pass']=$row['customer_password'];
 			$_SESSION['username']=$row['customer_name'];
-			header("Location:index.php?module=interface_customer&action=interface");
+			header("Location:index.php");
 		}
 		else{
 			$error="Đăng nhập thất bại, quý khách vui lòng đăng nhập lại!";

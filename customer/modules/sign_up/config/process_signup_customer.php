@@ -11,7 +11,7 @@
 				$_SESSION['acc']=$acc;
 				$_SESSION['pass']=$pass;
 				$_SESSION['username']=$nameuser;
-				header("Location:index.php?module=interface_customer&action=interface");
+				header("Location:index.php");
 			}
 			else{
 				mysqli_close($conn);

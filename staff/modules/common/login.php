@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>AdminLogin</title>
+	<title>StaffLogin</title>
 	<link rel="stylesheet" type="text/css" href="modules/common/common_css/login.css">
 </head>
 <body>
@@ -25,8 +25,8 @@
 		</div>
 		<div id="form">
 			<form action="" method="POST" >
-				<input type="text" id="admin_acc" name="admin_acc" placeholder="Account"> <br>
-				<input type="password" id="admin_pass" name="admin_pass" placeholder="Password"> <br>
+				<input type="text" id="staff_acc" name="staff_code" placeholder="Account"> <br>
+				<input type="password" id="staff_pass" name="staff_password" placeholder="Password"> <br>
 				<label for="sub">
 					<div id="label_sub">
 						<p id="chu">LOGIN</p>

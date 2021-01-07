@@ -5,14 +5,13 @@
 	width:100%;
 	height: 135px;
 	border:solid 3px #c89d93;
-	border-bottom:none;
-	border-top:none;
+	border:none;
 	display: flex;
 	flex-direction: row;
 }
 
 #taskbar_logo{
-	width:22%;
+	width:18%;
 	height: 100%;
 	text-align: center;
 }
@@ -21,12 +20,12 @@
 	max-height: 100%;
 }
 #taskbar_product{
-	width:30%;
+	width:26%;
 	height: 100%;
 	border-radius: 7px;
 }
 #taskbar_search{
-	width:45%;
+	width:40%;
 	height: 100%;
 	/*background-color:#ff55ff;*/
 	border-right: solid 1px black;
@@ -35,7 +34,7 @@
 }
 #taskbar_cart{
 	height: 100%;
-	width: 28%;
+	width: 16%;
 }
 #close{
 	width: 100%;

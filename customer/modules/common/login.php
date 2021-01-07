@@ -2,7 +2,7 @@
 	session_start();
 	$error="";
 		if(isset($_SESSION['acc'])&&isset($_SESSION['pass'])){
-			header("Location:index.php?module=interface_customer&action=interface");
+			header("Location:index.php");
 		}
 		else{
 			require_once("modules/common/config/connectdb.php");
