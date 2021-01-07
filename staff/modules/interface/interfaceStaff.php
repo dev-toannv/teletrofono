@@ -24,7 +24,7 @@
 	<div id="container">
 		<div id="left">
 			<?php
-				require_once("modules/left/left.php"); 
+				require_once("modules/left/left.php");
 			?>
 		</div>
 		<div id="right">
