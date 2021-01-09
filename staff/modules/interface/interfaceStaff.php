@@ -10,8 +10,7 @@
 		unset($_SESSION['right_display']);
 		header("Location:index.php");
 	}
-
-
+	// lưu session để làm đậm màu của thanh bên trái khi chọn nó, mặc định đậm infor
 	if(isset($_SESSION['right_display'])==false){
 		$_SESSION['right_display']='infor';
 	}
@@ -33,7 +32,6 @@
 	}
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +74,7 @@
 		</div>
 		<div id="right">
 			<?php
-				require_once("modules/right/right.php"); 
+				 
 			?>
 		</div>
 	</div>
