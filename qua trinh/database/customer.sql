@@ -9,6 +9,7 @@ create table customer(
 	customer_address varchar(200),
 	customer_avatar varchar(200),
 	customer_type int not null,
-    foreign key(customer_type) references cus_type(cus_type),
-	user_type tinyint default 3
+    	foreign key(customer_type) references cus_type(cus_type),
+	user_type tinyint,
+	foreign key(user_type) references user_type(user_type)
 )
