@@ -3,6 +3,10 @@
 	if(isset($_SESSION['staff_code'])==false || isset($_SESSION['staff_password'])==false){
 		header("Location:index.php");
 	}
+	else{
+		$staff_code=$_SESSION['staff_code'];
+		$staff_password=$_SESSION['staff_password'];
+	}
 	require_once("modules/interface/config/fix_confirm_form_resubmission.php");
 	if(isset($_POST['logout'])){
 		unset($_SESSION['staff_code']);
@@ -30,7 +34,6 @@
 			}
 		}
 	}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +42,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="modules/interface/interfaceStaff.css">
 	<link rel="stylesheet" type="text/css" href="modules/left/left.css">
+	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">
 	<title>Staff</title>
 	<style type="text/css">
 		<?php
@@ -64,6 +68,7 @@
 		}
 		?>
 	</style>
+	<script type="text/javascript" src="modules/staff_infor/staff_infor.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -74,7 +79,18 @@
 		</div>
 		<div id="right">
 			<?php
-				 
+				if($_SESSION['right_display']=="infor"){
+					require_once("modules/staff_infor/staff_infor.php"); 
+				}
+				if($_SESSION['right_display']=="mproduct"){
+					require_once("modules/staff_management_product/staff_management_product.php");
+				}
+				if($_SESSION['right_display']=="mbill"){
+					require_once("modules/staff_management_bill/staff_management_bill.php");
+				}
+				if($_SESSION['right_display']=="mcustomer"){
+					require_once("modules/staff_management_customer/staff_management_customer.php");
+				}
 			?>
 		</div>
 	</div>

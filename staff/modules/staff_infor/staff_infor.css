@@ -1,0 +1,23 @@
+#staff_infor{
+	width:50%;
+	height: 50%;
+	margin:auto;
+	margin-top:10%;
+}
+
+#staff_infor img{
+	max-height: 45%;
+	max-width:45%;
+	display: inline-block;
+}
+
+#staff_infor #form_edit_pass{
+	display: none;
+}
+
+#staff_infor #ab{
+	color:red;
+	font-size: 20px;
+	margin-top:0px;
+	margin-bottom:10px;
+}
