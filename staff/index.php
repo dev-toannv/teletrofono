@@ -1,3 +1,5 @@
+
+
 <?php 
 	$module = $action ='';
 	if(isset($_GET['module']) && isset($_GET['action'])){
@@ -16,3 +18,5 @@
 		$path="modules/common/error404.php";
 		require_once($path);
 	}
+
+	

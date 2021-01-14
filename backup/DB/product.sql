@@ -1,4 +1,3 @@
-
 create table product(
 	-- id san pham
 	id int primary key auto_increment,
@@ -33,8 +32,8 @@ create table product(
     product_gpu varchar(30),
     product_specification_gpu varchar(50),-- thong so ky thuat gpu
     -- bo nho va luu tru
-	product_ram varchar(10), -- ram
-    product_storage varchar(10), -- tong bo nho
+	product_ram int, -- ram
+    product_storage int, -- tong bo nho
     product_memorycard varchar(10), -- the nho ngoai
     -- ket noi
     product_mobilenetwork varchar(15), -- mang di dong
@@ -49,7 +48,7 @@ create table product(
     product_design varchar(30),
     product_material varchar(40), -- chat lieu
     product_size varchar(80), 
-    product_weight varchar(20),
+    product_weight int,
     -- pin va sac
     product_batterycapacity varchar(30), -- dung luong pin
     product_batterytype varchar(20), -- loai pin

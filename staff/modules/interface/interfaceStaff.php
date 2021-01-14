@@ -4,6 +4,7 @@
 		header("Location:index.php");
 	}
 	else{
+		
 		$staff_code=$_SESSION['staff_code'];
 		$staff_password=$_SESSION['staff_password'];
 	}
@@ -12,6 +13,7 @@
 		unset($_SESSION['staff_code']);
 		unset($_SESSION['staff_password']);
 		unset($_SESSION['right_display']);
+		unset($_SESSION['mpr']);
 		header("Location:index.php");
 	}
 	// lưu session để làm đậm màu của thanh bên trái khi chọn nó, mặc định đậm infor
@@ -34,7 +36,12 @@
 			}
 		}
 	}
+
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +50,7 @@
 	<link rel="stylesheet" type="text/css" href="modules/interface/interfaceStaff.css">
 	<link rel="stylesheet" type="text/css" href="modules/left/left.css">
 	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">
+	<link rel="stylesheet" type="text/css" href="modules/staff_management_product/staff_management_product.css">
 	<title>Staff</title>
 	<style type="text/css">
 		<?php

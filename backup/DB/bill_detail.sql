@@ -1,8 +1,8 @@
 create table bill_detail(
-	id int primary key auto_increment,
     id_product int not null,
-    foreign key(id_product) references product(id),
     id_bill int not null,
+    primary key(id_product,id_bill),
+    foreign key(id_product) references product(id),
     foreign key(id_bill) references bill(id),
     quantity int not null,
     money float not null,

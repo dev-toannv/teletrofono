@@ -13,7 +13,7 @@
 				die("Connect error : ".mysqli_connect_error());
 			}
 			else{
-				$sql="select * from superadmin where admin_acc='$acc' and admin_pass='$pass'";
+				$sql="select * from manager where manager_code='$acc' and manager_password='$pass' and user_type='1'";
 				$result=mysqli_query($conn,$sql);
 				$count=mysqli_num_rows($result);
 				if($count<=0){
