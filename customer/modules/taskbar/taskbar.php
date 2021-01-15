@@ -10,7 +10,7 @@
 			</div>
 			<div id="hang">
 				<?php 
-
+					
 					if(isset($_GET['basic'])){
 						unset($_SESSION['search_manu']);
 						header("Location:index.php");
