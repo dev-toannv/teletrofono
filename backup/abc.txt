@@ -38,5 +38,6 @@ $product_batterytype
 $product_timeoflaunch
 $product_timeofposting
 $product_guarantee
+$product_quantity
 $product_name
 $product_status
