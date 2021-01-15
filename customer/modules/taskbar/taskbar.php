@@ -10,38 +10,33 @@
 			</div>
 			<div id="hang">
 				<?php 
-					
 					if(isset($_GET['basic'])){
 						unset($_SESSION['search_manu']);
 						header("Location:index.php");
 					}
-
+					if(isset($_SESSION['search_manu'])){
+						$_SESSION['search_manu']=$_GET['search_manu'];
+						$search_manu=$_SESSION['search_manu'];
+					}
 					if(isset($_SESSION['search_manu'])==false){
 						$_SESSION['search_manu']="";
 					}
-					else{
-						if($_GET['search_manu']=="iphone"){
-							$_SESSION['search_manu']="iphone";
-						}
-						if($_GET['search_manu']=="samsung"){
-							$_SESSION['search_manu']="samsung";
-						}
-						if($_GET['search_manu']=="oppo"){
-							$_SESSION['search_manu']="oppo";
-						}
-					}
-					if($_SESSION['search_manu']=='iphone'){
-					echo"<img src='modules/taskbar/img/iPhone_logo.png' class='icon'>";
-					}
-					else if($_SESSION['search_manu']=='samsung'){
-						echo"<img src='modules/taskbar/img/sam.png' class='icon'>";
-					}
-					else if($_SESSION['search_manu']=='oppo'){
-						echo"<img src='modules/taskbar/img/OPPO_logo.png' class='icon'>";
+					$folder="../public/product/";
+					$conn=mysqli_connect('localhost','root','','teletrofono');
+					$hang2="select * from manu_product where manu_name='$search_manu'";
+					$hang22=mysqli_query($conn,$hang2);
+					$j=mysqli_affected_rows($conn);
+					if($j>0){
+						$hang222=mysqli_fetch_assoc($hang22);
+						$img=$folder.$hang222['manu_image'];
+						$_SESSION['search_manu']=$search_manu;
+						echo"<img src='".$img."' class='icon'>";
 					}
 					else{
+						$_SESSION['search_manu']="sai_gia_tri";
 						echo "<p>Sản phẩm</p>";
 					}
+					mysqli_close($conn);
 				?>
 			</div>
 			
@@ -49,23 +44,22 @@
 		<div id="close">
 				<div id="dong" onclick="close1()">X</div>
 		</div>
-		<div id="taskbar_iphone" class="logo" >
-			<a href="?search_manu=iphone">
-				<img src="modules/taskbar/img/iPhone_logo.png" alt="" class="icon">
-			</a>
-		</div>
-		<div id="taskbar_samsung" class="logo" >
-			<a href="?search_manu=samsung">
-				<img src="modules/taskbar/img/sam.png" alt="" class="icon" >
-			</a>
-
-			
-		</div>
-		<div id="taskbar_oppo" class="logo" >
-			<a href="?search_manu=oppo">
-				<img src="modules/taskbar/img/OPPO_logo.png" alt="" class="icon">
-			</a>
-		</div>
+		<?php
+			$folder="../public/product/";
+			$conn=mysqli_connect('localhost','root','','teletrofono');
+			$hang1="select * from manu_product";
+			$hang11=mysqli_query($conn,$hang1);
+			while($hang111=mysqli_fetch_assoc($hang11)){
+				$tenhang =$hang111['manu_name'];
+				$anhhang =$folder.$hang111['manu_image'];
+				echo "<div class='logo'>";
+					echo "<a href=index.php?search_manu=".$tenhang.">";
+						echo "<img src='".$anhhang."'class='icon'>";
+					echo "</a>";
+				echo "</div>";
+			}
+			mysqli_close($conn);
+		?>
 	</div>
 	<div id="taskbar_search">
 	</div>
