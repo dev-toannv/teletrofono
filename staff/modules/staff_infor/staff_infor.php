@@ -1,5 +1,6 @@
 
 <div id="staff_infor">
+	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">
 	<?php
 		$conn=mysqli_connect('localhost','root','','teletrofono');
 		if(!$conn){

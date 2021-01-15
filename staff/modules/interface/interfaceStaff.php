@@ -39,18 +39,12 @@
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="modules/interface/interfaceStaff.css">
-	<link rel="stylesheet" type="text/css" href="modules/left/left.css">
-	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">
-	<link rel="stylesheet" type="text/css" href="modules/staff_management_product/staff_management_product.css">
 	<title>Staff</title>
 	<style type="text/css">
 		<?php

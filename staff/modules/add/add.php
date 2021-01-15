@@ -45,19 +45,11 @@
 		$product_quantity=$_POST['product_quantity'];
 		$product_name=$_POST['product_name'];
 		$product_status=$_POST['product_status'];
-
 		//------------------------------------------------------
 		$conn=mysqli_connect('localhost','root','','teletrofono');
 		if(!$conn){
 			die("Connect error : ".mysqli_connect_error());
 		}
-		// $sql9="insert into product(
-		// 	id,product_color,product_manu,product_os,product_des,product_tech_screen,product_resolution_screen,product_width_screen,product_touch_glass,product_resolution_camerarear,product_record_camerarear,product_flash_camerarear,product_feature_camerarear,product_resolution_frontcamera,product_videocall_frontcamera,product_feature_frontcamera,product_cpu,product_specification_cpu,product_gpu,product_specification_gpu,product_ram,product_storage,product_memorycard,product_mobilenetwork,product_sim,product_wifi,product_gps,product_bluetooth,product_chargingport,product_status)
-		// 	values(null,'$product_color','$product_manu','$product_os','$product_des','$product_tech_screen','$product_resolution_screen','$product_width_screen','$product_touch_glass','$product_resolution_camerarear','$product_record_camerarear','$product_flash_camerarear','$product_feature_camerarear','$product_resolution_frontcamera',product_videocall_frontcamera,'$product_feature_frontcamera','$product_cpu','$product_specification_cpu','$product_gpu','$product_specification_gpu','$product_ram','$product_storage','$product_memorycard','$product_mobilenetwork','$product_sim','$product_wifi','$product_gps','$product_bluetooth','$product_chargingport','$product_status')";
-
-
-
-
 		$sql9="insert into product values(null,
 			'$product_color',
 			'$product_manu',
@@ -104,12 +96,50 @@
 		)";
 		$a=mysqli_query($conn,$sql9);
 		if(!$a){
-			echo "dang that bai".mysqli_error($conn);
+			echo "<script type='text/javascript'>alert('Không thể thêm sản phẩm, vui lòng thêm đầy đủ các trường thông tin!');</script>";
 		}
+		// lay id san pham moi tao de them anh
+		$sql8="select id from product order by id DESC limit 1";
+		$b=mysqli_query($conn,$sql8);
+		$layidsanpham=mysqli_fetch_assoc($b);
+		$idsanpham=$layidsanpham['id'];
+		// Xu ly ten anh
+			$img=$_FILES['image_name'];
+			// xet ten hang san pham
+			$sql10="select * from manu_product where id ='$product_manu'";
+			$n=mysqli_query($conn,$sql10);
+			$roww=mysqli_fetch_assoc($n);
+			$manu_name =$roww['manu_name'];
+			$folder="../public/product/".$manu_name."/";
+			$folder1="../public/product/".$manu_name;
+			if(file_exists($folder)==false){
+				mkdir($folder1);
+			}
+			// day hinh anh len
+			$path=$folder.$img['name'];
+			move_uploaded_file($img['tmp_name'],$path);
+			// rename anh theo id
+			$old_name=$folder.$img['name'];
+			$new_name="product_".$idsanpham;
+			$new=$folder.$new_name;
+			rename($old_name,$new);
+		//-----------------------------------------
+		$sql7="insert into image values('$idsanpham','$new_name')";
+		if(!$sql7){
+			echo "loi".mysqli_error($conn);
+		}
+		mysqli_query($conn,$sql7);
 	}
 ?>
 <!--Duoi day la nhung dong code danh cho front-->
-
+	<script type="text/javascript">
+        function myfunc(){
+            var a= document.getElementById('anh1');
+            var b= document.getElementById('anh');
+            var url = URL.createObjectURL(b.files[0]);
+            a.src=url;
+        }
+    </script>
 	<style type="text/css">
 		#page_add{
 			width: 100%;
@@ -124,6 +154,7 @@
 			height:30%;
 			background-color: #8fff97;
 			margin:auto;
+			margin-top:3px;
 			display: flex;
 		  	justify-content: center;
 		  	align-items: center;
@@ -135,24 +166,40 @@
 	</style>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div id="page_img">
-			<input type="file" name="image_name">
+			<img src="../public/product/product.svg" id="anh1" style="max-width: 100%; max-height: 100%"alt="">
+		</div>
+		<div style="display: flex;justify-content: center;align-items: center;margin-top: 5px">
+			<input type="file" name="image_name" id="anh" onchange="myfunc()">
 		</div>
 		<div>
 			<!--Thong tin so bo-->
 			<input type="text" placeholder="Tên sản phẩm" name="product_name"><br>
 			<input type="text" placeholder="Hệ điều hành" name="product_os"><br>
 			<select name="product_manu">
-				<option value="1">APPLE</option>
-				<option value="2">SAMSUNG</option>
-				<option value="3">OPPO</option>
+				<?php 
+					$conn=mysqli_connect('localhost','root','','teletrofono');
+					if(!$conn){
+						die("Connect error : ".mysqli_connect_error());
+					}
+					$sql6="select * from manu_product";
+					$c=mysqli_query($conn,$sql6);
+					while($row = mysqli_fetch_assoc($c)){
+				        echo "<option value='".$row['id']."'>".$row["manu_name"]."</option>";
+				    }
+				 ?>
 			</select><br>
 			<select name="product_color">
-				<option value="1">Trắng</option>
-				<option value="2">Đen</option>
-				<option value="3">Đỏ</option>
-				<option value="4">Xanh lục</option>
-				<option value="5">Xanh lam</option>
-				<option value="6">Bạc</option>
+				<?php 
+					$conn=mysqli_connect('localhost','root','','teletrofono');
+					if(!$conn){
+						die("Connect error : ".mysqli_connect_error());
+					}
+					$sql5="select * from color_product";
+					$c1=mysqli_query($conn,$sql5);
+					while($row = mysqli_fetch_assoc($c1)){
+				        echo "<option value='".$row['id']."'>".$row["color_name"]."</option>";
+				    }
+				 ?>
 			</select>
 		</div>
 		<div>

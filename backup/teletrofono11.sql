@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 11, 2021 at 02:55 PM
+-- Generation Time: Jan 15, 2021 at 11:19 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `toan3`
+-- Database: `teletrofono`
 --
 
 -- --------------------------------------------------------
@@ -89,6 +89,18 @@ CREATE TABLE `color_product` (
   `color_name` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `color_product`
+--
+
+INSERT INTO `color_product` (`id`, `color_name`) VALUES
+(1, 'Trắng'),
+(2, 'Đen'),
+(3, 'Đỏ'),
+(4, 'Xanh lục'),
+(5, 'Xanh lam'),
+(6, 'Bạc');
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +133,14 @@ CREATE TABLE `cus_type` (
   `name_type` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cus_type`
+--
+
+INSERT INTO `cus_type` (`id`, `cus_type`, `name_type`) VALUES
+(1, 1, 'Khách hàng thường'),
+(2, 2, 'Khách hàng VIP');
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +151,13 @@ CREATE TABLE `image` (
   `product_id` int(11) NOT NULL,
   `image_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`product_id`, `image_name`) VALUES
+(2, 'product_2');
 
 -- --------------------------------------------------------
 
@@ -155,6 +182,14 @@ CREATE TABLE `manager` (
   `manager_allowance` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`id`, `manager_code`, `manager_name`, `manager_password`, `manager_email`, `manager_sex`, `manager_dob`, `manager_address`, `manager_hometown`, `manager_avatar`, `manager_timestart`, `user_type`, `manager_salary_basic`, `manager_allowance`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin@gmail.com', 1, '2001-05-22', 'Hà Nội', 'Nam Định', NULL, '2021-01-15 13:48:00', 1, NULL, NULL),
+(2, '123456789123', 'vantoan', 'vantoan', 'vantoan@gmail.com', 1, '2001-05-22', 'Hà Nội', 'Nam Định', NULL, '2021-01-15 13:49:18', 2, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -166,6 +201,16 @@ CREATE TABLE `manu_product` (
   `manu_name` varchar(170) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `manu_product`
+--
+
+INSERT INTO `manu_product` (`id`, `manu_name`) VALUES
+(1, 'APPLE'),
+(2, 'SAMSUNG'),
+(3, 'OPPO'),
+(4, 'LENOVO');
+
 -- --------------------------------------------------------
 
 --
@@ -176,40 +221,40 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `product_color` int(11) DEFAULT NULL,
   `product_manu` int(11) DEFAULT NULL,
-  `product_os` varchar(170) DEFAULT NULL,
+  `product_os` varchar(150) DEFAULT NULL,
   `product_des` text DEFAULT NULL,
-  `product_tech_screen` varchar(100) DEFAULT NULL,
-  `product_resolution_screen` varchar(100) DEFAULT NULL,
-  `product_width_screen` varchar(10) DEFAULT NULL,
-  `product_touch_glass` varchar(30) DEFAULT NULL,
-  `product_resolution_camerarear` varchar(50) DEFAULT NULL,
+  `product_tech_screen` varchar(150) DEFAULT NULL,
+  `product_resolution_screen` varchar(150) DEFAULT NULL,
+  `product_width_screen` varchar(150) DEFAULT NULL,
+  `product_touch_glass` varchar(150) DEFAULT NULL,
+  `product_resolution_camerarear` varchar(150) DEFAULT NULL,
   `product_record_camerarear` varchar(150) DEFAULT NULL,
-  `product_flash_camerarear` varchar(30) DEFAULT NULL,
+  `product_flash_camerarear` varchar(150) DEFAULT NULL,
   `product_feature_camerarear` varchar(200) DEFAULT NULL,
   `product_resolution_frontcamera` varchar(100) DEFAULT NULL,
   `product_videocall_frontcamera` tinyint(4) DEFAULT NULL,
   `product_feature_frontcamera` varchar(200) DEFAULT NULL,
-  `product_cpu` varchar(30) DEFAULT NULL,
-  `product_specification_cpu` varchar(50) DEFAULT NULL,
-  `product_gpu` varchar(30) DEFAULT NULL,
-  `product_specification_gpu` varchar(50) DEFAULT NULL,
-  `product_ram` varchar(10) DEFAULT NULL,
-  `product_storage` varchar(10) DEFAULT NULL,
-  `product_memorycard` varchar(10) DEFAULT NULL,
-  `product_mobilenetwork` varchar(15) DEFAULT NULL,
-  `product_sim` varchar(30) DEFAULT NULL,
-  `product_wifi` varchar(100) DEFAULT NULL,
+  `product_cpu` varchar(150) DEFAULT NULL,
+  `product_specification_cpu` varchar(150) DEFAULT NULL,
+  `product_gpu` varchar(150) DEFAULT NULL,
+  `product_specification_gpu` varchar(150) DEFAULT NULL,
+  `product_ram` int(11) DEFAULT NULL,
+  `product_storage` int(11) DEFAULT NULL,
+  `product_memorycard` varchar(150) DEFAULT NULL,
+  `product_mobilenetwork` varchar(150) DEFAULT NULL,
+  `product_sim` varchar(150) DEFAULT NULL,
+  `product_wifi` varchar(150) DEFAULT NULL,
   `product_gps` varchar(150) DEFAULT NULL,
-  `product_bluetooth` varchar(50) DEFAULT NULL,
-  `product_chargingport` varchar(60) DEFAULT NULL,
-  `product_jack` varchar(20) DEFAULT NULL,
-  `product_otherconnect` varchar(20) DEFAULT NULL,
-  `product_design` varchar(30) DEFAULT NULL,
-  `product_material` varchar(40) DEFAULT NULL,
-  `product_size` varchar(80) DEFAULT NULL,
-  `product_weight` varchar(20) DEFAULT NULL,
-  `product_batterycapacity` varchar(30) DEFAULT NULL,
-  `product_batterytype` varchar(20) DEFAULT NULL,
+  `product_bluetooth` varchar(150) DEFAULT NULL,
+  `product_chargingport` varchar(150) DEFAULT NULL,
+  `product_jack` varchar(150) DEFAULT NULL,
+  `product_otherconnect` varchar(150) DEFAULT NULL,
+  `product_design` varchar(150) DEFAULT NULL,
+  `product_material` varchar(150) DEFAULT NULL,
+  `product_size` varchar(150) DEFAULT NULL,
+  `product_weight` varchar(150) DEFAULT NULL,
+  `product_batterycapacity` varchar(150) DEFAULT NULL,
+  `product_batterytype` varchar(150) DEFAULT NULL,
   `product_timeoflaunch` date DEFAULT NULL,
   `product_timeofposting` date DEFAULT NULL,
   `product_guarantee` int(11) DEFAULT NULL,
@@ -217,6 +262,13 @@ CREATE TABLE `product` (
   `product_name` varchar(150) DEFAULT NULL,
   `product_status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `product_color`, `product_manu`, `product_os`, `product_des`, `product_tech_screen`, `product_resolution_screen`, `product_width_screen`, `product_touch_glass`, `product_resolution_camerarear`, `product_record_camerarear`, `product_flash_camerarear`, `product_feature_camerarear`, `product_resolution_frontcamera`, `product_videocall_frontcamera`, `product_feature_frontcamera`, `product_cpu`, `product_specification_cpu`, `product_gpu`, `product_specification_gpu`, `product_ram`, `product_storage`, `product_memorycard`, `product_mobilenetwork`, `product_sim`, `product_wifi`, `product_gps`, `product_bluetooth`, `product_chargingport`, `product_jack`, `product_otherconnect`, `product_design`, `product_material`, `product_size`, `product_weight`, `product_batterycapacity`, `product_batterytype`, `product_timeoflaunch`, `product_timeofposting`, `product_guarantee`, `product_quanlity`, `product_name`, `product_status`) VALUES
+(2, 1, 1, 'iOS 14', '', 'IPS LCD', 'HD (750 x 1334 Pixels)', '4.7\"', 'Kính cường lực Oleophobic (ion cường lực)', '12 MP', '4K 2160p@30fps', '4 đèn LED 2 tông màu', '', '7 MP', 1, '', 'Apple A13 Bionic 6 nhân', '2 nhân 2.65 GHz & 4 nhân 1.8 GHz', 'Apple GPU 4 nhân', 'Apple GPU 4 nhân', 3, 64, 'Không', 'Hỗ trợ 4G', '1 Nano SIM & 1 eSIM', '', 'A-GPS, GLONASS', '', 'Lightning', 'Lightning', 'OTG', 'Nguyên khối', 'Khung kim loại & Mặt lưng kính', 'Dài 138.4 mm - Ngang 67.3 mm - Dày 7.3 mm', '148', '1821 mAh', 'Li-Ion', '2020-10-10', '2021-01-15', 12, 10, 'iPhone SE 64GB (2020', 1);
 
 --
 -- Indexes for dumped tables
@@ -313,7 +365,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `color_product`
 --
 ALTER TABLE `color_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -325,25 +377,25 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `cus_type`
 --
 ALTER TABLE `cus_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `manager`
 --
 ALTER TABLE `manager`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `manu_product`
 --
 ALTER TABLE `manu_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
