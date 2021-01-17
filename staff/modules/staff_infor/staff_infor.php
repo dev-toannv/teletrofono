@@ -72,7 +72,7 @@
 	<style type="text/css">
 		#right{
 			border:none;
-			height: 800px;
+			height: 1000px;
 		}
 	</style>
 	<img src="../public/staff/<?php echo $row['manager_avatar']?>" alt="" id="pic_old">

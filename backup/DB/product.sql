@@ -61,6 +61,8 @@ create table product(
     product_quanlity int,
     -- ten san pham
     product_name varchar(150),
+    -- gia san pham
+    product_price float,
     -- trang thai san pham( con hang hay het hang)
     product_status tinyint not null
     )

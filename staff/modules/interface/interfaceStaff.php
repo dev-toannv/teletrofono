@@ -31,9 +31,6 @@
 			if($_GET['choose']=="mbill"){
 				$_SESSION['right_display']="mbill";
 			}
-			if($_GET['choose']=="mcustomer"){
-				$_SESSION['right_display']="mcustomer";
-			}
 		}
 	}
 
@@ -63,11 +60,6 @@
 				background:#e7e4ec;
 			}";
 		}
-		if($_SESSION['right_display']=="mcustomer"){
-			echo"#left_customer{
-				background:#e7e4ec;
-			}";
-		}
 		?>
 	</style>
 	<script type="text/javascript" src="modules/staff_infor/staff_infor.js"></script>
@@ -89,9 +81,6 @@
 				}
 				if($_SESSION['right_display']=="mbill"){
 					require_once("modules/staff_management_bill/staff_management_bill.php");
-				}
-				if($_SESSION['right_display']=="mcustomer"){
-					require_once("modules/staff_management_customer/staff_management_customer.php");
 				}
 			?>
 		</div>

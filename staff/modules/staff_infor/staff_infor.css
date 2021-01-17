@@ -1,11 +1,14 @@
 *{
 	box-sizing: border-box;
 }
+#container{
+	height: auto;
+}
 #staff_infor{
 	width:50%;
-	height: 50%;
+	height: 800px;
 	margin:auto;
-	margin-top:10%;
+	margin-top:5%;
 }
 
 #staff_infor img{

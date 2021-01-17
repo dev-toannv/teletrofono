@@ -4,28 +4,23 @@
 
 #left_infor{
 	width:100%;
-	height: 23%;
+	height: 30%;
 	border:solid black 1px;
 }
 #left_product{
 	width:100%;
-	height: 23%;
+	height: 30%;
 	border:solid black 1px;
 }
 #left_bill{
 	width:100%;
-	height: 23%;
-	border:solid black 1px;
-}
-#left_customer{
-	width:100%;
-	height: 23%;
+	height: 30%;
 	border:solid black 1px;
 }
 
 #left_logout{
 	width:100%;
-	height:8%;
+	height:10%;
 	background-color: #343434;
 	color: #d0d0d0;
 }

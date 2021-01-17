@@ -8,9 +8,6 @@
 <div id="left_bill" class="leftA">
 	<img src="modules/left/img/notepad.png" alt=""><a href="index.php?module=interface&action=interfaceStaff&choose=mbill">Quản lý hóa đơn</a>
 </div>
-<div id="left_customer" class="leftA">
-	<img src="modules/left/img/avatar.png" alt=""><a href="index.php?module=interface&action=interfaceStaff&choose=mcustomer">Quản lý khách hàng</a>
-</div>
 
 <div id="left_logout" class="leftA">
 	<form action="" method="POST">

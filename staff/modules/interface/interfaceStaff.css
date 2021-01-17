@@ -4,16 +4,17 @@
 
 #container{
 	width: 100%;
-	height:1500px;
+	height:2900px;
 	display: flex;
   	justify-content: center;
+  	border: 1px green solid;
   	/*align-items: center;*/
 }
 
 
 #left{
 	width:20%;
-	height:40%;
+	height:500px;
 	border:solid 1px red;
 	float: left;
 	margin-top:10%;
@@ -21,6 +22,6 @@
 
 #right{
 	width:80%;
-	height: 100%;
+	height: 2500px;
 	float: left;
 }
