@@ -58,7 +58,7 @@ create table product(
     -- bao hanh
     product_guarantee int,
     -- so luong san pham
-    product_quanlity int,
+    product_quantity int,
     -- ten san pham
     product_name varchar(150),
     -- gia san pham

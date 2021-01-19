@@ -42,7 +42,7 @@
 		$product_batterycapacity=trim($_POST['product_batterycapacity']);
 		$product_batterytype=trim($_POST['product_batterytype']);
 		$product_timeoflaunch=trim($_POST['product_timeoflaunch']);
-		$product_timeofposting='now()';
+		// $product_timeofposting='now()';
 		$product_guarantee=trim($_POST['product_guarantee']);
 		$product_quantity=trim($_POST['product_quantity']);
 		$product_name=trim($_POST['product_name']);
@@ -108,31 +108,38 @@
 		$layidsanpham=mysqli_fetch_assoc($b);
 		$idsanpham=$layidsanpham['id'];
 		// Xu ly ten anh
-			$img=$_FILES['image_name'];
-			// xet ten hang san pham
-			$sql10="select * from manu_product where id ='$product_manu'";
-			$n=mysqli_query($conn,$sql10);
-			$roww=mysqli_fetch_assoc($n);
-			$manu_name =$roww['manu_name'];
-			$folder="../public/product/".$manu_name."/";
-			$folder1="../public/product/".$manu_name;
-			if(file_exists($folder)==false){
-				mkdir($folder1);
+		if($a==true){ // neu them cac truong thong tin thanh cong thi se them anh
+			// kiem tra xem files gui len co rong hay ko
+			if($_FILES['image_name']['size']>0){ 
+				$img=$_FILES['image_name'];
+				// xet ten hang san pham
+				$sql10="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql10);
+				$roww=mysqli_fetch_assoc($n);
+				$manu_name =$roww['manu_name'];
+				$folder="../public/product/".$manu_name."/";
+				$folder1="../public/product/".$manu_name;
+				if(file_exists($folder1)==false){
+					mkdir($folder1);
+				}
+				// day hinh anh len
+				$path=$folder.$img['name'];
+				move_uploaded_file($img['tmp_name'],$path);
+				// rename anh theo id
+				$old_name=$folder.$img['name'];
+				$new_name="product_".$idsanpham."_".$img['name'];
+				$new=$folder.$new_name;
+				rename($old_name,$new);
+				//-----------------------------------------
+				$sql7="insert into image values('$idsanpham','$new_name')";
+				if(!$sql7){
+					 die("loi".mysqli_error($conn));
+				}
+				mysqli_query($conn,$sql7);
 			}
-			// day hinh anh len
-			$path=$folder.$img['name'];
-			move_uploaded_file($img['tmp_name'],$path);
-			// rename anh theo id
-			$old_name=$folder.$img['name'];
-			$new_name="product_".$idsanpham."_".$img['name'];
-			$new=$folder.$new_name;
-			rename($old_name,$new);
-		//-----------------------------------------
-		$sql7="insert into image values('$idsanpham','$new_name')";
-		if(!$sql7){
-			 die("loi".mysqli_error($conn));
 		}
-		mysqli_query($conn,$sql7);
+		
+
 		// lay id de them vao add_edit_product
 		$sql3="select id from manager where manager_code='$code' and user_type=2";
 		$result=mysqli_query($conn,$sql3);
@@ -318,8 +325,8 @@
 			<input type="number" placeholder="Giá sản phẩm" name="product_price" id="product_price"><br>
 			 <p style="display:block; height:25px;margin:0;margin-top:5px">Tình trạng</p>
 			<select name="product_status" id="product_status">
-				<option value="1">Còn hàng</option>
-				<option value="0">Hết hàng</option>
+				<option value="1">Kinh doanh</option>
+				<option value="0">Không kinh doanh</option>
 			</select>
 		</div>
 		<div>

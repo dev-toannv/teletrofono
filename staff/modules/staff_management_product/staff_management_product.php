@@ -49,6 +49,7 @@
 	<div id="bodympr">
 		<?php
 			 if($_SESSION['mpr']=='show'){
+			 	
 			 	require_once("modules/show/show.php");
 			 }
 			 if($_SESSION['mpr']=='add'){
