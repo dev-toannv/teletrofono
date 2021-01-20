@@ -49,10 +49,7 @@
 		$product_status=trim($_POST['product_status']);
 		$product_price=trim($_POST['product_price']);
 		//-----------------------------------------------------
-		$conn=mysqli_connect('localhost','root','','teletrofono');
-		if(!$conn){
-			die("Connect error : ".mysqli_connect_error());
-		}
+		require_once("modules/config/connectdb.php");
 		$sql9="insert into product values(null,
 			'$product_color',
 			'$product_manu',
@@ -127,7 +124,7 @@
 				move_uploaded_file($img['tmp_name'],$path);
 				// rename anh theo id
 				$old_name=$folder.$img['name'];
-				$new_name="product_".$idsanpham."_".$img['name'];
+				$new_name="product_".$idsanpham."_"."1"."_".$img['name'];
 				$new=$folder.$new_name;
 				rename($old_name,$new);
 				//-----------------------------------------
@@ -137,6 +134,43 @@
 				}
 				mysqli_query($conn,$sql7);
 			}
+			//----
+			if($_FILES['image_name1']['size']>0){ 
+				$img=$_FILES['image_name1'];
+				// day hinh anh len
+				$path=$folder.$img['name'];
+				move_uploaded_file($img['tmp_name'],$path);
+				// rename anh theo id
+				$old_name=$folder.$img['name'];
+				$new_name="product_".$idsanpham."_"."2"."_".$img['name'];
+				$new=$folder.$new_name;
+				rename($old_name,$new);
+				//-----------------------------------------
+				$sql7="insert into image values('$idsanpham','$new_name')";
+				if(!$sql7){
+					 die("loi".mysqli_error($conn));
+				}
+				mysqli_query($conn,$sql7);
+			}
+			// anh3
+			if($_FILES['image_name2']['size']>0){ 
+				$img=$_FILES['image_name2'];
+				// day hinh anh len
+				$path=$folder.$img['name'];
+				move_uploaded_file($img['tmp_name'],$path);
+				// rename anh theo id
+				$old_name=$folder.$img['name'];
+				$new_name="product_".$idsanpham."_"."3"."_".$img['name'];
+				$new=$folder.$new_name;
+				rename($old_name,$new);
+				//-----------------------------------------
+				$sql7="insert into image values('$idsanpham','$new_name')";
+				if(!$sql7){
+					 die("loi".mysqli_error($conn));
+				}
+				mysqli_query($conn,$sql7);
+			}
+
 		}
 		
 
@@ -154,6 +188,18 @@
         function myfunc(){
             var a= document.getElementById('anh1');
             var b= document.getElementById('anh');
+            var url = URL.createObjectURL(b.files[0]);
+            a.src=url;
+        }
+        function myfunc2(){
+            var a= document.getElementById('anh4');
+            var b= document.getElementById('anh3');
+            var url = URL.createObjectURL(b.files[0]);
+            a.src=url;
+        }
+        function myfunc1(){
+            var a= document.getElementById('anh6');
+            var b= document.getElementById('anh5');
             var url = URL.createObjectURL(b.files[0]);
             a.src=url;
         }
@@ -180,22 +226,53 @@
 			height: 73%;
 		}
 		#page_img{
-			width:50%;
-			height:27%;
-			/*background-color: #8fff97;*/
+			width:100%;
+			height: 500px;
 			margin:auto;
 			margin-top:3px;
+		}
+		.ac{
 			display: flex;
 		  	justify-content: center;
 		  	align-items: center;
 		}
+		#anh1{
+			max-height: 100%;
+			max-width: 100%;
+		}
+		#anh4{
+			max-height: 100%;
+			max-width: 100%;
+		}
+		#anh6{
+			max-height: 100%;
+			max-width: 100%;
+		}
 	</style>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div id="page_img">
-			<img src="../public/product/product.svg" id="anh1" style="max-width: 100%; max-height: 100%"alt="">
+			<div class="ac" style="width:25%;height: 100%;float: left;">
+				<img src="../public/product/product.svg" id="anh4">
+			</div>
+			<div  class="ac" style="width:50% ;height: 100%;float: left;">
+				<img src="../public/product/product.svg" id="anh1">
+			</div>
+			<div  class="ac" style="width:25%;height: 100%;float: right;">
+				<img src="../public/product/product.svg" id="anh6" alt="">
+			</div>
+			
 		</div>
-		<div style="display: flex;justify-content: center;align-items: center;margin-top: 5px">
-			<input type="file" name="image_name" id="anh" onchange="myfunc()">
+
+		<div style="width:100%;height:40px;margin-top: 10px; background: #ebffee">
+			<div class="ac" style="width:25%;height: 100%;float: left;">
+				<input type="file" name="image_name1" id="anh3" style="text-align: left;" onchange="myfunc2()">
+			</div>
+			<div class="ac" style="width:50% ;height: 100%;float: left;">
+				<input type="file" name="image_name" id="anh" style="text-align: center;" onchange="myfunc()">
+			</div>
+			<div class="ac" style="width:25%;height: 100%;float: right;">
+				<input type="file" name="image_name2" id="anh5" style="text-align: right;" onchange="myfunc1()">
+			</div>
 		</div>
 	<div id="boo">
 		
@@ -221,10 +298,7 @@
 			<p style="margin:3px;">Màu sắc</p>
 			<select name="product_color" id="product_color">
 				<?php 
-					$conn=mysqli_connect('localhost','root','','teletrofono');
-					if(!$conn){
-						die("Connect error : ".mysqli_connect_error());
-					}
+					require_once("modules/config/connectdb.php");
 					$sql5="select * from color_product";
 					$c1=mysqli_query($conn,$sql5);
 					while($row = mysqli_fetch_assoc($c1)){

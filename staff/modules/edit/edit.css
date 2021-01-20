@@ -1,0 +1,286 @@
+h1{
+	text-align: center;
+}
+
+#page_add{
+
+}
+
+#product_color{
+	width:10%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_manu{
+	width:10%;
+	height:30px;
+	text-align:center;
+}
+
+/*------------------------------*/
+#product_os{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_des{
+	width:30%;
+	height:200px;
+}
+#product_des::placeholder { 
+  color: deeppink;
+  text-align:center;
+}
+/*------------------------------*/
+#product_tech_screen{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_resolution_screen{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_width_screen{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_touch_glass{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_resolution_camerarear{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_record_camerarear{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_flash_camerarear{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_feature_camerarear{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_resolution_frontcamera{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_videocall_frontcamera{
+	width:5%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_feature_frontcamera{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_cpu{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_specification_cpu{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_gpu{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_specification_gpu{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_ram{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_storage{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_memorycard{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_mobilenetwork{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_sim{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_wifi{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_gps{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_bluetooth{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_chargingport{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_jack{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_otherconnect{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_design{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_material{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_size{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_weight{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_batterycapacity{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_batterytype{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_timeoflaunch{
+	width:20%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_timeofposting{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_guarantee{
+	width:30%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_quantity{
+	width:10%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_name{
+	width:30%;
+	height:30px;
+	text-align:center;
+
+}
+/*------------------------------*/
+#product_price{
+	width:15%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#product_status{
+	width:10%;
+	height:30px;
+	text-align:center;
+}
+/*------------------------------*/
+#add_product{
+	width:10%;
+	height: 40px;
+	margin-top:12px;
+	background:#e5e5e5; 
+}
+#add_product:hover{
+	background:	#909090;
+}
+
+.custom{
+	margin:5px;
+	font-size: 20px;
+	color:red; 
+}

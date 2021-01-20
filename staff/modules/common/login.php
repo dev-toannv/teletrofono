@@ -1,6 +1,6 @@
 <?php 
 	require_once("modules/common/config/processlogin.php");
-	require_once("modules/common/config/fix_confirm_form_resubmission.php");
+	require_once("modules/config/fix_confirm_form_resubmission.php");
 ?>
 <!DOCTYPE html>
 <html>

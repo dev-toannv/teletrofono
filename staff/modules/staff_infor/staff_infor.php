@@ -2,10 +2,7 @@
 <div id="staff_infor">
 	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">
 	<?php
-		$conn=mysqli_connect('localhost','root','','teletrofono');
-		if(!$conn){
-			die("Connect error : ".mysqli_connect_error());
-		}
+		require_once("modules/config/connectdb.php");
 		$sql="select * from manager where manager_code='$staff_code' and manager_password = '$staff_password' and user_type='2'";
 		$result=mysqli_query($conn,$sql);
 		$row=mysqli_fetch_assoc($result);

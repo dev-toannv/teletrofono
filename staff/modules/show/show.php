@@ -1,8 +1,5 @@
 <?php
-	$conn=mysqli_connect('localhost','root','','teletrofono');
-	if(!$conn){
-		die("Connect error : ".mysqli_connect_error());
-	}
+	require_once("modules/config/connectdb.php");
 	// lay thong tin hang san xuat de search
 	$manu="select * from manu_product";
 	$query_manu=mysqli_query($conn,$manu);
@@ -74,60 +71,27 @@
 		#show_search *{
 			height: 100%;
 		}
+		#s_name:hover{
+			border-color: green;
+		}
+		select:hover{
+			background-color: #dedede;
+			border-color: green;
+		}
+		button:hover{
+			border-color: green;
+		}
+		select option{
+			background-color:white;
+		}
 	</style>
 	<!-------------------->
-	<div id="show_search" style="height:5%">
-		<form action="" method="POST" style="display:inline-block">
-			<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm">
-			<select name="s_manu">
-					<option value="">Chọn hãng</option>
-					<?php 
-						$arr_manu= array();
-						while($result_manu=mysqli_fetch_assoc($query_manu)){
-							$id_manu=$result_manu['id'];
-							$arr_manu[$id_manu] = $result_manu['manu_name'];
-							echo "<option value='$id_manu'>";
-								echo $result_manu['manu_name'];
-							echo "</option>";
-						}
-					?>
-			</select>
-
-			<select name="s_ram">
-					<option value="">Ram</option>
-					<?php 
-						while($result_ram=mysqli_fetch_assoc($query_ram)){
-							$product_ram=$result_ram['product_ram'];
-							echo "<option value='$product_ram'>";
-								echo $result_ram['product_ram'];
-							echo "</option>";
-						}
-					?>
-			</select>
-
-			<select name="s_storage">
-					<option value="">Bộ nhớ trong</option>
-					<?php 
-						while($result_storage=mysqli_fetch_assoc($query_storage)){
-							$product_storage=$result_storage['product_storage'];
-							echo "<option value='$product_storage'>";
-								echo $result_storage['product_storage'];
-							echo "</option>";
-						}
-					?>
-			</select>
-			<button type="submit" name="subsearch">Tìm kiếm</button>
-		</form>
-			<?php 
-				if($soluong==1){
-					$soluong=mysqli_num_rows($re);
-					echo "<span>"."Kết quả tìm kiếm : ".$soluong." kết quả"."</span>";
-				}
-			?>
-	</div>
-	<!-------------------->
 	<?php 
-		require_once("modules/show/show_product.php");
-
+		if(isset($_GET['id_edit'])){
+			require_once("modules/edit/edit.php");
+		}
+		else{
+			require_once("modules/show/show_product.php");
+		}
 	?>
 </div>
