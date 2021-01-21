@@ -3,7 +3,7 @@
 	<h1>Chỉnh sửa sản phẩm</h1>
 </div>
 
-<div>
+<div> 
 	<div id="page_add">
 	<link rel="stylesheet" type="text/css" href="modules/edit/edit.css">
 <?php
@@ -25,38 +25,469 @@
 		$manu_id=$roww['id'];
 		$folder="../public/product/".$manu_name."/";
 		// xu ly ten anh
-		$image="select * from image where product_id = '$id'";
-		$query_image=mysqli_query($conn,$image);
 		$t=array();
-		while($result_img=mysqli_fetch_assoc($query_image)){
-			$t[]=$result_img['image_name'];
-		}
+		$nn="product_".$id."_"."1"."_";
+		$image="select * from image where product_id='$id' and image_name like'%$nn%'";
+		$query_image=mysqli_query($conn,$image);
+		$result_img=mysqli_fetch_assoc($query_image);
+		$t[0]=$result_img['image_name'];
 		if($t[0]==""){
 			$path="../public/product/product.svg";
 		}
 		else{
 			$path=$folder.$t[0];
 		}
+
+
+		$nn="product_".$id."_"."2"."_";
+		$image="select * from image where product_id='$id' and image_name like'%$nn%'";
+		$query_image=mysqli_query($conn,$image);
+		$result_img=mysqli_fetch_assoc($query_image);
+		$t[1]=$result_img['image_name'];
 		if($t[1]==""){
 			$path2="../public/product/product.svg";
 		}
 		else{
 			$path2=$folder.$t[1];
 		}
+
+		$nn="product_".$id."_"."3"."_";
+		$image="select * from image where product_id='$id' and image_name like'%$nn%'";
+		$query_image=mysqli_query($conn,$image);
+		$result_img=mysqli_fetch_assoc($query_image);
+		$t[2]=$result_img['image_name'];
 		if($t[2]==""){
 			$path3="../public/product/product.svg";
 		}
 		else{
 			$path3=$folder.$t[2];
 		}
-		
+
 	}
-	//-------------------------------------------
-		
+	//Lay du lieu tu POST
+	$code=$_SESSION['staff_code'];
+	if(isset($_POST['edit_product'])){
+		$product_color=trim($_POST['product_color']);
+		$product_manu=trim($_POST['product_manu']);
+		$product_os=trim($_POST['product_os']);
+		$product_des=trim($_POST['product_des']);
+		$product_tech_screen=trim($_POST['product_tech_screen']);
+		$product_resolution_screen=trim($_POST['product_resolution_screen']);
+		$product_width_screen=trim($_POST['product_width_screen']);
+		$product_touch_glass=trim($_POST['product_touch_glass']);
+		$product_resolution_camerarear=trim($_POST['product_resolution_camerarear']);
+		$product_record_camerarear=trim($_POST['product_record_camerarear']);
+		$product_flash_camerarear=trim($_POST['product_flash_camerarear']);
+		$product_feature_camerarear=trim($_POST['product_feature_camerarear']);
+		$product_resolution_frontcamera=trim($_POST['product_resolution_frontcamera']);
+		$product_videocall_frontcamera=trim($_POST['product_videocall_frontcamera']);
+		$product_feature_frontcamera=trim($_POST['product_feature_frontcamera']);
+		$product_cpu=trim($_POST['product_cpu']);
+		$product_specification_cpu=trim($_POST['product_specification_cpu']);
+		$product_gpu=trim($_POST['product_gpu']);
+		$product_specification_gpu=trim($_POST['product_specification_gpu']);
+		$product_ram=trim($_POST['product_ram']);
+		$product_storage=trim($_POST['product_storage']);
+		$product_memorycard=trim($_POST['product_memorycard']);
+		$product_mobilenetwork=trim($_POST['product_mobilenetwork']);
+		$product_sim=trim($_POST['product_sim']);
+		$product_wifi=trim($_POST['product_wifi']);
+		$product_gps=trim($_POST['product_gps']);
+		$product_bluetooth=trim($_POST['product_bluetooth']);
+		$product_chargingport=trim($_POST['product_chargingport']);
+		$product_jack=trim($_POST['product_jack']);
+		$product_otherconnect=trim($_POST['product_otherconnect']);
+		$product_design=trim($_POST['product_design']);
+		$product_material=trim($_POST['product_material']);
+		$product_size=trim($_POST['product_size']);
+		$product_weight=trim($_POST['product_weight']);
+		$product_batterycapacity=trim($_POST['product_batterycapacity']);
+		$product_batterytype=trim($_POST['product_batterytype']);
+		$product_timeoflaunch=trim($_POST['product_timeoflaunch']);
+		$product_guarantee=trim($_POST['product_guarantee']);
+		$product_quantity=trim($_POST['product_quantity']);
+		$product_name=trim($_POST['product_name']);
+		$product_status=trim($_POST['product_status']);
+		$product_price=trim($_POST['product_price']);
+	
+	//Ket noi database va update
+		require_once("modules/config/connectdb.php");
+		$sql9="update product set
+				product_color='$product_color',
+				product_manu='$product_manu',
+				product_os='$product_os',
+				product_des='$product_des',
+				product_tech_screen='$product_tech_screen',
+				product_resolution_screen='$product_resolution_screen',
+				product_width_screen='$product_width_screen',
+				product_touch_glass='$product_touch_glass',
+				product_resolution_camerarear='$product_resolution_camerarear',
+				product_record_camerarear='$product_record_camerarear',
+				product_flash_camerarear='$product_flash_camerarear',
+				product_feature_camerarear='$product_feature_camerarear',
+				product_resolution_frontcamera='$product_resolution_frontcamera',
+				product_videocall_frontcamera='$product_videocall_frontcamera',
+				product_feature_frontcamera='$product_feature_frontcamera',
+				product_cpu='$product_cpu',
+				product_specification_cpu='$product_specification_cpu',
+				product_gpu='$product_gpu',
+				product_specification_gpu='$product_specification_gpu',
+				product_ram='$product_ram',
+				product_storage='$product_storage',
+				product_memorycard='$product_memorycard',
+				product_mobilenetwork='$product_mobilenetwork',
+				product_sim='$product_sim',
+				product_wifi='$product_wifi',
+				product_gps='$product_gps',
+				product_bluetooth='$product_bluetooth',
+				product_chargingport='$product_chargingport',
+				product_jack='$product_jack',
+				product_otherconnect='$product_otherconnect',
+				product_design='$product_design',
+				product_material='$product_material',
+				product_size='$product_size',
+				product_weight='$product_weight',
+				product_batterycapacity='$product_batterycapacity',
+				product_batterytype='$product_batterytype',
+				product_timeoflaunch='$product_timeoflaunch',
+				product_guarantee='$product_guarantee',
+				product_quantity='$product_quantity',
+				product_name='$product_name',
+				product_status='$product_status',
+				product_price='$product_price'
+				where id='$id'
+			";
+		$a=mysqli_query($conn,$sql9);
+		//---------------------------------------------------------------------------------------------------
+		// xu ly anh 1
+		// kiem tra neu ko co anh cu ma tai anh moi len
+		$f1="product_".$id."_"."1"."_";
+		$f="select * from image where image_name like '%$f1%'";
+		$query_f=mysqli_query($conn,$f);
+		$dem=mysqli_affected_rows($conn);
+		if($dem > 0){
+			$tencu=mysqli_fetch_assoc($query_f);
+		}
+		if($dem==0 && $_FILES['image_name']['size'] > 0){
+			$img_new_1=$_FILES['image_name'];
+				// xet ten hang san pham
+				$sql20="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql20);
+				$row_new_1=mysqli_fetch_assoc($n);
+				$manu_name_new_1 =$row_new_1['manu_name'];
+				$folder2="../public/product/".$manu_name_new_1."/";
+				$folder3="../public/product/".$manu_name_new_1;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+			$path_new_1=$folder2.$img_new_1['name'];
+			move_uploaded_file($img_new_1['tmp_name'],$path_new_1);
 
-	//-------------------------------------------
+			$old_name=$folder2.$img_new_1['name'];
+				$c=explode(".",$img_new_1['name']);
+				$prm=$c[count($c)-1];
+
+				$new_name="product_".$id."_"."1"."_".".".$prm;
+				$new=$folder2.$new_name;
+				rename($old_name,$new);
+				//-----------------------------------------
+				$sql7="insert into image values('$id','$new_name')";
+				if(!$sql7){
+					 die("loi".mysqli_error($conn));
+				}
+				mysqli_query($conn,$sql7);
+
+		}
+			// doi hang ko doi anh
+		if($_FILES['image_name']['size']<=0 && $dem>0){
+			$img_new_1=$tencu['image_name'];
+				// xet ten hang san pham
+				$sql20="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql20);
+				$row_new_1=mysqli_fetch_assoc($n);
+				$manu_name_new_1 =$row_new_1['manu_name'];
+			if($manu_name_new_1 != $manu_name){
+				$folder2="../public/product/".$manu_name_new_1."/";
+				$folder3="../public/product/".$manu_name_new_1;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+				$path_new_1=$folder2.$img_new_1;
+				// neu khac thi se coppy file cu vao file moi va xoa file cu di
+				copy($path,$path_new_1);
+				unlink($path);
+			}
+		}
+		// doi anh ko doi hang hoac doi anh doi hang
+		if($_FILES['image_name']['size']>0 && $dem>0){ 
+			$img_new_1=$_FILES['image_name'];
+			$img_na=$img_new_1['name'];
+			// xet ten hang san pham
+			$sql20="select * from manu_product where id ='$product_manu'";
+			$n=mysqli_query($conn,$sql20);
+			$row_new_1=mysqli_fetch_assoc($n);
+			$manu_name_new_1 =$row_new_1['manu_name'];
+			
+			// Neu hang moi bang hang cu
+			if($manu_name_new_1 == $manu_name){
+				// kiem tra neu thu muc moi khac thu muc cu
+				$folder2=$folder;
+				if(file_exists($folder2)==false){
+					mkdir($folder2);
+				}
+			}
+			// Neu hang moi khong bang hang cu
+			if($manu_name_new_1 != $manu_name){
+				$folder2="../public/product/".$manu_name_new_1."/";
+				$folder3="../public/product/".$manu_name_new_1;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+			}
+			unlink($path);
+			// day hinh anh len
+			$path_new_1=$folder2.$img_new_1['name'];
+			move_uploaded_file($img_new_1['tmp_name'],$path_new_1);
+
+			// rename anh theo id
+			$old_name=$folder2.$img_new_1['name'];
+			$c=explode(".",$img_new_1['name']);
+			$prm=$c[count($c)-1];
+
+			$new_name="product_".$id."_"."1"."_".".".$prm;
+			$new=$folder2.$new_name;
+			rename($old_name,$new);
+
+			$name_old_1=$tencu['image_name'];
+			$sql21="update image set image_name = '$new_name' where image_name = '$name_old_1'";
+			if(!$sql21){
+				 die("loi".mysqli_error($conn));
+			}
+			mysqli_query($conn,$sql21);
+		}
 
 
+		// xu ly anh 2
+
+		$f1="product_".$id."_"."2"."_";
+		$f="select * from image where image_name like '%$f1%'";
+		$query_f=mysqli_query($conn,$f);
+		$dem=mysqli_affected_rows($conn);
+		if($dem > 0){
+			$tencu=mysqli_fetch_assoc($query_f);
+		}
+		if($dem==0 && $_FILES['image_name2']['size'] > 0){
+			$img_new_2=$_FILES['image_name2'];
+				// xet ten hang san pham
+				$sql20="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql20);
+				$row_new_2=mysqli_fetch_assoc($n);
+				$manu_name_new_2 =$row_new_2['manu_name'];
+				$folder2="../public/product/".$manu_name_new_2."/";
+				$folder3="../public/product/".$manu_name_new_2;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+			$path_new_2=$folder2.$img_new_2['name'];
+			move_uploaded_file($img_new_2['tmp_name'],$path_new_2);
+
+			$old_name=$folder2.$img_new_2['name'];
+				$c=explode(".",$img_new_2['name']);
+				$prm=$c[count($c)-1];
+
+				$new_name="product_".$id."_"."2"."_".".".$prm;
+				$new=$folder2.$new_name;
+				rename($old_name,$new);
+				//-----------------------------------------
+				$sql7="insert into image values('$id','$new_name')";
+				if(!$sql7){
+					 die("loi".mysqli_error($conn));
+				}
+				mysqli_query($conn,$sql7);
+
+		}
+			// doi hang ko doi anh
+		if($_FILES['image_name2']['size']<=0 && $dem>0){
+			$img_new_2=$tencu['image_name'];
+				// xet ten hang san pham
+				$sql20="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql20);
+				$row_new_2=mysqli_fetch_assoc($n);
+				$manu_name_new_2 =$row_new_2['manu_name'];
+			if($manu_name_new_2 != $manu_name){
+				$folder2="../public/product/".$manu_name_new_2."/";
+				$folder3="../public/product/".$manu_name_new_2;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+				$path_new_2=$folder2.$img_new_2;
+				// neu khac thi se coppy file cu vao file moi va xoa file cu di
+				copy($path2,$path_new_2);
+				unlink($path2);
+			}
+		}
+		// doi anh ko doi hang hoac doi anh doi hang
+		if($_FILES['image_name2']['size']>0 && $dem>0){ 
+			$img_new_2=$_FILES['image_name2'];
+			$img_na=$img_new_2['name'];
+			// xet ten hang san pham
+			$sql20="select * from manu_product where id ='$product_manu'";
+			$n=mysqli_query($conn,$sql20);
+			$row_new_2=mysqli_fetch_assoc($n);
+			$manu_name_new_2 =$row_new_2['manu_name'];
+			
+			// Neu hang moi bang hang cu
+			if($manu_name_new_2 == $manu_name){
+				// kiem tra neu thu muc moi khac thu muc cu
+				$folder2=$folder;
+				if(file_exists($folder2)==false){
+					mkdir($folder2);
+				}
+			}
+			// Neu hang moi khong bang hang cu
+			if($manu_name_new_2 != $manu_name){
+				$folder2="../public/product/".$manu_name_new_2."/";
+				$folder3="../public/product/".$manu_name_new_2;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+			}
+			unlink($path2);
+			// day hinh anh len
+			$path_new_2=$folder2.$img_new_2['name'];
+			move_uploaded_file($img_new_2['tmp_name'],$path_new_2);
+
+			// rename anh theo id
+			$old_name=$folder2.$img_new_2['name'];
+			$c=explode(".",$img_new_2['name']);
+			$prm=$c[count($c)-1];
+
+			$new_name="product_".$id."_"."2"."_".".".$prm;
+			$new=$folder2.$new_name;
+			rename($old_name,$new);
+
+			$name_old_2=$tencu['image_name'];
+			$sql21="update image set image_name = '$new_name' where image_name = '$name_old_2'";
+			if(!$sql21){
+				 die("loi".mysqli_error($conn));
+			}
+			mysqli_query($conn,$sql21);
+		}
+
+		// xu ly anh 3
+
+		$f1="product_".$id."_"."3"."_";
+		$f="select * from image where image_name like '%$f1%'";
+		$query_f=mysqli_query($conn,$f);
+		$dem=mysqli_affected_rows($conn);
+		if($dem > 0){
+			$tencu=mysqli_fetch_assoc($query_f);
+		}
+		if($dem==0 && $_FILES['image_name3']['size'] > 0){
+			$img_new_3=$_FILES['image_name3'];
+				// xet ten hang san pham
+				$sql20="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql20);
+				$row_new_3=mysqli_fetch_assoc($n);
+				$manu_name_new_3 =$row_new_3['manu_name'];
+				$folder2="../public/product/".$manu_name_new_3."/";
+				$folder3="../public/product/".$manu_name_new_3;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+			$path_new_3=$folder2.$img_new_3['name'];
+			move_uploaded_file($img_new_3['tmp_name'],$path_new_3);
+
+			$old_name=$folder2.$img_new_3['name'];
+				$c=explode(".",$img_new_3['name']);
+				$prm=$c[count($c)-1];
+
+				$new_name="product_".$id."_"."3"."_".".".$prm;
+				$new=$folder2.$new_name;
+				rename($old_name,$new);
+				//-----------------------------------------
+				$sql7="insert into image values('$id','$new_name')";
+				if(!$sql7){
+					 die("loi".mysqli_error($conn));
+				}
+				mysqli_query($conn,$sql7);
+
+		}
+			// doi hang ko doi anh
+		if($_FILES['image_name3']['size']<=0 && $dem>0){
+			$img_new_3=$tencu['image_name'];
+				// xet ten hang san pham
+				$sql20="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql20);
+				$row_new_3=mysqli_fetch_assoc($n);
+				$manu_name_new_3 =$row_new_3['manu_name'];
+			if($manu_name_new_3 != $manu_name){
+				$folder2="../public/product/".$manu_name_new_3."/";
+				$folder3="../public/product/".$manu_name_new_3;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+				$path_new_3=$folder2.$img_new_3;
+				// neu khac thi se coppy file cu vao file moi va xoa file cu di
+				copy($path3,$path_new_3);
+				unlink($path3);
+			}
+		}
+		// doi anh ko doi hang hoac doi anh doi hang
+		if($_FILES['image_name3']['size']>0 && $dem>0){ 
+			$img_new_3=$_FILES['image_name3'];
+			$img_na=$img_new_3['name'];
+			// xet ten hang san pham
+			$sql20="select * from manu_product where id ='$product_manu'";
+			$n=mysqli_query($conn,$sql20);
+			$row_new_3=mysqli_fetch_assoc($n);
+			$manu_name_new_3=$row_new_3['manu_name'];
+			
+			// Neu hang moi bang hang cu
+			if($manu_name_new_3 == $manu_name){
+				// kiem tra neu thu muc moi khac thu muc cu
+				$folder2=$folder;
+				if(file_exists($folder2)==false){
+					mkdir($folder2);
+				}
+			}
+			// Neu hang moi khong bang hang cu
+			if($manu_name_new_3 != $manu_name){
+				$folder2="../public/product/".$manu_name_new_3."/";
+				$folder3="../public/product/".$manu_name_new_3;
+				if(file_exists($folder3)==false){
+					mkdir($folder3);
+				}
+			}
+			unlink($path3);
+			// day hinh anh len
+			$path_new_3=$folder2.$img_new_3['name'];
+			move_uploaded_file($img_new_3['tmp_name'],$path_new_3);
+
+			// rename anh theo id
+			$old_name=$folder2.$img_new_3['name'];
+			$c=explode(".",$img_new_3['name']);
+			$prm=$c[count($c)-1];
+
+			$new_name="product_".$id."_"."3"."_".".".$prm;
+			$new=$folder2.$new_name;
+			rename($old_name,$new);
+
+			$name_old_3=$tencu['image_name'];
+			$sql21="update image set image_name = '$new_name' where image_name = '$name_old_3'";
+			if(!$sql21){
+				 die("loi".mysqli_error($conn));
+			}
+			mysqli_query($conn,$sql21);
+		}
+		//---------------------------------------------------------------------------------------
+
+
+
+
+
+
+	}
 ?>
 <!--Duoi day la nhung dong code danh cho front-->
 	<script type="text/javascript">
@@ -140,13 +571,13 @@
 
 		<div style="width:100%;height:40px;margin-top: 10px; background: #ebffee">
 			<div class="ac" style="width:25%;height: 100%;float: left;">
-				<input type="file" name="image_name" id="anh3" style="text-align: left;" onchange="myfunc2()">
+				<input type="file" name="image_name2" id="anh3" style="text-align: left;" onchange="myfunc2()">
 			</div>
 			<div class="ac" style="width:50% ;height: 100%;float: left;">
 				<input type="file" name="image_name" id="anh" style="text-align: center;" onchange="myfunc()">
 			</div>
 			<div class="ac" style="width:25%;height: 100%;float: right;">
-				<input type="file" name="image_name" id="anh5" style="text-align: right;" onchange="myfunc1()">
+				<input type="file" name="image_name3" id="anh5" style="text-align: right;" onchange="myfunc1()">
 			</div>
 		</div>
 

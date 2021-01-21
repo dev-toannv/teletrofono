@@ -54,13 +54,13 @@ tr td{
 	max-height: 100%;
 }
 .product_manu{
-	width: 10%;
+	width: 9%;
 	text-align:center;
 }
-.product_color{
-	width: 10%;
+/*.product_color{
+	width: 9%;
 	text-align:center;
-}
+}*/
 .product_quantity{
 	width: 8%;
 	text-align:center;
@@ -78,7 +78,7 @@ tr td{
 	text-align:center;
 }
 .product_status{
-	width: 10%;
+	width: 21%;
 	text-align:center;
 }
 .edit{

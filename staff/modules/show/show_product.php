@@ -59,9 +59,8 @@
 		<table>
 			<tr style="overflow: hidden;">
 				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red;">id</th>
-				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Tên và ảnh</th>
+				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Tên, màu và ảnh</th>
 				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Hãng</th>
-				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Màu sắc</th>
 				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Số lượng</th>
 				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Giá (VNĐ)</th>
 				<th style="text-align: center; font-weight: bold; font-size: 20px; color:red; ">Ram</th>
@@ -87,6 +86,11 @@
 					$price=$a['product_price'];
 					$price=number_format($price,0,'','.');
 
+					//edit_add_product
+					$i="select*from add_edit_product where id_product='$id'";
+					$query_i=mysqli_query($conn,$i);
+					$result_i=mysqli_fetch_assoc($query_i);
+
 					//cach khac :)))
 					// $price=strrev($price); // dao nguoc chuoi de lay moi 3 ky tu thi '.' 1 lan
 					// $price=chunk_split($price,3,'.');
@@ -102,7 +106,7 @@
 						echo "</td>";
 
 						echo "<td class='product_name height'>";
-							echo "<div class='na'>".$a['product_name']."</div>";
+							echo "<div class='na'>".$a['product_name']." _ ".$arr_color[$a['product_color']]."</div>";
 							echo "<div class='im'>"."<img src='".$path."'>"."</div>";
 						echo "</td>";
 
@@ -110,9 +114,9 @@
 							echo $arr_manu[$a['product_manu']];
 						echo "</td>";
 
-						echo "<td class='product_color height'>";
-							echo $arr_color[$a['product_color']];
-						echo "</td>";
+						// echo "<td class='product_color height'>";
+						// 	echo $arr_color[$a['product_color']];
+						// echo "</td>";
 
 						echo "<td class='product_quantity height'>";
 							echo $a['product_quantity'];
@@ -132,7 +136,13 @@
 						echo "</td>";
 
 						echo "<td class='product_status height'>";
-							echo $arr_status[$a['product_status']];
+							echo $arr_status[$a['product_status']]."<br>";
+							echo "---------"."<br>";
+							echo "ID người thêm : ".$result_i['id_user_add']."<br>";
+							echo "Thời gian thêm : "."<br>".$result_i['time_add']."<br>";
+							echo "---------"."<br>";
+							echo "ID người chỉnh sửa lần cuối : ".$result_i['id_user_edit_last']."<br>";
+							echo "Thời gian chỉnh sửa : "."<br>".$result_i['time_edit_last'];
 						echo "</td>";
 
 						echo "<td class='edit height'>";

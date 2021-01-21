@@ -13,7 +13,7 @@
 			// 	die("Connect error : ".mysqli_connect_error());
 			// }
 			require_once("modules/config/connectdb.php");
-			$sql="select * from manager where manager_code='$acc' and manager_password='$pass' and user_type='2'";
+			$sql="select * from manager where manager_code='$acc' and manager_password='$pass' and user_type=2";
 			$result=mysqli_query($conn,$sql);
 			$count=mysqli_num_rows($result);
 			if($count<=0){

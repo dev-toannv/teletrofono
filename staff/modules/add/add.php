@@ -124,7 +124,10 @@
 				move_uploaded_file($img['tmp_name'],$path);
 				// rename anh theo id
 				$old_name=$folder.$img['name'];
-				$new_name="product_".$idsanpham."_"."1"."_".$img['name'];
+				$c=explode(".",$img['name']);
+				$prm=$c[count($c)-1];
+
+				$new_name="product_".$idsanpham."_"."1"."_".".".$prm;
 				$new=$folder.$new_name;
 				rename($old_name,$new);
 				//-----------------------------------------
@@ -136,13 +139,27 @@
 			}
 			//----
 			if($_FILES['image_name1']['size']>0){ 
+
 				$img=$_FILES['image_name1'];
+				// xet ten hang san pham
+				$sql10="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql10);
+				$roww=mysqli_fetch_assoc($n);
+				$manu_name =$roww['manu_name'];
+				$folder="../public/product/".$manu_name."/";
+				$folder1="../public/product/".$manu_name;
+				if(file_exists($folder1)==false){
+					mkdir($folder1);
+				}
 				// day hinh anh len
 				$path=$folder.$img['name'];
 				move_uploaded_file($img['tmp_name'],$path);
 				// rename anh theo id
 				$old_name=$folder.$img['name'];
-				$new_name="product_".$idsanpham."_"."2"."_".$img['name'];
+				$c=explode(".",$img['name']);
+				$prm=$c[count($c)-1];
+
+				$new_name="product_".$idsanpham."_"."2"."_".".".$prm;
 				$new=$folder.$new_name;
 				rename($old_name,$new);
 				//-----------------------------------------
@@ -155,12 +172,25 @@
 			// anh3
 			if($_FILES['image_name2']['size']>0){ 
 				$img=$_FILES['image_name2'];
+				// xet ten hang san pham
+				$sql10="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql10);
+				$roww=mysqli_fetch_assoc($n);
+				$manu_name =$roww['manu_name'];
+				$folder="../public/product/".$manu_name."/";
+				$folder1="../public/product/".$manu_name;
+				if(file_exists($folder1)==false){
+					mkdir($folder1);
+				}
 				// day hinh anh len
 				$path=$folder.$img['name'];
 				move_uploaded_file($img['tmp_name'],$path);
 				// rename anh theo id
 				$old_name=$folder.$img['name'];
-				$new_name="product_".$idsanpham."_"."3"."_".$img['name'];
+				$c=explode(".",$img['name']);
+				$prm=$c[count($c)-1];
+
+				$new_name="product_".$idsanpham."_"."3"."_".".".$prm;
 				$new=$folder.$new_name;
 				rename($old_name,$new);
 				//-----------------------------------------
@@ -170,7 +200,6 @@
 				}
 				mysqli_query($conn,$sql7);
 			}
-
 		}
 		
 
