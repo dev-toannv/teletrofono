@@ -8,10 +8,7 @@
 		if(isset($_POST['sub'])){
 			$acc=$_POST['admin_acc'];
 			$pass=$_POST['admin_pass'];
-			$conn=mysqli_connect('localhost','root','','teletrofono');
-			if(!$conn){
-				die("Connect error : ".mysqli_connect_error());
-			}
+			require_once("modules/config/connectdb.php");
 			else{
 				$sql="select * from manager where manager_code='$acc' and manager_password='$pass' and user_type='1'";
 				$result=mysqli_query($conn,$sql);

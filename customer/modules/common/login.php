@@ -5,10 +5,10 @@
 			header("Location:index.php");
 		}
 		else{
-			require_once("modules/common/config/connectdb.php");
+			require_once("modules/config/connectdb.php");
 			require_once("modules/common/config/process_login_customer.php");
 		}
-		require_once("modules/common/config/fix_confirm_form_resubmission.php");
+		require_once("modules/config/fix_confirm_form_resubmission.php");
 ?>
 <!DOCTYPE html>
 <html>

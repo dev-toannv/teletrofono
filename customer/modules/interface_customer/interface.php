@@ -1,7 +1,7 @@
 
 <?php
 	session_start();
-	require_once("modules/interface_customer/config/fix_confirm_form_resubmission.php");
+	require_once("modules/config/fix_confirm_form_resubmission.php");
 	
 ?>
 <!DOCTYPE html>
