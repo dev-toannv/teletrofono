@@ -11,10 +11,9 @@
 		while($row=mysqli_fetch_assoc($query_sql19)){
 			$id=$row['id'];
 			// lay hang
-
 			echo "<tr>";
 				echo "<td>";
-					echo $row['id']." la ".$manuu[$row['product_manu']];
+					echo $row['id']." la ".$row['product_name'];
 				echo "</td>";
 			echo "</tr>";
 		}

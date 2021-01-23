@@ -15,6 +15,14 @@
 		$manuu[$r['id']]=$r['manu_name'];
 	}
 	//--------------------------------------------------------------------------
+
+	if(isset($_POST['reset'])){
+		unset($_SESSION['s_name']);
+		unset($_SESSION['s_ram']);
+		unset($_SESSION['s_storage']);
+		unset($_SESSION['ram_check']);
+		unset($_SESSION['storage_check']);
+	}
 	
 	// phan nay xu ly session va ra va bo nho trong khi goi cau lenh sql
 	$s_name=$s_manu=$s_ram=$s_storage=$s_storage=$ram_check="";
@@ -38,7 +46,6 @@
 		$storage_check=$_SESSION['storage_check'];
 	}
 	//---------------------------------------------------------------
-	
 	// phan nay xu ly ten hang khi goi sql
 	if($_SESSION['search_manu']!="" && $_SESSION['search_manu']!="all"){
 		$manu=$_SESSION['search_manu'];
@@ -81,11 +88,10 @@
 	}
 	//----------------------------------------------------
 
-	$sql19="select * from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
+	$sql19="select id,product_name,product_price from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
 	$query_sql19=mysqli_query($conn,$sql19);
 	$aff=mysqli_num_rows($query_sql19);
 	// echo $sql19;
-
 	$limit=9;
 	$pages=ceil($aff/$limit);
 	if(isset($_GET['page'])){
@@ -107,6 +113,7 @@
     $sql19=$sql19."LIMIT $offset,$limit";
 	// Cau lenh thuc thi
 	$query_sql19=mysqli_query($conn,$sql19);
+
 ?>
 <div id="body">
 	<div id="body_search">
@@ -147,7 +154,9 @@
 					?>
 			</select>
 			<br>
-			<button type="submit" name="subsearch">Tìm kiếm</button>
+			<button type="submit" name="subsearch">Tìm kiếm</button><br>
+			<button type="submit" name="reset">Xóa các lựa chọn</button>
+ 
 		</form>
 		</div>
 	</div>
