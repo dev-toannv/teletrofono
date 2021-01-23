@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="modules/body/body.css">
 	<script type="text/javascript" src="modules/taskbar/taskbar.js"></script>
 </head>
-<body>
+<body style="width:100%;margin:0px">
 	<?php 
 		require_once("modules/header/header.php");
 	?>

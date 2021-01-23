@@ -138,11 +138,11 @@
 						echo "<td class='product_status height'>";
 							echo $arr_status[$a['product_status']]."<br>";
 							echo "---------"."<br>";
-							echo "ID người thêm : ".$result_i['id_user_add']."<br>";
-							echo "Thời gian thêm : "."<br>".$result_i['time_add']."<br>";
+							echo "ID người thêm : <span style='color:#00aa00'>".$result_i['id_user_add']."</span><br>";
+							echo "Thời gian thêm : "."<br><span style='color:#00aa00'>".$result_i['time_add']."</span><br>";
 							echo "---------"."<br>";
-							echo "ID người chỉnh sửa lần cuối : ".$result_i['id_user_edit_last']."<br>";
-							echo "Thời gian chỉnh sửa : "."<br>".$result_i['time_edit_last'];
+							echo "ID người chỉnh sửa lần cuối : <span style='color:#00aa00'>".$result_i['id_user_edit_last']."</span><br>";
+							echo "Thời gian chỉnh sửa : "."<br><span style='color:#00aa00'>".$result_i['time_edit_last']."</span>";
 						echo "</td>";
 
 						echo "<td class='edit height'>";

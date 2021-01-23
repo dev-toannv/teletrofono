@@ -12,6 +12,9 @@
 				<?php 
 					if(isset($_GET['basic'])){
 						unset($_SESSION['search_manu']);
+						unset($_SESSION['s_name']);
+						unset($_SESSION['s_ram']);
+						unset($_SESSION['s_storage']);
 						header("Location:index.php");
 					}
 					if(isset($_SESSION['search_manu'])){
@@ -33,7 +36,7 @@
 						echo"<img src='".$img."' class='icon'>";
 					}
 					else{
-						$_SESSION['search_manu']="sai_gia_tri";
+						$_SESSION['search_manu']="all";
 						echo "<p>Sản phẩm</p>";
 					}
 					mysqli_close($conn);
