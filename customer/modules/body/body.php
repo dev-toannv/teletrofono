@@ -17,7 +17,7 @@
 	//--------------------------------------------------------------------------
 	
 	// phan nay xu ly session va ra va bo nho trong khi goi cau lenh sql
-	$s_name=$s_manu=$s_ram=$s_storage="";
+	$s_name=$s_manu=$s_ram=$s_storage=$s_storage=$ram_check="";
 	if(isset($_SESSION['s_name'])){
 		$s_name=$_SESSION['s_name'];
 	}
@@ -27,7 +27,18 @@
 	if(isset($_SESSION['s_storage'])){
 		$s_storage=$_SESSION['s_storage'];
 	}
+
 	//-------------------------------------------------------------------
+	// phan nay de check xem ram va bo nho minh da chon la gi
+	if(isset($_SESSION['ram_check'])){
+		$ram_check=$_SESSION['ram_check'];
+	}
+
+	if(isset($_SESSION['storage_check'])){
+		$storage_check=$_SESSION['storage_check'];
+	}
+	//---------------------------------------------------------------
+	
 	// phan nay xu ly ten hang khi goi sql
 	if($_SESSION['search_manu']!="" && $_SESSION['search_manu']!="all"){
 		$manu=$_SESSION['search_manu'];
@@ -42,15 +53,16 @@
 	if(isset($_POST['subsearch'])){
 		$_SESSION['s_ram']="";
 		$_SESSION['s_storage']="";
-
+		$_SESSION['ram_check']="";
+		$_SESSION['storage_check']="";
 		$s_name=trim($_POST['s_name']);
 		$_SESSION['s_name']=$s_name;
 		$s_name=$_SESSION['s_name'];
 
 		$s_ram=$_POST['s_ram'];
 		if($s_ram!=""){
-			// $ram_check=$s_ram;
-			
+			$ram_check=$s_ram;
+			$_SESSION['ram_check']=$ram_check;
 			// xu ly cau lenh sql tim kiem dung luong ram
 			$s_ram=" and product_ram = '$s_ram'";
 			$_SESSION['s_ram']=$s_ram;
@@ -59,8 +71,8 @@
 
 		$s_storage=$_POST['s_storage'];
 		if($s_storage !=""){
-			// $storage_check=$s_storage;
-			
+			$storage_check=$s_storage;
+			$_SESSION['storage_check']=$storage_check;
 			// xu ly cau lenh sql tim kiem dung luong bo nho trong
 			$s_storage=" and product_storage = '$s_storage'";
 			$_SESSION['s_storage']=$s_storage;
@@ -106,6 +118,11 @@
 					<?php 
 						while($result_ram=mysqli_fetch_assoc($query_ram)){
 							$product_ram=$result_ram['product_ram'];
+							if($product_ram==$ram_check){
+								echo "<option value='$product_ram' selected>";
+									echo $result_ram['product_ram'];
+								echo "</option>";
+							}
 							echo "<option value='$product_ram'>";
 								echo $result_ram['product_ram'];
 							echo "</option>";
@@ -118,6 +135,11 @@
 					<?php 
 						while($result_storage=mysqli_fetch_assoc($query_storage)){
 							$product_storage=$result_storage['product_storage'];
+							if($product_storage==$storage_check){
+								echo "<option value='$product_storage' selected>";
+									echo $result_storage['product_storage'];
+								echo "</option>";
+							}
 							echo "<option value='$product_storage'>";
 								echo $result_storage['product_storage'];
 							echo "</option>";
