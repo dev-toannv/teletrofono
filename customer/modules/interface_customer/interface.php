@@ -25,6 +25,8 @@
 	<?php 
 		require_once("modules/body/body.php");
 	?>
-
+	<?php 
+		require_once("modules/footer/footer.php");
+	?>
 </body>
 </html>

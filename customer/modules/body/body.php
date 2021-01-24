@@ -14,8 +14,10 @@
 	while($r=mysqli_fetch_assoc($query_sql22)){
 		$manuu[$r['id']]=$r['manu_name'];
 	}
+	// foreach ($manuu as $key => $value) {
+	// 	echo $key ." la ".$value;
+	// }
 	//--------------------------------------------------------------------------
-
 	if(isset($_POST['reset'])){
 		unset($_SESSION['s_name']);
 		unset($_SESSION['s_ram']);
@@ -88,7 +90,7 @@
 	}
 	//----------------------------------------------------
 
-	$sql19="select id,product_name,product_price from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
+	$sql19="select id,product_name,product_price,product_manu from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
 	$query_sql19=mysqli_query($conn,$sql19);
 	$aff=mysqli_num_rows($query_sql19);
 	// echo $sql19;
@@ -158,6 +160,11 @@
 			<button type="submit" name="reset">Xóa các lựa chọn</button>
  
 		</form>
+		<?php 
+				for($i=1;$i<=$pages;$i++){
+					echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";
+				}
+			?>
 		</div>
 	</div>
 	<div id="body_show_product">
