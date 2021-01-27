@@ -18,12 +18,12 @@
 		echo "<div id='username'>";
 
 			echo"<div id='tennguoidung' class='thanhtren'>";
-				echo $_SESSION['username'];
+				echo "<p>".$_SESSION['username']."</p>";
 			echo"</div>";
 
 			
 			echo"<div id='manage' class='hov'>";
-				echo"<a href='index.php?module=infor_customer&action=infor'>Tài khoản của tôi</a></div>";
+				echo"<a href='index.php?infor=infor'>Tài khoản của tôi</a></div>";
 			echo"<div id='dangxuat' class='hov'>";
 				echo"<form action='' method='POST'>";
 					echo"<label for='logout' id='lb'>";

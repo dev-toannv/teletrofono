@@ -1,4 +1,8 @@
-
+<script>
+		if ( window.history.replaceState ) {
+    		window.history.replaceState( null, null, window.location.href );
+		}
+</script>
 <div id="show_search" style="height:5%">
 	<style type="text/css">
 		body::-webkit-scrollbar { 

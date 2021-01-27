@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="modules/taskbar/taskbar.css">
 	<link rel="stylesheet" type="text/css" href="modules/body/body.css">
 	<script type="text/javascript" src="modules/taskbar/taskbar.js"></script>
+
 </head>
 <body style="width:100%;margin:0px">
 	<?php 
@@ -22,8 +23,19 @@
 	<?php 
 		require_once("modules/taskbar/taskbar.php");
 	?>
-	<?php 
-		require_once("modules/body/body.php");
+	<?php
+	if(isset($_GET['infor'])){
+		require_once("modules/infor_customer/infor.php");
+	}
+	else{
+		if(isset($_GET['product_detail'])){
+			require_once("modules/show_product/show_product.php");
+		} 
+		else{
+			require_once("modules/body/body.php");
+		}
+	}
+	
 	?>
 	<?php 
 		require_once("modules/footer/footer.php");

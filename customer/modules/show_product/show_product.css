@@ -1,0 +1,142 @@
+*{
+	box-sizing: border-box;
+	margin:0;
+}
+
+#product_container{
+	width: 100%;
+	height: 1270px;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+  	justify-content: center;
+  	/*align-items: center;*/
+  	background: #f5f5f5;
+  	z-index: 0;
+}
+
+#product_basic{
+	width: 68%;
+	height: 100%;
+	position: absolute;
+	background-color: #f5f5f5;
+	z-index: 1;
+	border: 1px solid black;
+}
+
+#product_detail{
+	width: 50%;
+	height: 300px;
+	position:absolute;
+	background-color: green;
+	z-index: 2;
+	display: none;
+}
+
+#a{
+	width:100%;
+	height: 50%;
+	position: relative;
+	background: white;
+}
+
+#b{
+	width:100%;
+	height: 10%;
+	position: relative;
+	margin-top:2.5%;
+	background: white;
+}
+
+#c{
+	width:100%;
+	height: 35%;
+	position: relative;
+	margin-top:2.5%;
+	background: white;
+}
+
+#a1{
+	width: 47%;
+	height: 100%;
+	float: left;
+}
+#a2{
+	width: 53%;
+	height: 100%;
+	float: right;
+	border-left:solid 1px black;
+}
+
+#a1_top{
+	width: 100%;
+	height: 78%;
+	background: red;
+}
+
+#a1_bottom{
+	width: 100%;
+	height: 22%;
+	background: green;
+}
+
+
+#a2_name{
+	width: 100%;
+	height: 25%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#a2_sale{
+	width: 100%;
+	height: 25%;
+	border-top:solid 1px #f5f5f5;
+}
+
+#a2_price{
+	width: 100%;
+	height: 28%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border-top:solid 1px #f5f5f5;
+}
+
+#a2_price p{
+	font-size: 35px;
+}
+
+#a2_addcart{
+	width: 100%;
+	height: 22%;
+}
+#a2_addcart a{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size: 35px;
+  	text-decoration: none;
+  	color:red;
+  	border-top:solid 1px #f5f5f5;
+}
+#i2{
+	max-width: 60%;
+	max-height: 60%;
+}
+#a2_name p{
+	font-size: 48px;
+	color:red;
+	text-align: center;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+/*	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;*/
+}
+

@@ -169,12 +169,18 @@
 	</div>
 	<div id="body_show_product">
 		<?php 
-			if($aff>0){
-				require_once("modules/body/body1.php");
+			if(isset($_GET['cart'])){
+				require_once("modules/cart/cart.php");
 			}
 			else{
-				echo "<div id='no'></div>";
+				if($aff>0){
+					require_once("modules/body/body1.php");
+				}
+				else{
+					echo "<div id='no'></div>";
+				}
 			}
+			
 		?>
 	</div>
 </div>

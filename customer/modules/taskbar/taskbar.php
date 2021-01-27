@@ -67,9 +67,10 @@
 		?>
 	</div>
 	<div id="taskbar_search">
+		<img src="../public/customer/acc.gif"  style="max-height: 100%;width: 100%;"alt="">
 	</div>
 	<div id="taskbar_cart">
-		
+		<a href="index.php?cart=cart"><img src="../public/customer/cart.png" id ='cart1'alt=""></a>
 	</div>
 	
 </div>

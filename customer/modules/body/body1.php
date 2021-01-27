@@ -1,12 +1,11 @@
+
 <div id="page">
-			<?php 
-				for($i=1;$i<=$pages;$i++){
-					echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";
-				}
-			?>
+	<marquee scrollamount="9"  style="padding:0;font-size:30px">I.STORE - Nơi chất lượng và dịch vụ là thứ tồn tại duy nhất</marquee>
 </div>
-<div style="height: auto;width: 100%;display: flex;flex-direction: column;justify-content: space-around;">
+
+<div style="height: auto;width: 100%;display: flex;flex-direction: column;justify-content: space-around;z-index: 1;">
 	<div class='div_product'>
+
 	<?php 
 		$dem=0;
 		while($row=mysqli_fetch_assoc($query_sql19)){
@@ -19,12 +18,19 @@
 			// lay hang
 				echo "<div class='show_product'>";
 					echo "<div class='show_product_name'>";
-						echo $row['id']." la ".$row['product_name'];
+						echo "<div>".$row['product_name']."</div>";
 					echo "</div>";
 					echo "<div class='show_product_image'>";
 						echo "<img src='".$path."' class='show_img' />";
+						echo "<div class='overlay'>";
+							echo "<a href='"."?search_manu=".$_SESSION['search_manu']."&product_detail=".$id."'>Chi tiết sản phẩm</a>";
+						echo "</div>";
+					echo "</div>";
+					echo "<div class='price'>";
+						echo number_format($row['product_price'],0,'','.')." VNĐ";
 					echo "</div>";
 					echo "<div class='add_cart'>";
+						echo "<a href='https://www.facebook.com/'><img src='../public/customer/add_cart.png' class='iii'>&nbsp&nbspThêm vào giỏ hàng</a>";
 					echo "</div>";
 				echo "</div>";
 			$dem=$dem+1;
