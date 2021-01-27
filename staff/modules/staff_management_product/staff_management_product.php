@@ -38,10 +38,10 @@
 		<table>
 			<tr>
 				<td id="show">
-					<a href="index.php?module=interface&action=interfaceStaff&choose=mproduct&mpr=show" >Show</a>
+					<a href="index.php?module=interface&action=interfaceStaff&choose=mproduct&mpr=show" >Sản phẩm</a>
 				</td>
 				<td id="add">
-					<a href="index.php?module=interface&action=interfaceStaff&choose=mproduct&mpr=add" >Add</a>
+					<a href="index.php?module=interface&action=interfaceStaff&choose=mproduct&mpr=add" >Thêm sản phẩm</a>
 				</td>
 			</tr>
 		</table>

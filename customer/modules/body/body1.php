@@ -30,7 +30,12 @@
 						echo number_format($row['product_price'],0,'','.')." VNĐ";
 					echo "</div>";
 					echo "<div class='add_cart'>";
+					if($row['product_status']>0){
 						echo "<a href='https://www.facebook.com/'><img src='../public/customer/add_cart.png' class='iii'>&nbsp&nbspThêm vào giỏ hàng</a>";
+					}
+					else{
+						echo "Ngừng kinh doanh";
+					}
 					echo "</div>";
 				echo "</div>";
 			$dem=$dem+1;

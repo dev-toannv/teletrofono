@@ -61,6 +61,8 @@
 	height: 100%;
 	float: left;
 }
+
+
 #a2{
 	width: 53%;
 	height: 100%;
@@ -71,15 +73,69 @@
 #a1_top{
 	width: 100%;
 	height: 78%;
-	background: red;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border-bottom: 1px solid #f5f5f5; 
 }
+
+#a1_top img{
+	max-width: 90%;
+	max-height: 90%;
+}
+
 
 #a1_bottom{
 	width: 100%;
 	height: 22%;
-	background: green;
+	display: flex;
+	justify-content: space-around;
 }
 
+#a1_pic2{
+	width: 30%;
+	height: 100%;
+	/*float: left;*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border-right: 1px solid #f5f5f5;
+}
+#a1_pic2 img{
+	max-width: 91%;
+	max-height: 91%;
+}
+
+
+#a1_pic3{
+	width: 30%;
+	height: 100%;
+	/*float: left;*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border-left: 1px solid #f5f5f5;
+  	border-right: 1px solid #f5f5f5;
+}
+
+#a1_pic3 img{
+	max-width: 91%;
+	max-height: 91%;
+}
+
+#more_pic{
+	width: 30%;
+	height: 100%;
+	/*float: left;*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border-left: 1px solid #f5f5f5;
+}
+#more_pic img{
+	max-width: 91%;
+	max-height: 91%;
+}
 
 #a2_name{
 	width: 100%;
@@ -89,11 +145,37 @@
   	align-items: center;
 }
 
+
 #a2_sale{
 	width: 100%;
 	height: 25%;
 	border-top:solid 1px #f5f5f5;
 }
+
+
+#a2_sale_left{
+	height: 100%;
+	width: 70%;
+	float: left;
+	border-right: 1px solid #f5f5f5;
+	font-size:18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	 flex-direction:column;
+}
+#a2_sale_right{
+	height: 100%;
+	width: 30%;
+	float: left;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size:130%;
+}
+
+
+
 
 #a2_price{
 	width: 100%;
@@ -105,7 +187,7 @@
 }
 
 #a2_price p{
-	font-size: 35px;
+	font-size: 40px;
 }
 
 #a2_addcart{
@@ -119,10 +201,26 @@
 	display: flex;
   	justify-content: center;
   	align-items: center;
-  	font-size: 35px;
+  	font-size: 40px;
   	text-decoration: none;
   	color:red;
   	border-top:solid 1px #f5f5f5;
+}
+#a2_addcart p{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size: 40px;
+  	text-decoration: none;
+  	color:red;
+  	border-top:solid 1px #f5f5f5;
+}
+
+#a2_addcart:hover{
+	background: #a4c2ba;
 }
 #i2{
 	max-width: 60%;
