@@ -34,7 +34,7 @@
 						echo "<a href='https://www.facebook.com/'><img src='../public/customer/add_cart.png' class='iii'>&nbsp&nbspThêm vào giỏ hàng</a>";
 					}
 					else{
-						echo "Ngừng kinh doanh";
+						echo "<p style='font-size:23px;'>Ngừng kinh doanh</p>";
 					}
 					echo "</div>";
 				echo "</div>";

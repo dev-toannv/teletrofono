@@ -112,9 +112,12 @@
 					</div>
 					<div id="a2_sale">
 						<div id="a2_sale_left">
-							<p>Khách hàng khi thanh toán trên 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
+							<p align="left">- Khách hàng khi thanh toán trên 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
 							<p>
-								Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết
+								- Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết
+							</p>
+							<p>
+								- Khách hàng V.I.P được giảm giá 3% mọi mặt hàng 
 							</p>
 							<br>
 							<p style="text-align: center">Liên hệ : 037.6886.282</p>
