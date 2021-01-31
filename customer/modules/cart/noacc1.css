@@ -1,39 +1,140 @@
-*{
-	box-sizing: border-box;
-	margin: 0;
+table,tr{
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+form{
+	width: 100%;
+	height: auto;
 }
 
-#global{
-	height: 800px;
+.stt{
+	height: 200px;
+	width: 7%;
+	border: 1px solid black;
+}
+
+.name{
+	height: 200px;
+	width: 40%;
+	border: 1px solid black;
+}
+
+.money{
+	height: 200px;
+	width: 30%;
+	border: 1px solid black;
+}
+
+.action{
+	height: 200px;
+	width: 23%;
+	border: 1px solid black;
+}
+
+.i1{
 	width: 100%;
-	background-color: #f5f5f5;
+	height: 50%;
+	border-bottom:1px solid #bddcc1;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.i2{
+	width: 100%;
+	height: 50%;
 	display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#local1{
+.minus{
+	width: 30%;
 	height: 100%;
-	border-top:1px solid black;
 	float: left;
-	width: 68%;
-	overflow: scroll;
-	background: white;
-
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#local11{
+.minus a{
+	text-decoration: none;
+	font-size: 40px;
+}
+
+.sl{
+	width: 40%;
+	height: 100%;
+	float: left;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.add{
+	width: 30%;
+	height: 100%;
+	float: left;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	
+}
+
+.add a{
+	text-decoration: none;
+	font-size: 40px;
+}
+
+.n1{
 	width: 100%;
 	height: 15%;
+	border-bottom:1px solid #bddcc1;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#local11 img{
-	max-height: 100%;
-	max-width: 100%;
-	border:1px solid black;
-}
-
-#local12{
+.n2{
 	width: 100%;
-	height: 75%;
+	height: 85%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.y{
+	max-width: 150px;
+	max-height: 150px;
+}
+
+#thanhtoan{
+	height: 100%;
+	width: 30%;
+	background: #8f8e95;
+	display: inline-block;
+}
+
+#thanhtoan:hover{
+	background-color: #c6c5ce;
+}
+
+#thanhtoan1{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	font-size: 150%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+#thanhtoan1:hover{
+	color:red;
 }

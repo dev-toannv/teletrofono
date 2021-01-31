@@ -1,0 +1,53 @@
+#xyz{
+	width: 100%;
+	height: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form{
+	width: 60%;
+	height: 60%;
+	border:1px black dotted;
+	display: block;
+}
+#table{
+	width: 100%;
+	height: 100%;
+}
+tr{
+	width: 100%;
+	height: auto;
+}
+
+.bill_left{
+	height: 25%;
+	width: 30%;
+	text-align: center;
+}
+
+
+.bill_right{
+	height: 25%;
+	width: 70%;
+}
+
+.bill_right textarea{
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.bill_right  input{
+	height: 50%;
+	width: 60%;
+}
+
+td button{
+	height: 100%;
+	width: 25%;
+}
+.span{
+	color:red;
+	}

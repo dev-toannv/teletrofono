@@ -57,7 +57,7 @@
 		}
 	</style>
 
-	<link rel="stylesheet" typep="text/css" href="modules/cart/noacc1.css">
+	<link rel="stylesheet" typep="text/css" href="modules/cart/cart.css">
 <script type="text/javascript">
 	
 </script>
@@ -68,12 +68,13 @@
 		</div>
 		<div id="local12">
 			<?php 
-				if(isset($_SESSION['id_customer'])){
-					require_once("modules/cart/acc.php");
+				if(isset($_GET['bill'])){
+					require_once("modules/cart/bill.php");
 				}
 				else{
 					require_once("modules/cart/noacc.php");
 				}
+				
 	 		?>
 		</div>
 	</div>

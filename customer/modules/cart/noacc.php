@@ -2,8 +2,9 @@
 		if(isset($_SESSION['cart'])){
 			$count=count($_SESSION['cart']);
 		}
+		
 ?> 
- <div>
+ <div style="width: 100%; height: auto; display: flex;justify-content: center;align-items: center;">
  	<?php 
  		if($count>0){
  			require_once("modules/cart/noacc1.php");

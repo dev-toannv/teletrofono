@@ -5,7 +5,13 @@
 
 <div style="height: auto;width: 100%;display: flex;flex-direction: column;justify-content: space-around;z-index: 1;">
 	<div class='div_product'>
-
+	<?php 
+		if(isset($_GET['complete'])){
+			echo "<script type='text/javascript'>";
+ 			echo "alert('Thanh toán thành công');";
+ 			echo "</script>";
+		}
+	?>
 	<?php 
 		$dem=0;
 		while($row=mysqli_fetch_assoc($query_sql19)){
