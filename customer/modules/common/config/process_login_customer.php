@@ -10,6 +10,7 @@
 			$row=mysqli_fetch_assoc($result);
 			$_SESSION['acc']=$row['customer_account'];
 			$_SESSION['pass']=$row['customer_password'];
+			$_SESSION['id_customer']=$row['id'];
 			$_SESSION['username']=$row['customer_name'];
 			header("Location:index.php");
 		}

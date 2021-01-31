@@ -67,7 +67,14 @@
             var url = b.src;
             a.src=url;
         }
-        
+        function abc(){
+        	document.getElementById("product_detail").style.display = "block";
+        	document.getElementById("product_container").style.height = "765px";
+        }
+        function cba(){
+        	document.getElementById("product_detail").style.display = "none";
+        	document.getElementById("product_container").style.height = "1270px";
+        }
     </script>
 </head>
 <body>
@@ -112,12 +119,15 @@
 					</div>
 					<div id="a2_sale">
 						<div id="a2_sale_left">
-							<p align="left">- Khách hàng khi thanh toán trên 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
+							<p align="left"> &nbsp&nbsp- Khách hàng khi thanh toán trên 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
 							<p>
-								- Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết
+								 &nbsp- Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết
 							</p>
 							<p>
-								- Khách hàng V.I.P được giảm giá 3% mọi mặt hàng 
+								&nbsp - Khách hàng V.I.P được giảm giá 3% mọi mặt hàng 
+							</p>
+							<p>
+								&nbsp - Bảo hành <?php echo $result['product_guarantee']?>&nbsp tháng
 							</p>
 							<br>
 							<p style="text-align: center">Liên hệ : 037.6886.282</p>
@@ -126,6 +136,7 @@
 							<?php
 								if($result['product_quantity']>0){
 									echo "<p id='st'>"."Tình trạng: Còn hàng"."</p>";
+
 								} 
 								else{
 									echo "<p id='st'>"."Tình trạng: Hết hàng"."</p>";
@@ -142,18 +153,37 @@
 					</div>
 					<div id="a2_addcart">
 						<?php 
-							if($result['product_status']>0){
-								echo "<a href='https://www.facebook.com/'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
-							}
-							else{
+							if($result['product_status']<=0){
 								echo "<p>"."Ngừng kinh doanh"."</p>";
 							}
+							else{
+								if($result['product_quantity']<=0){
+									echo "<p>"."Đang kinh doanh, hết hàng"."</p>";
+								}
+								else{
+									echo "<a href='index.php?module=cart&action=cart&id_product=".$id."'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
+								}
+							}
+
+
+							// if($result['product_status']>0){
+							// 	echo "<a href='index.php?module=cart&action=cart&id_product=".$id."'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
+							// }
+							// else{
+							// 	echo "<p>"."Ngừng kinh doanh"."</p>";
+							// }
 						 ?>
 					</div>
 				</div>
 			</div>
 			<div id="b">
 				<!-- An de xem chi tiet san pham -->
+				<label for="aa" style="width: 50%; height: 100%; display: inline-block;display: flex;justify-content: center;align-items: center;">
+					<div id ="label" style="width: 100%; height: 100%;">
+						Xem chi tiết sản phẩm <img src="../public/customer/tap.png" style="max-height: 60%; max-width: 60%;">
+					</div>
+				</label>
+				<button type="button" id="aa" style="display: none;" onclick="abc()"></button>
 			</div>
 			<div id="c">
 				<!-- Danh gia va binh luan -->
@@ -161,8 +191,239 @@
 		</div>
 
 		<div id="product_detail">
-			
+			<div id="left_detail">
+				<div id="x">
+					<button style="width:100%;height:100%;" onclick="cba()">
+						<img src="../public/customer/log-out.png" style="max-width:100%; max-height: 100%;">
+					</button>
+				</div>
+			</div>
+			<div id="center_detail">
+				<h2>Thông số kỹ thuật chi tiết <?php echo $result['product_name'] ?></h2>
+				
+				<div>
+					<table>
+						<!--Màn hình-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Màn hình</td>
+								</tr>
+								<tr>
+									<td>Công nghệ màn hình</td>
+									<td><?php echo $result['product_tech_screen']; ?></td>
+								</tr>
+								<tr>
+									<td>Độ phân giải</td>
+									<td> <?php echo $result['product_resolution_screen']; ?></td>
+								</tr>
+								<tr>
+									<td>Màn hình rộng</td>
+									<td><?php echo $result['product_width_screen'];  ?></td>
+								</tr>
+								<tr>
+									<td>Màn hình cảm ứng</td>
+									<td><?php echo $result['product_touch_glass']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Camera sau-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Camera sau</td>
+								</tr>
+								<tr>
+									<td>Độ phân giải</td>
+									<td><?php echo $result['product_resolution_camerarear']; ?></td>
+								</tr>
+								<tr>
+									<td>Quay phim</td>
+									<td> <?php echo $result['product_record_camerarear']; ?></td>
+								</tr>
+								<tr>
+									<td>Đèn Flash</td>
+									<td><?php echo $result['product_flash_cameraraer'];  ?></td>
+								</tr>
+								<tr>
+									<td>Tính năng</td>
+									<td><?php echo $result['product_feature_camerarear']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!-- camera truoc-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Camera trước</td>
+								</tr>
+								<tr>
+									<td>Độ phân giải</td>
+									<td><?php echo $result['product_resolution_frontcamera']; ?></td>
+								</tr>
+								<tr>
+									<td>Videl Call</td>
+									<td> <?php echo $result['product_videlcall_frontcamera']; ?></td>
+								</tr>
+								<tr>
+									<td>Tính năng</td>
+									<td><?php echo $result['product_feature_frontcamera']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Hệ điều hành & CPU-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Hệ điều hành và CPU</td>
+								</tr>
+								<tr>
+									<td>Hệ điều hành</td>
+									<td><?php echo $result['product_os']; ?></td>
+								</tr>
+								<tr>
+									<td>Chip xủ lý(CPU)</td>
+									<td> <?php echo $result['product_cpu']; ?></td>
+								</tr>
+								<tr>
+									<td>Chi tiết CPU</td>
+									<td><?php echo $result['product_specification_cpu']; ?></td>
+								</tr>
+
+								<tr>
+									<td>Chip đồ họa(GPU)</td>
+									<td><?php echo $result['product_gpu']; ?></td>
+								</tr>
+								<tr>
+									<td>Chi tiết GPU</td>
+									<td><?php echo $result['product_specification_gpu']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Bộ nhớ và bộ lưu trữ-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Bộ nhớ và bộ lưu trữ</td>
+								</tr>
+								<tr>
+									<td>RAM</td>
+									<td><?php echo $result['product_ram']; ?>GB</td>
+								</tr>
+								<tr>
+									<td>Bộ nhớ trong</td>
+									<td> <?php echo $result['product_storage']; ?>GB</td>
+								</tr>
+								<tr>
+									<td>Chi tiết CPU</td>
+									<td><?php echo $result['product_specification_cpu']; ?></td>
+								</tr>
+								<tr>
+									<td>Thẻ nhớ ngoài</td>
+									<td><?php echo $result['product_memorycard']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Kết nối-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Kết nối</td>
+								</tr>
+								<tr>
+									<td>Mạng di động</td>
+									<td><?php echo $result['product_mobilenetwork']; ?></td>
+								</tr>
+								<tr>
+									<td>SIM</td>
+									<td> <?php echo $result['product_sim']; ?></td>
+								</tr>
+								<tr>
+									<td>Wifi</td>
+									<td><?php echo $result['product_wifi']; ?></td>
+								</tr>
+								<tr>
+									<td>GPS</td>
+									<td><?php echo $result['product_gps']; ?></td>
+								</tr>
+								<tr>
+									<td>Bluetooth</td>
+									<td><?php echo $result['product_bluetooth']; ?></td>
+								</tr>
+								<tr>
+									<td>Cổng kết nối/sạc</td>
+									<td><?php echo $result['product_chargingport']; ?></td>
+								</tr>
+								<tr>
+									<td>Jack tai nghe</td>
+									<td><?php echo $result['product_jack']; ?></td>
+								</tr>
+								<tr>
+									<td>Kết nối khác</td>
+									<td><?php echo $result['product_otherconnect']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Thiết kế và trọng lượng-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Thiết kế và trọng lượng</td>
+								</tr>
+								<tr>
+									<td>Thiết kế</td>
+									<td><?php echo $result['product_design']; ?></td>
+								</tr>
+								<tr>
+									<td>Chất liệu</td>
+									<td> <?php echo $result['product_material']; ?></td>
+								</tr>
+								<tr>
+									<td>Kích thước</td>
+									<td><?php echo $result['product_size']; ?></td>
+								</tr>
+								<tr>
+									<td>Trọng lượng</td>
+									<td><?php echo $result['product_weight']; ?>g</td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Pin và sạc-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Pin và sạc</td>
+								</tr>
+								<tr>
+									<td>Dung lượng pin</td>
+									<td><?php echo $result['product_batterycapacity']; ?></td>
+								</tr>
+								<tr>
+									<td>Loại pin</td>
+									<td><?php echo $result['product_batterytype']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+						<!--Thời điểm ra mắt-->
+						<tr>
+							<td>
+								<tr>
+									<td colspan="2" class='tr'>Thông tin khác</td>
+								</tr>
+								<tr>
+									<td>Thời điểm ra mắt</td>
+									<td><?php echo $result['product_timeoflaunch']; ?></td>
+								</tr>
+						    </td>	
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="right_detail">
+				
+			</div>
 		</div>
+
 	</div>
 </body>
 </html>

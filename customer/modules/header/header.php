@@ -3,6 +3,7 @@
 	if(isset($_POST['logout'])){
 		unset($_SESSION['acc']);
 		unset($_SESSION['pass']);
+		unset($_SESSION['id_customer']);
 		header("Location:index.php");
 	}
 	if(isset($_SESSION['acc'])==false&&isset($_SESSION['pass'])==false){

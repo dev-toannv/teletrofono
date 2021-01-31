@@ -90,7 +90,7 @@
 	}
 	//----------------------------------------------------
 
-	$sql19="select id,product_name,product_price,product_manu,product_status from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
+	$sql19="select id,product_name,product_price,product_manu,product_status,product_quantity from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
 	$query_sql19=mysqli_query($conn,$sql19);
 	$aff=mysqli_num_rows($query_sql19);
 	// echo $sql19;

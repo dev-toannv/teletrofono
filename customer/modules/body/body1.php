@@ -30,12 +30,30 @@
 						echo number_format($row['product_price'],0,'','.')." VNĐ";
 					echo "</div>";
 					echo "<div class='add_cart'>";
-					if($row['product_status']>0){
-						echo "<a href='https://www.facebook.com/'><img src='../public/customer/add_cart.png' class='iii'>&nbsp&nbspThêm vào giỏ hàng</a>";
-					}
-					else{
+					if($row['product_status']<=0){
 						echo "<p style='font-size:23px;'>Ngừng kinh doanh</p>";
 					}
+					else{
+						if($row['product_quantity']<=0){
+							echo "<p style='font-size:23px;'>Hết hàng</p>";
+						}
+						else{
+							echo "<a href='index.php?module=cart&action=cart&id_product=".$id."'><img src='../public/customer/add_cart.png' class='iii'>&nbsp&nbspThêm vào giỏ hàng</a>";
+						}
+					}
+
+					// if($row['product_quantity']<=0){
+					// 	echo "<p style='font-size:23px;'>Hết hàng</p>";
+					// }
+					// else{
+					// 	if($row['product_status']>0){
+					// 	echo "<a href='index.php?module=cart&action=cart&id_product=".$id."'><img src='../public/customer/add_cart.png' class='iii'>&nbsp&nbspThêm vào giỏ hàng</a>";
+					// }
+					// else{
+					// 	echo "<p style='font-size:23px;'>Ngừng kinh doanh</p>";
+					// }
+					// }
+					
 					echo "</div>";
 				echo "</div>";
 			$dem=$dem+1;

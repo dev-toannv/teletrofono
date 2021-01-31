@@ -4,6 +4,7 @@
 	require_once("modules/config/fix_confirm_form_resubmission.php");
 	
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +29,18 @@
 		require_once("modules/infor_customer/infor.php");
 	}
 	else{
-		if(isset($_GET['product_detail'])){
-			require_once("modules/show_product/show_product.php");
-		} 
-		else{
-			require_once("modules/body/body.php");
+		if(isset($_GET['cart'])){
+			require_once("modules/cart/cart.php");
 		}
+		else{
+			if(isset($_GET['product_detail'])){
+				require_once("modules/show_product/show_product.php");
+			} 
+			else{
+				require_once("modules/body/body.php");
+			}
+		}
+		
 	}
 	
 	?>
