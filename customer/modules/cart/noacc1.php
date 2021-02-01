@@ -1,5 +1,18 @@
 
 <?php 
+	// kiem tra khi vao gio hang, neu so luong hang con lai lon hon so luong san pham trong gio hang
+	foreach ($_SESSION['cart'] as $key => $value) {
+		$sql_delete="select product_quantity from product where id = $key";
+		$delete=mysqli_fetch_assoc(mysqli_query($conn,$sql_delete));
+		$delete=$delete['product_quantity'];
+		if($_SESSION['cart'][$key]>$delete){
+			$_SESSION['cart'][$key]=$delete;
+		}
+		if($delete==0){
+			unset($_SESSION['cart'][$key]);
+		}
+	}
+
 	// lay ten hang
 	$manu=array();
 	$sql_manu="select * from manu_product";
@@ -39,6 +52,14 @@
  	if(isset($_GET['err'])){
  		echo "<script type='text/javascript'>";
  			echo "alert('Thanh toán không thành công, vui lòng nhập đủ thông tin');";
+ 		echo "</script>";
+ 	}
+ ?>
+
+  <?php 
+ 	if(isset($_GET['err1'])){
+ 		echo "<script type='text/javascript'>";
+ 			echo "alert('Thanh toán không thành công, quý khách vui lòng chọn lại số lượng sản phẩm');";
  		echo "</script>";
  	}
  ?>
