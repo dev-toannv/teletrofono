@@ -17,6 +17,8 @@
 						unset($_SESSION['s_storage']);
 						unset($_SESSION['ram_check']);
 						unset($_SESSION['storage_check']);
+						unset($_SESSION['s_color']);
+						unset($_SESSION['color_check']);
 						header("Location:index.php");
 					}
 					if(isset($_SESSION['search_manu'])){

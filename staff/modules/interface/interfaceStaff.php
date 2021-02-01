@@ -62,6 +62,11 @@
 		}
 		?>
 	</style>
+	<script type="text/javascript">
+		if ( window.history.replaceState ) {
+    		window.history.replaceState( null, null, window.location.href );
+		}
+	</script>
 	<script type="text/javascript" src="modules/staff_infor/staff_infor.js"></script>
 </head>
 <body>

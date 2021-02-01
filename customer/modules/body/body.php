@@ -17,26 +17,45 @@
 	// foreach ($manuu as $key => $value) {
 	// 	echo $key ." la ".$value;
 	// }
+	// xu lý mảng màu sắc
+	$cor=array();
+	$color="select * from color_product";
+	$color=mysqli_query($conn,$color);
+	while ($f=mysqli_fetch_assoc($color)){
+		$cor[$f['id']]=$f['color_name'];
+	}
+
+	$cos="select product_color from product group by product_color";
+	$cos=mysqli_query($conn,$cos);
 	//--------------------------------------------------------------------------
 	if(isset($_POST['reset'])){
 		unset($_SESSION['s_name']);
 		unset($_SESSION['s_ram']);
 		unset($_SESSION['s_storage']);
+		unset($_SESSION['s_color']);
 		unset($_SESSION['ram_check']);
 		unset($_SESSION['storage_check']);
+		unset($_SESSION['color_check']);
+
 	}
 	
 	// phan nay xu ly session va ra va bo nho trong khi goi cau lenh sql
-	$s_name=$s_manu=$s_ram=$s_storage=$s_storage=$ram_check="";
+	$s_name=$s_manu=$s_ram=$s_storage=$storage_check=$ram_check=$color_check="";
 	if(isset($_SESSION['s_name'])){
 		$s_name=$_SESSION['s_name'];
 	}
+
+	if(isset($_SESSION['s_color'])){
+		$s_color=$_SESSION['s_color'];
+	}
+
 	if(isset($_SESSION['s_ram'])){
 		$s_ram=$_SESSION['s_ram'];
 	}
 	if(isset($_SESSION['s_storage'])){
 		$s_storage=$_SESSION['s_storage'];
 	}
+
 
 	//-------------------------------------------------------------------
 	// phan nay de check xem ram va bo nho minh da chon la gi
@@ -46,6 +65,10 @@
 
 	if(isset($_SESSION['storage_check'])){
 		$storage_check=$_SESSION['storage_check'];
+	}
+
+	if(isset($_SESSION['color_check'])){
+		$color_check=$_SESSION['color_check'];
 	}
 	//---------------------------------------------------------------
 	// phan nay xu ly ten hang khi goi sql
@@ -62,8 +85,10 @@
 	if(isset($_POST['subsearch'])){
 		$_SESSION['s_ram']="";
 		$_SESSION['s_storage']="";
+		$_SESSION['s_color']="";
 		$_SESSION['ram_check']="";
 		$_SESSION['storage_check']="";
+		$_SESSION['color_check']="";
 		$s_name=trim($_POST['s_name']);
 		$_SESSION['s_name']=$s_name;
 		$s_name=$_SESSION['s_name'];
@@ -87,10 +112,20 @@
 			$_SESSION['s_storage']=$s_storage;
 			$s_storage=$_SESSION['s_storage'];
 		}
+
+		$s_color=$_POST['s_color'];
+		if($s_color!=""){
+			$color_check=$s_color;
+			$_SESSION['color_check']=$color_check;
+			$s_color="and product_color = '$s_color'";
+			$_SESSION['s_color']=$s_color;
+			$s_color=$_SESSION['s_color'];
+		}
+
 	}
 	//----------------------------------------------------
 
-	$sql19="select id,product_name,product_price,product_manu,product_status,product_quantity from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu";
+	$sql19="select id,product_name,product_price,product_manu,product_status,product_quantity from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu $s_color";
 	$query_sql19=mysqli_query($conn,$sql19);
 	$aff=mysqli_num_rows($query_sql19);
 	// echo $sql19;
@@ -154,6 +189,23 @@
 							echo "</option>";
 						}
 					?>
+			</select>
+			<br>
+			<select name="s_color">
+				<option value="">Màu sắc</option>
+				<?php 
+					while ($co=mysqli_fetch_assoc($cos)){
+							$id_co=$co['product_color'];
+						if($id_co==$color_check){
+						echo "<option value='$id_co' selected>";
+							echo $cor[$id_co];
+						echo "</option>";
+						}
+						echo "<option value='$id_co'>";
+							echo $cor[$id_co];
+						echo "</option>";
+					}
+				?>
 			</select>
 			<br>
 			<button type="submit" name="subsearch">Tìm kiếm</button><br>

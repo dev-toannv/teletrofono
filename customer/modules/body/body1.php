@@ -8,7 +8,7 @@
 	<?php 
 		if(isset($_GET['complete'])){
 			echo "<script type='text/javascript'>";
- 			echo "alert('Thanh toán thành công');";
+ 			echo "alert('Thanh toán thành công, bộ phận nhân viên sẽ liên lạc với bạn để hoàn thành hóa đơn');";
  			echo "</script>";
 		}
 	?>

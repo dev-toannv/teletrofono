@@ -180,7 +180,7 @@
 				<!-- An de xem chi tiet san pham -->
 				<label for="aa" style="width: 50%; height: 100%; display: inline-block;display: flex;justify-content: center;align-items: center;">
 					<div id ="label" style="width: 100%; height: 100%;">
-						Xem chi tiết sản phẩm <img src="../public/customer/tap.png" style="max-height: 60%; max-width: 60%;">
+						Xem thông số kỹ thuật <img src="../public/customer/tap.png" style="max-height: 60%; max-width: 60%;">
 					</div>
 				</label>
 				<button type="button" id="aa" style="display: none;" onclick="abc()"></button>

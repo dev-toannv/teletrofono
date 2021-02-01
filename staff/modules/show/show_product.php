@@ -10,6 +10,7 @@
 		}
 	</style>
 		<form action="" method="POST" style="display:inline-block">
+			<input type="number" id='s_id' name='s_id' placeholder="id" style="width: 50px;text-align: center;">
 			<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:250px; text-align: center;">
 			<select name="s_manu">
 					<option value="">Chọn hãng</option>

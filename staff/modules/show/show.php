@@ -23,6 +23,15 @@
 		$ra=$_POST['s_ram'];
 		$na=trim($_POST['s_name']);
 		$sto=$_POST['s_storage'];
+		$sid=$_POST['s_id'];
+
+		if(!empty($sid)){
+			$sid="and "."id=".$sid;
+		}
+		else{
+			$sid="";
+		}
+
 		if(!empty($na)){
 			$na="product_name "."like'%".$na."%'";
 		}
@@ -50,7 +59,7 @@
 		else{
 			$sto="";
 		}
-		$sql="select id,product_name,product_manu,product_color,product_quantity,product_price,product_status,product_ram,product_storage from product where $na $ma $ra $sto";
+		$sql="select id,product_name,product_manu,product_color,product_quantity,product_price,product_status,product_ram,product_storage from product where $na $sid $ma $ra $sto";
 		$soluong=1;
 	}
 	$re=mysqli_query($conn,$sql);
