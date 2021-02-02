@@ -20,7 +20,7 @@
 				else{	
 						$_SESSION['admin_acc']=$acc;
 						$_SESSION['admin_pass']=$pass;
-						header("Location:index.php?module=interface&action=interfaceAdmin");
+						header("Location:index.php");
 				}
 
 		}

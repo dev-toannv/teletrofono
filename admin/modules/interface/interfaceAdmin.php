@@ -1,10 +1,11 @@
 <?php 
 	session_start();
 	if(isset($_SESSION['admin_acc'])==false || isset($_SESSION['admin_pass'])==false){
-		header("Location:index.php");
+		header("Location:index.php?module=common&action=login");
 	}
 	if(isset($_POST['sub'])){
-		session_destroy();
+		unset($_SESSION['admin_acc']);
+		unset($_SESSION['admin_pass']);
 		header("Location:index.php");
 	}
 ?>
@@ -22,43 +23,9 @@
 	</div>
 	<!--Đây là khu vực giao diện của admin-->
 	<div id="body">
-		<div id="content">
-			<table cellspacing="10px">
-				<tr id="row1">
-					<td id="infor" class="col">
-						<a href="index.php?module=inforAdmin&action=inforAdmin">Thông tin ADMIN</a>
-					</td>
-					<td id="staff" class="col">
-						<a href="index.php?module=staff&action=staffManagement">Nhân viên</a>
-					</td>
-				</tr>
-				<tr id="row2">
-					<td id="supplier" class="col">
-						<a href="index.php?module=supplier&action=supplierManagement">Về sản phẩm</a>
-					</td>
-					<td id="bill" class="col">
-						<a href="index.php?module=bill&action=billManagement">Hóa đơn</a>
-					</td>
-				</tr>
-				<tr id="row3">
-					<td id="revenue" class="col" colspan="2">
-						<a href="index.php?module=revenue&action=revenueManagement">Doanh thu</a>
-					</td>
-				</tr>
-				<tr id="row4">
-					<td id="dangxuat" class="col" colspan="2" >
-						<form action="" method="POST">
-							<label for="sub">
-								<div id="label">
-									Đăng xuất
-								</div>
-							</label>
-							<button id="sub" name="sub" type="submit" style="display:none"></button>
-						</form>
-					</td>
-				</tr>
-			</table>
-		</div>
+		<?php 
+			require_once("modules/interface/main.php");
+		?>
 	</div>
 </body>
 </html>
