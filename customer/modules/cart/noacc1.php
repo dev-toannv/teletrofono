@@ -79,11 +79,19 @@
 		<th class="money" style="height:55px">*</th>
 	</tr>
 	<?php 
+
+		$cor=array();
+		$color="select * from color_product";
+		$color=mysqli_query($conn,$color);
+		while ($f=mysqli_fetch_assoc($color)){
+			$cor[$f['id']]=$f['color_name'];
+		}
+
 		$c=0;
 		$money=0;
 		foreach ($_SESSION['cart'] as $key => $value) {
 			$c+=1;
-			$sql="select id, product_manu, product_price, product_name from product where id= '$key'";
+			$sql="select id, product_manu, product_price, product_name, product_color from product where id= '$key'";
 			$se=mysqli_fetch_assoc(mysqli_query($conn,$sql));
 			$manu1=$manu[$se['product_manu']];
 			$image="select image_name from image where product_id = $key limit 1";
@@ -98,7 +106,7 @@
 				echo "<td class='name'>";
 					// ten va anh
 					echo "<div class='n1'>";
-						echo $se['product_name'];
+						echo $se['product_name']." /".$cor[$se['product_color']] ;
 					echo "</div>";
 
 					echo "<div class = 'n2'>";

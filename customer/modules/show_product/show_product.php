@@ -1,6 +1,14 @@
 <link rel="stylesheet" type="text/css" href="modules/show_product/show_product.css">
 <?php
 	require_once("modules/config/connectdb.php");
+
+	$cor=array();
+	$color="select * from color_product";
+	$color=mysqli_query($conn,$color);
+	while ($f=mysqli_fetch_assoc($color)){
+		$cor[$f['id']]=$f['color_name'];
+	}
+
 	$manu=array();
 	$pic=array();
 	if(isset($_GET['product_detail'])){
@@ -29,7 +37,7 @@
 					$pic[$i]=$folder.$b['image_name'];
 				}
 			}
-			// xu ly path den 3 anh chinh
+			
 
 		}
 		else{
@@ -134,6 +142,7 @@
 						</div>
 						<div id="a2_sale_right">
 							<?php
+								echo "<p>".'Màu sắc : '.$cor[$result['product_color']]."</p>";
 								if($result['product_quantity']>0){
 									echo "<p id='st'>"."Tình trạng: Còn hàng"."</p>";
 

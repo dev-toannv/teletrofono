@@ -11,7 +11,7 @@
 #body_search{
 	width:18%;
 	max-width: 18%;
-	height: auto;
+	height: 360px;
 	/*border-right:1px black solid;*/
 	background: #ebebeb;
 	position: fixed;
@@ -175,3 +175,32 @@
   	text-overflow: ellipsis;
 }
 
+#fo{
+	width: 100%;
+	height: 100%;
+}
+
+#fo1{
+	width: 100%;
+	height: 75%;
+}
+
+#fo2{
+	width: 100%;
+	height: 25%;
+}
+
+.fo21{
+	width: 50%;
+	height: 100%;
+	float: left;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.fo21 button{
+	width: 85%;
+	height: 85%;
+	font-size: 15px;
+}

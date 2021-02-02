@@ -28,40 +28,25 @@
 					<td id="infor" class="col">
 						<a href="index.php?module=inforAdmin&action=inforAdmin">Thông tin ADMIN</a>
 					</td>
-					<td id="customer" class="col">
-						<a href="index.php?module=customer&action=customerManagement">Khách hàng</a>
-					</td>
 					<td id="staff" class="col">
 						<a href="index.php?module=staff&action=staffManagement">Nhân viên</a>
-					</td>
-					<td id="product" class="col">
-						<a href="index.php?module=product&action=productManagement">Sản phẩm</a>
 					</td>
 				</tr>
 				<tr id="row2">
 					<td id="supplier" class="col">
-						<a href="index.php?module=supplier&action=supplierManagement">Nhà cung cấp</a>
+						<a href="index.php?module=supplier&action=supplierManagement">Về sản phẩm</a>
 					</td>
 					<td id="bill" class="col">
 						<a href="index.php?module=bill&action=billManagement">Hóa đơn</a>
 					</td>
-					<td id="history" class="col">
-						<a href="index.php?module=history&action=historyManagement">Nhật ký</a>
-					</td>
-					<td id="ConceptPage" class="col">
-						<a href="index.php?module=ConceptPage&action=ConceptManagement">Concept</a>
-					</td>
 				</tr>
 				<tr id="row3">
-					<td id="importProduct" class="col" colspan="2">
-						<a href="index.php?module=importProduct&action=importManagement">Nhập hàng</a>
-					</td>
 					<td id="revenue" class="col" colspan="2">
 						<a href="index.php?module=revenue&action=revenueManagement">Doanh thu</a>
 					</td>
 				</tr>
 				<tr id="row4">
-					<td id="dangxuat" class="col" colspan="4" >
+					<td id="dangxuat" class="col" colspan="2" >
 						<form action="" method="POST">
 							<label for="sub">
 								<div id="label">

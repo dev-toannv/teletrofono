@@ -240,6 +240,7 @@ td{
 	width: 30%;
 	float: left;
 	display: flex;
+	flex-direction:column;
   	justify-content: center;
   	align-items: center;
   	font-size:130%;

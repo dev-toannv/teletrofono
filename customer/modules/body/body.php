@@ -36,6 +36,7 @@
 		unset($_SESSION['ram_check']);
 		unset($_SESSION['storage_check']);
 		unset($_SESSION['color_check']);
+		unset($_GET['page']);
 
 	}
 	
@@ -154,69 +155,96 @@
 ?>
 <div id="body">
 	<div id="body_search">
-		<div style="height:300px; width: 100%;">
-			<form action="" method="POST" style="display:inline-block">
-			<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:250px; text-align: center;"><br>
-			<select name="s_ram">
-					<option value="">Ram</option>
-					<?php 
-						while($result_ram=mysqli_fetch_assoc($query_ram)){
-							$product_ram=$result_ram['product_ram'];
-							if($product_ram==$ram_check){
-								echo "<option value='$product_ram' selected>";
+		<div style="height:68%; width: 100%;">
+			<div id="fo1">
+				<form action="" id="fo" method="POST" style="display:inline-block">
+				<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:100%;height: 22%; text-align: center;"><br>
+				<select name="s_ram" style="width:30%;height: 18%; text-align: center;">
+						<option value="">Ram</option>
+						<?php 
+							while($result_ram=mysqli_fetch_assoc($query_ram)){
+								$product_ram=$result_ram['product_ram'];
+								if($product_ram==$ram_check){
+									echo "<option value='$product_ram' selected>";
+										echo $result_ram['product_ram'];
+									echo "</option>";
+								}
+								echo "<option value='$product_ram'>";
 									echo $result_ram['product_ram'];
 								echo "</option>";
 							}
-							echo "<option value='$product_ram'>";
-								echo $result_ram['product_ram'];
-							echo "</option>";
-						}
-					?>
-			</select>
-			<br>
-			<select name="s_storage">
-					<option value="">Bộ nhớ trong</option>
-					<?php 
-						while($result_storage=mysqli_fetch_assoc($query_storage)){
-							$product_storage=$result_storage['product_storage'];
-							if($product_storage==$storage_check){
-								echo "<option value='$product_storage' selected>";
+						?>
+				</select>
+				<br>
+				<select name="s_storage" style="width:30%;height: 18%; text-align: center;">
+						<option value="">Bộ nhớ trong</option>
+						<?php 
+							while($result_storage=mysqli_fetch_assoc($query_storage)){
+								$product_storage=$result_storage['product_storage'];
+								if($product_storage==$storage_check){
+									echo "<option value='$product_storage' selected>";
+										echo $result_storage['product_storage'];
+									echo "</option>";
+								}
+								echo "<option value='$product_storage'>";
 									echo $result_storage['product_storage'];
 								echo "</option>";
 							}
-							echo "<option value='$product_storage'>";
-								echo $result_storage['product_storage'];
+						?>
+				</select>
+				<br>
+				<select name="s_color" style="width:30%;height: 18%; text-align: center;">
+					<option value="">Màu sắc</option>
+					<?php 
+						while ($co=mysqli_fetch_assoc($cos)){
+								$id_co=$co['product_color'];
+							if($id_co==$color_check){
+							echo "<option value='$id_co' selected>";
+								echo $cor[$id_co];
+							echo "</option>";
+							}
+							echo "<option value='$id_co'>";
+								echo $cor[$id_co];
 							echo "</option>";
 						}
 					?>
-			</select>
-			<br>
-			<select name="s_color">
-				<option value="">Màu sắc</option>
-				<?php 
-					while ($co=mysqli_fetch_assoc($cos)){
-							$id_co=$co['product_color'];
-						if($id_co==$color_check){
-						echo "<option value='$id_co' selected>";
-							echo $cor[$id_co];
-						echo "</option>";
-						}
-						echo "<option value='$id_co'>";
-							echo $cor[$id_co];
-						echo "</option>";
-					}
-				?>
-			</select>
-			<br>
-			<button type="submit" name="subsearch">Tìm kiếm</button><br>
-			<button type="submit" name="reset">Xóa các lựa chọn</button>
+				</select>
+			</div>
+			<div id="fo2">
+				<div class="fo21">
+					<button type="submit" name="subsearch">Tìm kiếm</button>
+				</div>
+				<div class="fo21">
+					<button type="submit" name="reset">Xóa các lựa chọn</button>
+				</div>
+				
+			</div>
+			
  
 		</form>
-		<?php 
-				for($i=1;$i<=$pages;$i++){
-					echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";
-				}
-			?>
+		
+		</div>
+		<div style="width: 100%;height: 32%">
+			<div style="width: 100%;height: 75%; border-top:1px dotted black;border-bottom:1px dotted black; ">
+				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: center;align-items: center;" >
+					Trang : 
+				</div>
+
+				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: right;align-items: center;">
+					<?php 
+						for($i=1;$i<=$pages;$i++){
+							echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";
+						}
+					?>
+				</div>
+				
+			</div>
+			<div style="width: 100%;height: 25%; display: flex;justify-content: center;align-items: center;">
+				<?php 
+					echo "Trang hiện tại : ".$page;
+				 ?>
+			</div>
+
 		</div>
 	</div>
 	<div id="body_show_product">
