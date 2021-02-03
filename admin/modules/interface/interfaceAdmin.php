@@ -19,12 +19,38 @@
 </head>
 <body>
 	<div id="header">
-		<img src="modules/interface/img/logo3.png"  id="logo"alt="">
+		<a href="index.php"><img src="modules/common/img/logo3.png" id="logo"></a>
 	</div>
 	<!--Đây là khu vực giao diện của admin-->
 	<div id="body">
-		<?php 
-			require_once("modules/interface/main.php");
+	<div>
+	</div>
+		<?php
+			if(!isset($_GET['infor']) && !isset($_GET['staff']) && !isset($_GET['supplier']) && !isset($_GET['bill']) && !isset($_GET['revenue'])){
+				require_once("modules/interface/main.php");
+			}
+			else{
+				if(isset($_GET['infor'])){
+					require_once("modules/inforAdmin/inforAdmin.php");
+				}
+				else if(isset($_GET['staff'])){
+					require_once("modules/staff/staffManagement.php");
+				}
+				else if(isset($_GET['supplier'])){
+					require_once("modules/supplier/supplierManagement.php");
+				}
+				else if(isset($_GET['bill'])){
+					require_once("modules/bill/billManagement.php");
+				}
+				else if(isset($_GET['revenue'])){
+					require_once("modules/revenue/revenueManagement.php");
+				}
+				else{
+					require_once("modules/interface/main.php");
+				}
+			}
+			
+			
 		?>
 	</div>
 </body>
