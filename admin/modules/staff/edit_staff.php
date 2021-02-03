@@ -1,93 +1,84 @@
 <?php 
-	require_once("modules/config/connectdb.php");
-	if(isset($_POST['sub_add'])){
-		$manager_code=$_POST['manager_code'];
-		$manager_name=$_POST['manager_name'];
-		$manager_password=$_POST['manager_password'];
-		$manager_email=$_POST['manager_email'];
-		$manager_sex=$_POST['manager_sex'];
-		$manager_dob=$_POST['manager_dob'];
-		$manager_address=$_POST['manager_address'];
-		$manager_hometown=$_POST['manager_hometown'];
-
-		$sql="insert into manager(id,manager_code,manager_name,manager_password,manager_email,manager_sex,manager_dob,manager_address,manager_hometown,manager_timestart,user_type,manager_status) values(null,'$manager_code','$manager_name','$manager_password','$manager_email','$manager_sex','$manager_dob','$manager_address','$manager_hometown',now(),2,1)";
-		$c=mysqli_query($conn,$sql);
-		if(!$c){
-			echo "<script>";
-				echo "alert('Thêm thất bại, vui lòng nhập lại thông tin')";
-			echo "</script>";
+	$s_id="";
+	$s_code="";
+	$s_email="";
+	$s_status="";
+	$user=array(1 => 'ADMIN', 2=> 'STAFF');
+	$status=array(0=>"Nghỉ làm", 1=> 'Đang làm');
+	if(isset($_POST['s_sub'])){
+		if($_POST['s_id']!=""){
+			$s_id=$_POST['s_id'];
+			$s_id=" and id = '$s_id'";
+		}
+		if($_POST['s_code']!=""){
+			$s_code=trim($_POST['s_code']);
+			$s_code=" and manager_code='$s_code'";
+		}
+		if($_POST['s_email']!=""){
+			$s_email=trim($_POST['s_email']);
+		}
+		if($_POST['s_status']!=""){
+			$s_status=$_POST['s_status'];
+			$s_status=" and manager_status='$s_status'";
 		}
 	}
+	$sql_s="select id,manager_code,manager_name,manager_email,user_type,manager_status from manager where manager_email like'%$s_email%' $s_id $s_code $s_status and id != 1";
+	$a=mysqli_query($conn,$sql_s);
 ?>
-<script type="text/javascript">
-	function validate(){
-		var a= document.getElementById("manager_code");
-		var b= document.getElementById("manager_name");
-		var c = document.getElementById("manager_email");
-		var d = document.getElementById("manager_address");
-		var e = document.getElementById("manager_hometown");
-		var flag = 1;
-		const check = /^[0-9]{12}$;
-		const check2= /^[a-zA-Z0-9_]{1,70}[@gmail.]{1}[com]{1}$/;
-		if(check.test(a) == false){
-			a.classList.add("error");
-			flag = 0;
-		}
-
-		if(b.value == "" || b.length <= 0){
-			b.classList.add("error");
-			flag = 0;
-		}
-
-		if(d.value == "" || d.length <= 0){
-			d.classList.add("error");
-			flag = 0;
-		}
-
-		if(e.value == "" || e.length <= 0){
-			e.classList.add("error");
-			flag = 0;
-		}
-
-		if(check2.test(c)==false){
-			c.classList.add("error");
-			flag = 0;
-		}
-
-		if(flag == 0){
-			
-			alert("Thêm thất bại, vui lòng nhập lại thông tin");
-			return false;
-		}
-		else{
-			return true;
-		}
-
-	}
-</script>
-<style type="text/css">
-	.error::placeholder {
-			  color: red;
-			  opacity: 1;
-		}
-</style>
-<div id="add">
-	<form action="" method="POST" onsubmit="return validate()">
-	<div id="add_right">
-		
-			<input type="text" name="manager_code" id="manager_code" placeholder="Mã nhân viên (Số căn cước)" maxlength="12"><br>
-			<input type="text" name="manager_name" id="manager_name" placeholder="Tên nhân viên"><br>
-			<input type="text" name="manager_password" id="manager_password" required placeholder="Mật khẩu"><br>
-			<input type="text" name="manager_email" id="manager_email" placeholder="EMAIL"><br>
-			Giới tính&nbsp&nbsp&nbsp&nbsp<select name="manager_sex" id="manager_sex">
-				<option value="1">Nam</option>
-				<option value="0">Nữ</option>
-			</select><br>
-			Ngày sinh &nbsp<input type="date" name="manager_dob" id="manager_dob"><br>
-			<textarea name="manager_address" id="manager_address" placeholder="Địa chỉ hiện tại"></textarea><br>
-			<textarea name="manager_hometown" id="manager_hometown" placeholder="Quê quán"></textarea><br>
-			<button type="submit" name="sub_add">Thêm</button>
+<div id="container_edit">
+	<div id="search_edit">
+		<form action="" method="POST" id="formsearch">
+			<input type="number" min="1" name="s_id" placeholder="id" style="width:5%">
+			<input type="text" name="s_code" placeholder="Mã nhân viên">
+			<input type="text" name="s_email" placeholder="Email">
+			<select name="s_status" id="">
+				<option value="">Tất cả</option>
+				<option value="1">Đang làm</option>
+				<option value="0">Nghỉ làm</option>
+			</select>
+			<button type="submit" name="s_sub" style="width:10%">Tìm kiếm</button>
+		</form>
 	</div>
-	</form>
-	
+	<div id="body_edit">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Mã NV</th>
+				<th>Tên NV, email</th>
+				<th>Cấp độ</th>
+				<th>Tình trạng</th>
+				<th>Thao tác</th>
+			</tr>
+			<?php 
+				while($row=mysqli_fetch_assoc($a)){
+					echo "<tr>";
+						echo "<td>";
+							echo $row['id'];
+						echo "</td>";
+						echo "<td>";
+							echo $row['manager_code'];
+						echo "</td>";
+
+						echo "<td>";
+							echo $row['manager_name']."<br>";
+							echo $row['manager_email'];
+						echo "</td>";
+
+						echo "<td>";
+							echo $user[$row['user_type']];
+						echo "</td>";
+
+						echo "<td>";
+							echo $status[$row['manager_status']];
+						echo "</td>";
+
+						echo "<td>";
+							echo "<a href='?staff&edit_staff&id_edit=".$row['id']."'>Chỉnh sửa</a>";
+						echo "</td>";
+					echo "</tr>";
+				}
+			?>
+		</table>
+		
+	</div>
 </div>
