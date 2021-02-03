@@ -93,7 +93,7 @@
 				<option value="1" <?php if($result['user_type']==1) echo "selected"; ?>>ADMIN</option>
 				<option value="2" <?php if($result['user_type']==2) echo "selected"; ?>>STAFF</option>
 			</select>
-			<br>
+			<br> <br>
 			Làm từ :<?php echo " ".$result['manager_timestart']; ?>
 			/ Lấy thời gian hiện tại : <input type="checkbox" name="manager_timestart" value="1">
 			<textarea name="manager_address" id="manager_address" placeholder="Địa chỉ hiện tại"><?php echo $result['manager_address']; ?></textarea><br>

@@ -2,7 +2,7 @@
 			<table cellspacing="10px">
 				<tr id="row1">
 					<td id="infor" class="col">
-						<a href="index.php?infor">Thông tin ADMIN</a>
+						<a href="index.php?infor">ADMIN</a>
 					</td>
 					<td id="staff" class="col">
 						<a href="index.php?staff">Nhân viên</a>
