@@ -23,7 +23,7 @@
 				</tr>
 				<tr id="row4">
 					<td id="dangxuat" class="col" colspan="2" >
-						<form action="" method="POST">
+						<form action="" method="POST" style="width: 100%;height: 100%">
 							<label for="sub">
 								<div id="label">
 									Đăng xuất

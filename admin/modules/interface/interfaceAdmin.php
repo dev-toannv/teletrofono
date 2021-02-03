@@ -23,8 +23,13 @@
 	</div>
 	<!--Đây là khu vực giao diện của admin-->
 	<div id="body">
-	<div>
+		<?php 
+			require_once("modules/config/connectdb.php");
+		?>
+	<div id="left">
+
 	</div>
+	<div id="center">
 		<?php
 			if(!isset($_GET['infor']) && !isset($_GET['staff']) && !isset($_GET['supplier']) && !isset($_GET['bill']) && !isset($_GET['revenue'])){
 				require_once("modules/interface/main.php");
@@ -52,6 +57,15 @@
 			
 			
 		?>
+	</div>
+	<div id="right">
+		<!-- <script>
+			if ( window.history.replaceState ) {
+	    		window.history.replaceState( null, null, window.location.href );
+			}
+		</script> -->
+	</div>
+		
 	</div>
 </body>
 </html>

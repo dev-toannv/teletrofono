@@ -96,8 +96,6 @@
 	<p>Địa chỉ hiện tại : <?php echo $row['manager_address'] ?></p>
 	<p>Quê quán : <?php echo $row['manager_hometown'] ?></p>
 	<p>Thời gian vào làm chính thức : <?php echo $row['manager_timestart'] ?></p>
-	<p>Lương cơ bản : <?php echo $row['manager_salary_basic'] ?></p>
-	<p>Lương phụ cấp : <?php echo $row['manager_allowance'] ?></p>
 	<button type="button" id="but_pass_staff" onclick="change2()">Thay đổi mật khẩu</button>
 	<form action="" id="form_edit_pass" method="POST">
 		<input type="text" name="mkht" placeholder="Mật khẩu hiện tại"><br>
