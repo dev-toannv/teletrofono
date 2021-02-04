@@ -8,7 +8,7 @@
 			<a href="index.php?supplier&color">Màu sản phẩm</a>
 		</div>
 	</div>
-	<div>
+	<div id='contents'>
 		<?php
 			if(isset($_GET['manu'])){
 				require_once("modules/supplier/manu.php");
