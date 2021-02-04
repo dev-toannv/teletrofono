@@ -8,7 +8,7 @@
 		var e = document.getElementById("manager_hometown");
 		var flag = 1;
 		const check = /^[0-9]{12}$/;
-		const check2= /^[a-zA-Z0-9_]{1,70}[@gmail.]{1}[com]{1}$/;
+		const check2= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		if(check.test(a) == false){
 			a.classList.add("error");
 			flag = 0;
