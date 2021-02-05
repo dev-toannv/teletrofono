@@ -3,7 +3,7 @@
 			$acc=$_POST['acc'];
 			$pass=$_POST['pass'];
 			$nameuser=$_POST['nameuser'];
-			$sql="insert into customer(id,customer_account,customer_password,customer_name,customer_type,user_type) values(null,'$acc','$pass','$nameuser',1,3)";
+			$sql="insert into customer(id,customer_account,customer_password,customer_name,customer_type,user_type) values(null,'$acc','$pass','$nameuser',0,3)";
 			$result=mysqli_query($conn,$sql);
 			$al=mysqli_affected_rows($conn);
 			if($al>0){

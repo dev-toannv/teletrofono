@@ -81,7 +81,7 @@
         }
         function cba(){
         	document.getElementById("product_detail").style.display = "none";
-        	document.getElementById("product_container").style.height = "1270px";
+        	document.getElementById("product_container").style.height = "770px";
         }
     </script>
 </head>
@@ -194,9 +194,9 @@
 				</label>
 				<button type="button" id="aa" style="display: none;" onclick="abc()"></button>
 			</div>
-			<div id="c">
-				<!-- Danh gia va binh luan -->
-			</div>
+			<!-- <div id="c">
+				Danh gia va binh luan
+			</div> -->
 		</div>
 
 		<div id="product_detail">
