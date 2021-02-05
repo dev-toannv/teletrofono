@@ -12,12 +12,7 @@
 					<td id="supplier" class="col">
 						<a href="index.php?supplier">Về sản phẩm</a>
 					</td>
-					<td id="bill" class="col">
-						<a href="index.php?bill">Hóa đơn</a>
-					</td>
-				</tr>
-				<tr id="row3">
-					<td id="revenue" class="col" colspan="2">
+					<td id="revenue" class="col">
 						<a href="index.php?revenue">Doanh thu</a>
 					</td>
 				</tr>

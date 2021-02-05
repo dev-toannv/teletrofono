@@ -4,6 +4,7 @@
 		unset($_SESSION['acc']);
 		unset($_SESSION['pass']);
 		unset($_SESSION['id_customer']);
+		unset($_SESSION['select']);
 		header("Location:index.php");
 	}
 	if(isset($_SESSION['acc'])==false&&isset($_SESSION['pass'])==false){

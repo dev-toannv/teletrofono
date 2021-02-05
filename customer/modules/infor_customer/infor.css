@@ -1,0 +1,43 @@
+#container_infor{
+	width: 100%;
+	height: 750px;
+}
+
+#left_c{
+	width: 18%;
+	height: 100%;
+	float: left;
+	border-top: 1px solid black;
+}
+#right_c{
+	width: 82%;
+	height: 100%;
+	border-left: 1px solid black;
+	float: left;
+	border-top: 1px solid black;
+}
+
+#infor1{
+	width: 100%;
+	height: 23%;
+	/*background-color: red;*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+#bill1{
+	width: 100%;
+	height: 23%;
+	/*background-color: blue;*/
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#infor1:hover  a{
+	background-color: #d9dad9;
+}
+
+#bill1:hover  a{
+	background-color: #d9dad9;
+}

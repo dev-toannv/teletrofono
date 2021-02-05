@@ -44,9 +44,6 @@
 				else if(isset($_GET['supplier'])){
 					require_once("modules/supplier/supplierManagement.php");
 				}
-				else if(isset($_GET['bill'])){
-					require_once("modules/bill/billManagement.php");
-				}
 				else if(isset($_GET['revenue'])){
 					require_once("modules/revenue/revenueManagement.php");
 				}

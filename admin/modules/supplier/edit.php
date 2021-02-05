@@ -14,6 +14,10 @@
 		$status=$_POST['status'];
 		$sql="update manu_product set manu_name = '$name', manu_status='$status' where id = $id";
 		mysqli_query($conn,$sql);
+		if($status==0){
+			$mysql="update product set product_status= 0 where product_manu= $id";
+			mysqli_query($conn,$mysql);
+		}
 
 		if($_FILES['manu_img']['size']>0){
 			unlink($_SESSION['image']);
