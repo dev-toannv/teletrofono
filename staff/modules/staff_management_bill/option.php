@@ -2,7 +2,9 @@
 <form action='' method='POST' style='width:100%; height:100%'>
 	<div class='form1'>
 		Thời gian giao hàng : &nbsp
-		<input type="date" name="date" value=<?php echo $active ?> >
+		<input type="date" name="date" value=<?php echo $active ?> >&nbsp
+		<div style="width: 7%;height: 50%;background-color: <?php if(!empty($active)){if($active>$t){echo "#ffef3a";}if($active<$t){echo "red";} if($active==$t){echo "green";}} else{echo "black";} ?>">
+		</div>
 	</div>
 	<div class='form1'>
 		Trạng thái đơn hàng : &nbsp

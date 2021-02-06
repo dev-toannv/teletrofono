@@ -1,7 +1,11 @@
 <?php 
 	$manager=$_SESSION['id'];
 	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=3 and bill.bill_status!=4 and bill.bill_status!=6 and active_bill.id_manager='$manager' ";
+	date_default_timezone_set("Asia/Ho_Chi_Minh");
+	
 	$sql=mysqli_query($conn,$sql);
+	$t=time();
+	$t=date("Y-m-d",$t);
 
 	if(isset($_POST['update'])){
 		$id_pro=$_POST['id_pro'];
