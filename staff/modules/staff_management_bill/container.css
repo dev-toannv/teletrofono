@@ -1,0 +1,48 @@
+#container{
+	border:none;
+}
+
+#task{
+	width: 100%;
+	height: 4%;
+	border:1px solid black;
+}
+#body_bill{
+	width: 100%;
+	height:96%;
+}
+
+#waiting{
+	height: 100%;
+	width: 33.333333333%;
+	float: left;
+	border-right:1px solid black;; 
+}
+#processing{
+	height: 100%;
+	width: 33.333333333%;
+	float: left;
+}
+#all_bill{
+	height: 100%;
+	width: 33.333333333%;
+	float: left;
+	border-left:1px solid black;;
+}
+
+.task{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	text-decoration: none;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size: 150%;
+  	color:black;
+}
+
+.task:hover{
+	background-color: #e9e2ec;
+	color: red;
+}

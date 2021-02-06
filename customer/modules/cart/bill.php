@@ -51,6 +51,14 @@
 					mysqli_query($conn,$update);
 				}
 				// update lai tong so tien cua bill
+				$type="select customer_type from customer where id = '$cus_id'";
+				$type=mysqli_query($conn,$type);
+				$type=mysqli_fetch_assoc($type);
+				$type=$type['customer_type'];
+				if($type==1){
+					$total=$total - ($total*3)/100;
+				}
+
 				$update2="update bill set bill_money = $total where id = $id_bill";
 				mysqli_query($conn,$update2);
 
@@ -121,5 +129,6 @@
 				</span>
 			</table>
 			<p style="text-align: center; color:red; margin-top: 17px">Những nơi đánh dấu * không được để trống</p>
+			<p style="text-align: center; color:red; margin-top: 17px">Thời gian nhận hàng từ 3 đến 7 ngày</p>
 		</form>
 </div>

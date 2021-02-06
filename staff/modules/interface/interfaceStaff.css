@@ -1,10 +1,11 @@
 *{
 	box-sizing: border-box;
+	margin-top: 0%;
 }
 
 #container{
 	width: 100%;
-	height:2900px;
+	height:1300px;
 	display: flex;
   	justify-content: center;
   	border: 1px green solid;
@@ -22,6 +23,6 @@
 
 #right{
 	width:80%;
-	height: 2500px;
+	height: 100%;
 	float: left;
 }

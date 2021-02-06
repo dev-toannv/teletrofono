@@ -15,7 +15,7 @@
 				$result=mysqli_query($conn,$sql);
 				$count=mysqli_num_rows($result);
 				if($count<=0){
-					$error="You are not an administrator";
+					$error="You are not the administrator";
 				}
 				else{	
 						$_SESSION['admin_acc']=$acc;
