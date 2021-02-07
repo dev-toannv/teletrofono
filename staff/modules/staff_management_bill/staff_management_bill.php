@@ -53,10 +53,10 @@
 			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=waiting" class="task">Hóa đơn đang chờ</a>
 		</div>
 		<div id="processing">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Hóa đơn đang xử lý</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Hóa đơn đang xử lý bởi tôi</a>
 		</div>
 		<div id="all_bill">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=all" class="task">Tất cả hóa đơn</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=all" class="task">Tất cả hóa đơn đã xử lý</a>
 		</div>
 	</div>
 	<div id="body_bill">

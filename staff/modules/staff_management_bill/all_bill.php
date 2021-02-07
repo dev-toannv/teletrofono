@@ -26,28 +26,60 @@
 		}
 
 	}
-
+	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
+	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận không nhận", 6 =>"Được xóa");
 	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=1 and bill.bill_status!=2 and bill.bill_status!=5 $s_idmanager $s_status $s_date $ss ";
 	$sql=mysqli_query($conn,$sql);
 ?>
 
-<link rel="stylesheet" type="text/css" href="modules/staff_management_bill/processing.css">
-<div style="width: 100%; height: 50px">
-	<form action="" method="POST">
-		<input type="number" name='s_idmanager' min="1">
-		<select name="s_status">
-			<option value="">--Tình trạng--</option>
-			<option value="3">Giao hàng thành công</option>
-			<option value="4">Khách không nhận</option>
-			<option value="6">Bị xóa</option>
-		</select>
-		<input type="date" name='s_date'>
-		<select name="ss">
-			<option value="">--Sắp xếp theo--</option>
-			<option value="1">Từ trước tới nay</option>
-			<option value="2">Mới nhất</option>
-		</select>
-		<button type="submit" name='s_sub'>Tìm kiếm</button>
+<link rel="stylesheet" type="text/css" href="modules/staff_management_bill/all_bill.css">
+<div style="width: 100%; height: 60px;display: flex;justify-content: center;align-items: center; ">
+	<form action="" method="POST" style="width: 100%; height: 100%;">
+		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
+			<div class='bar1'>
+				ID nhân viên 
+			</div>
+			<div class='bar1'>
+				Tình trạng
+			</div>
+			<div class='bar1'>
+				Ngày nhận hàng
+			</div>
+			<div class='bar1'>
+				Trạng thái đơn hàng
+			</div>
+			<div class='bar1'>
+				*
+			</div>
+		</div>
+		<div style="width: 100%; height: 50%;">
+
+			<div class='bar1'>
+				<input type="number" name='s_idmanager' min="1" placeholder="ID">
+			</div>
+			<div class='bar1'>
+				<select name="s_status">
+					<option value="">--Tất cả--</option>
+					<option value="3">Giao hàng thành công</option>
+					<option value="4">Khách không nhận</option>
+					<option value="6">Bị xóa</option>
+				</select>
+			</div>
+			<div class='bar1'>
+				<input type="date" name='s_date'>
+			</div>
+			<div class='bar1'>
+				<select name="ss">
+					<option value="">--Mặc định--</option>
+					<option value="1">Từ trước tới nay</option>
+					<option value="2">Mới nhất</option>
+				</select>
+			</div>
+			<div class='bar1'>
+				<button type="submit" name='s_sub'>Tìm kiếm</button>
+			</div>
+		</div>
+		
 	</form>
 </div>
 
@@ -56,6 +88,12 @@
 		while ($a=mysqli_fetch_assoc($sql)){
 			$id_bill=$a['id'];
 			$id_cus=$a['customer_id'];
+			// lay type cua manager
+			$type_manager=$a['id_manager'];
+			$type_manager="select user_type from manager where id = $type_manager";
+			$type_manager=mysqli_query($conn,$type_manager);
+			$type_manager=mysqli_fetch_assoc($type_manager);
+			$type_manager=$type_manager['user_type'];
 			// lay type khach hang
 			$type="select customer_type from customer where id = '$id_cus'";
 			$type=mysqli_query($conn,$type);
@@ -70,6 +108,16 @@
 			// lay time receive ben active
 			$active="select time_receive from active_bill where id_bill='$id_bill' and id_manager='$manager'";
 			$active=mysqli_query($conn,$active);
+			$active=mysqli_fetch_assoc($active);
+			$active=$active['time_receive'];
+			if(!empty($active)){
+				$date=date_create($active);
+				$date=date_format($date,"Y/m/d");
+			}
+			else{
+				$date="Chưa nhập ngày";
+			}
+			
 			// lay tat ca san pham thuoc bill trong bill_detail
 			$detail="select * from bill_detail where id_bill='$id_bill' ";
 			$detail=mysqli_query($conn,$detail);
@@ -160,11 +208,18 @@
 				echo "</div>";
 
 				echo "<div class='task3'>";
-
+					echo "Địa chỉ : ".$a['bill_address'];
 				echo "</div>";
 
 				echo "<div class='task4'>";
-
+				echo "<div class='t41'>";
+					echo "Thời gian nhận hàng : ".$date;
+				echo "</div>";
+					
+				echo "<div class='t42'>";
+					echo $stt[$a['bill_status']]." bởi ".$arr[$type_manager].' với ID : '.$a['id_manager'] ;
+				echo "</div>";
+				
 				echo "</div>";
 			echo "</div>";
 		}
