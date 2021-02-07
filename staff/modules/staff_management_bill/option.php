@@ -3,8 +3,10 @@
 	<div class='form1'>
 		Thời gian giao hàng : &nbsp
 		<input type="date" name="date" value=<?php echo $active ?> >&nbsp
+		<!-- cho mau theo trang ngay thang ma giao don hang, mau den-> chua chon ngay, mau vang -> ngay giao hang> ngay hien tai, mau do -> ngay giao hang < ngay hien tai, mau xanh -> ngay giao hang=ngay hien tai -->
 		<div style="width: 7%;height: 50%;background-color: <?php if(!empty($active)){if($active>$t){echo "#ffef3a";}if($active<$t){echo "red";} if($active==$t){echo "green";}} else{echo "black";} ?>">
 		</div>
+
 	</div>
 	<div class='form1'>
 		Trạng thái đơn hàng : &nbsp

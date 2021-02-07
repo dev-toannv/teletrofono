@@ -1,11 +1,56 @@
 <?php 
-	$manager=$_SESSION['id'];
-	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=3 and bill.bill_status!=4 and active_bill.id_manager='$manager' ";
+	// $manager=$_SESSION['id'];
+	$s_idmanager=$s_status=$s_date=$ss="";
+	if(isset($_POST['s_sub'])){
+		$s_idmanager=$_POST['s_idmanager'];
+		$s_status=$_POST['s_status'];
+		$s_date=$_POST['s_date'];
+		$ss=$_POST['ss'];
+
+		if(!empty($s_idmanager)){
+			$s_idmanager=" and active_bill.id_manager=$s_idmanager ";
+		}
+		if(!empty($s_status)){
+			$s_status=" and bill.bill_status = '$s_status' ";
+		}
+		if(!empty($s_date)){
+			$s_date=" and active_bill.time_receive = '$s_date' ";
+		}
+		if(!empty($ss)){
+			if($ss==1){
+				$ss=" order by active_bill.time_receive ASC";
+			}
+			if($ss==2){
+				$ss=" order by active_bill.time_receive DESC";
+			}
+		}
+
+	}
+
+	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=1 and bill.bill_status!=2 and bill.bill_status!=5 $s_idmanager $s_status $s_date $ss ";
 	$sql=mysqli_query($conn,$sql);
-	
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/processing.css">
+<div style="width: 100%; height: 50px">
+	<form action="" method="POST">
+		<input type="number" name='s_idmanager' min="1">
+		<select name="s_status">
+			<option value="">--Tình trạng--</option>
+			<option value="3">Giao hàng thành công</option>
+			<option value="4">Khách không nhận</option>
+			<option value="6">Bị xóa</option>
+		</select>
+		<input type="date" name='s_date'>
+		<select name="ss">
+			<option value="">--Sắp xếp theo--</option>
+			<option value="1">Từ trước tới nay</option>
+			<option value="2">Mới nhất</option>
+		</select>
+		<button type="submit" name='s_sub'>Tìm kiếm</button>
+	</form>
+</div>
+
 <div id="container_processing">
 	<?php 
 		while ($a=mysqli_fetch_assoc($sql)){
@@ -16,6 +61,12 @@
 			$type=mysqli_query($conn,$type);
 			$type=mysqli_fetch_assoc($type);
 			$type=$type['customer_type'];
+			if($type==0){
+				$khuyenmai="Không có giảm giá";
+			}
+			else{
+				$khuyenmai="Đã giảm 3% khách VIP";
+			}
 			// lay time receive ben active
 			$active="select time_receive from active_bill where id_bill='$id_bill' and id_manager='$manager'";
 			$active=mysqli_query($conn,$active);
@@ -103,7 +154,8 @@
 				// tong tien
 					echo "<div style='width:20%; height:100%; float:left;display: flex;justify-content: center;align-items: center;border-left:1px solid black;border-bottom:2px solid #068604'>";
 						echo "Tổng tiền :"."<br>";
-						echo  number_format($a['bill_money'],0,'','.')." VNĐ";
+						echo  number_format($a['bill_money'],0,'','.')." VNĐ"."<br><br>";
+						echo $khuyenmai;;
 					echo "</div>";
 				echo "</div>";
 

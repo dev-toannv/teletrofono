@@ -1,8 +1,16 @@
 <?php 
 	$manager=$_SESSION['id'];
+	// lay type cua manager de them neu manager xoa bill
+	$manager_type="select user_type from manager where id = $manager";
+	$manager_type=mysqli_query($conn,$manager_type);
+	$manager_type=mysqli_fetch_assoc($manager_type);
+	$manager_type=$manager_type['user_type'];
+
 	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=3 and bill.bill_status!=4 and bill.bill_status!=6 and active_bill.id_manager='$manager' ";
 	date_default_timezone_set("Asia/Ho_Chi_Minh");
 	
+
+
 	$sql=mysqli_query($conn,$sql);
 	$t=time();
 	$t=date("Y-m-d",$t);
@@ -39,6 +47,12 @@
 
 					$sql1="update bill set bill_status = $select where id = $id_pro";
 					mysqli_query($conn,$sql1);
+				}
+				// kiem tra neu xoa thi them user_type cua nguoi xoa vao (khach hang cung co the xoa)
+				
+				if($select==6){
+					$da="update bill set user_delete = $manager_type where id = $id_pro";
+					$da=mysqli_query($conn,$da);
 				}
 				// $sql_de="delete from bill_detail where id_bill=$id_pro";
 				// mysqli_query($conn,$sql_de);
@@ -112,6 +126,13 @@
 			$type=mysqli_query($conn,$type);
 			$type=mysqli_fetch_assoc($type);
 			$type=$type['customer_type'];
+			if($type==0){
+				$khuyenmai="Không có giảm giá";
+			}
+			else{
+				$khuyenmai="Đã giảm 3% khách VIP";
+			}
+
 			// lay time receive ben active
 			$active="select time_receive from active_bill where id_bill='$id_bill' and id_manager='$manager'";
 			$active=mysqli_query($conn,$active);
@@ -202,7 +223,9 @@
 				// tong tien
 					echo "<div style='width:20%; height:100%; float:left;display: flex;justify-content: center;align-items: center;border-left:1px solid black;border-bottom:2px solid #068604'>";
 						echo "Tổng tiền :"."<br>";
-						echo  number_format($a['bill_money'],0,'','.')." VNĐ";
+						echo  number_format($a['bill_money'],0,'','.')." VNĐ"."<br><br>";
+						echo $khuyenmai;
+
 					echo "</div>";
 				echo "</div>";
 

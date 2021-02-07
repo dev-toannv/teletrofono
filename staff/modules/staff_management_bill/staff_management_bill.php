@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/container.css">
 <?php 
 	session_start();
+	date_default_timezone_set("Asia/Ho_Chi_Minh");
 	if(!isset($_SESSION['select'])){
 		$_SESSION['select']="waiting";
 	}
