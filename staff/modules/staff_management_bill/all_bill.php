@@ -55,7 +55,7 @@
 		<div style="width: 100%; height: 50%;">
 
 			<div class='bar1'>
-				<input type="number" name='s_idmanager' min="1" placeholder="ID">
+				<input type="number" name='s_idmanager' min="1" placeholder="ID" style="text-align: center">
 			</div>
 			<div class='bar1'>
 				<select name="s_status">
@@ -94,6 +94,7 @@
 			$type_manager=mysqli_query($conn,$type_manager);
 			$type_manager=mysqli_fetch_assoc($type_manager);
 			$type_manager=$type_manager['user_type'];
+			
 			// lay type khach hang
 			$type="select customer_type from customer where id = '$id_cus'";
 			$type=mysqli_query($conn,$type);
@@ -124,7 +125,7 @@
 			//--------
 			echo "<div style='width:70%;height:350px;border:4px solid #068604; margin-top:7px; margin-bottom:12px;'>";
 				echo "<div class='task1'>";
-					// thoi gian dat hangf
+					// thoi gian dat hang
 					echo "<div class='time'>";
 						echo "Thời gian đặt hàng :".'<br>';
 						echo $a['bill_time'];

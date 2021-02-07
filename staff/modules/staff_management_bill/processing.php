@@ -48,12 +48,6 @@
 					$sql1="update bill set bill_status = $select where id = $id_pro";
 					mysqli_query($conn,$sql1);
 				}
-				// kiem tra neu xoa thi them user_type cua nguoi xoa vao (khach hang cung co the xoa)
-				
-				if($select==6){
-					$da="update bill set user_delete = $manager_type where id = $id_pro";
-					$da=mysqli_query($conn,$da);
-				}
 				// $sql_de="delete from bill_detail where id_bill=$id_pro";
 				// mysqli_query($conn,$sql_de);
 

@@ -565,13 +565,13 @@
 	<form action="" method="POST" enctype="multipart/form-data">
 		<div id="page_img">
 			<div class="ac" style="width:30%;height: 100%;float: left;">
-				<img src="<?php echo $path2; ?>" id="anh4">
+				<img src="<?php echo $path2; ?>" id="anh4" style="max-height: 80%; max-width: 80%">
 			</div>
 			<div  class="ac" style="width:40% ;height: 100%;float: left;">
-				<img src="<?php echo $path; ?>" id="anh1">
+				<img src="<?php echo $path; ?>" id="anh1" style="max-height: 80%; max-width: 80%">
 			</div>
 			<div  class="ac" style="width:30%;height: 100%;float: right;">
-				<img src="<?php echo $path3; ?>" id="anh6" alt="">
+				<img src="<?php echo $path3; ?>" id="anh6" alt="" style="max-height: 80%; max-width: 80%">
 			</div>
 			
 		</div>

@@ -6,24 +6,53 @@
 }
 #staff_infor{
 	width:50%;
-	height: 800px;
+	height: 100%;
 	margin:auto;
-	margin-top:5%;
+	background: white;
+	display: flex;
+  	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+}
+#staff_infor1{
+	width: 100%;
+	height: 60%;
+	/*display: flex;
+  	justify-content: center;
+	align-items: center;
+	flex-direction: row;*/
 }
 
-#staff_infor img{
-	max-height: 45%;
-	max-width:45%;
-	display: inline-block;
-}
 
-#staff_infor #form_edit_pass{
+#staff_infor1 #form_edit_pass{
 	display: none;
 }
 
-#staff_infor #ab{
+#staff_infor1 #ab{
 	color:red;
 	font-size: 20px;
 	margin-top:0px;
 	margin-bottom:10px;
+}
+
+#f1{
+	width: 100%;
+	height: 40%;
+	/*border-bottom:1px solid black;*/
+	display: flex;
+  	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#f2{
+	background-color: white;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+#f2 img{
+	max-height: 100%;
+	max-width:100%;
+	display: inline-block;
 }

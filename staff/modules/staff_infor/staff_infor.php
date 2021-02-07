@@ -1,9 +1,10 @@
 
 <div id="staff_infor">
+	
 	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">
 	<?php
 		require_once("modules/config/connectdb.php");
-		$sql="select * from manager where manager_code='$staff_code' and manager_password = '$staff_password' and user_type='2'";
+		$sql="select * from manager where manager_code='$staff_code' and manager_password = '$staff_password' and (user_type='2' or user_type='1') ";
 		$result=mysqli_query($conn,$sql);
 		$row=mysqli_fetch_assoc($result);
 		$id=$row['id'];
@@ -12,7 +13,7 @@
 			if(!empty($_POST['mkht']) && !empty($_POST['mktd'])){
 				$mktd=$_POST['mktd'];
 				if($_POST['mkht']==$staff_password){
-					$pass="update staff set manager_password='$mktd' where id='$id' and user_type='2'";
+					$pass="update staff set manager_password='$mktd' where id='$id' and (user_type='2' or user_type='1')";
 					mysqli_query($conn,$pass);
 					unset($_SESSION['staff_code']);
 					unset($_SESSION['staff_password']);
@@ -55,7 +56,7 @@
 				}
 				move_uploaded_file($img['tmp_name'],$pic_new);
 				rename($pic_new,$path);
-				$pic="update manager set manager_avatar = '$path1' where id='$id' and user_type='2'";
+				$pic="update manager set manager_avatar = '$path1' where id='$id' and (user_type='2' or user_type='1')";
 				mysqli_query($conn,$pic);
 				unset($_SESSION['staff_code']);
 				unset($_SESSION['staff_password']);
@@ -69,11 +70,18 @@
 	<style type="text/css">
 		#right{
 			border:none;
-			height: 1000px;
+			height: 977px;
+			background: #e5e8e7;
 		}
 	</style>
-	<img src="../public/staff/<?php echo $row['manager_avatar']?>" alt="" id="pic_old">
-	<form action="" method="POST" enctype="multipart/form-data">
+	<div id='f1'>
+		<div style="width: 50%; height: 100%;border-bottom:1px solid black; " id='f2'>
+			<img src="../public/staff/<?php echo $row['manager_avatar']?>" alt="" id="pic_old">
+		</div>
+	
+	</div>
+	<div id="staff_infor1">
+	<form action="" method="POST" enctype="multipart/form-data" style="margin-top: 10px;">
 		<input type="file" id="pic_new" name="pic_new" onchange="myfun()">
 		<button type="submit" name="edit_pic-staff">Thay đổi</button>
 	</form>
@@ -102,4 +110,5 @@
 		<input type="password" name="mktd" placeholder="Mật khẩu mới"><br>
 		<button type="submit" name="edit_pass_staff">Thay đổi</button>
 	</form>
+	</div>
 </div>

@@ -8,7 +8,7 @@
 		$staff_code=$_SESSION['staff_code'];
 		$staff_password=$_SESSION['staff_password'];
 	}
-	require_once("modules/interface/config/fix_confirm_form_resubmission.php");
+	require_once("modules/config/fix_confirm_form_resubmission.php");
 	if(isset($_POST['logout'])){
 		unset($_SESSION['staff_code']);
 		unset($_SESSION['staff_password']);

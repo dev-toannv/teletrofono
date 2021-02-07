@@ -6,6 +6,6 @@
 	<title>Error</title>
 </head>
 <body>
-	<p>Loi</p>
+	<p>ERROR</p>
 </body>
 </html>

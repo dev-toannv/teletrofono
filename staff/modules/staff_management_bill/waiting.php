@@ -1,17 +1,35 @@
 <?php 
-
 	$sql="select * from bill where bill_status =0";
 	$sql=mysqli_query($conn,$sql);
-	if(isset($_GET['idbill'])){
-		$id=$_GET['idbill'];
-		$update="update bill set bill_status=1  where id='$id'";
-		mysqli_query($conn,$update);
-		$manager=$_SESSION['id'];
-		$active="insert into active_bill(id_bill,id_manager,time_active) values('$id','$manager',now())";
-		mysqli_query($conn,$active);
-
-		header("Location:index.php?module=interface&action=interfaceStaff&choose=mbill");
+	if(isset($_GET['ernum'])){
+		$z=$_GET['ernum'];
+		echo "<script>";
+			echo "alert('Hóa đơn với ID ".$z." đã bị hủy hoặc được nhận bởi người khác');";
+			echo "setTimeout(() => {window.location='index.php?module=interface&action=interfaceStaff&choose=mbill';},1 * 100);";
+			// echo "window.location='index.php?module=interface&action=interfaceStaff&choose=mbill'";
+		echo "</script>";
 	}
+	else{
+		if(isset($_GET['idbill'])){
+			$id=$_GET['idbill'];
+			$num="select id from bill where id = $id";
+			$num=mysqli_query($conn,$num);
+			$num=mysqli_num_rows($num);
+			if($num==1){
+				$update="update bill set bill_status=1  where id='$id'";
+				mysqli_query($conn,$update);
+				$manager=$_SESSION['id'];
+				$active="insert into active_bill(id_bill,id_manager,time_active) values('$id','$manager',now())";
+				mysqli_query($conn,$active);
+
+				header("Location:index.php?module=interface&action=interfaceStaff&choose=mbill");
+			}
+			else{
+				header("Location:index.php?module=interface&action=interfaceStaff&choose=mbill&ernum=$id");
+			}
+		}
+	}
+	
 ?>
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/waiting.css">
 <div id="container_waiting">
@@ -40,7 +58,7 @@
 					echo '</div>';
 
 					echo "<div class='w32'>";
-						echo "<a href='index.php?module=interface&action=interfaceStaff&choose=mbill&idbill=".$a['id']."'>Nhận hóa đơn</a>";
+						echo "<a href='index.php?module=interface&action=interfaceStaff&choose=mbill&idbill=".$a['id']."'>Nhận hóa đơn /ID: ".$a['id']."</a>";
 					echo '</div>';
 				echo "</div>";
 			echo "</div>";
