@@ -1,15 +1,11 @@
 <?php 
-	// $manager=$_SESSION['id'];
-	$s_idmanager=$s_status=$s_date=$ss="";
+	
+	$s_status=$s_date=$ss="";
 	if(isset($_POST['s_sub'])){
-		$s_idmanager=$_POST['s_idmanager'];
 		$s_status=$_POST['s_status'];
 		$s_date=$_POST['s_date'];
 		$ss=$_POST['ss'];
 
-		if(!empty($s_idmanager)){
-			$s_idmanager=" and active_bill.id_manager=$s_idmanager ";
-		}
 		if(!empty($s_status)){
 			$s_status=" and bill.bill_status = '$s_status' ";
 		}
@@ -27,18 +23,15 @@
 
 	}
 	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
-	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận không nhận", 6 =>"Được xóa");
-	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=1 and bill.bill_status!=2 and bill.bill_status!=5 $s_idmanager $s_status $s_date $ss ";
+	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận khách không nhận hàng");
+	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where (bill.bill_status=3 or bill.bill_status=4) and bill.customer_id = $id_customer $s_status $s_date $ss ";
 	$sql=mysqli_query($conn,$sql);
 ?>
 
-<link rel="stylesheet" type="text/css" href="modules/staff_management_bill/all_bill.css">
+<link rel="stylesheet" type="text/css" href="modules/infor_customer/private.css">
 <div style="width: 100%; height: 60px;display: flex;justify-content: center;align-items: center; ">
 	<form action="" method="POST" style="width: 100%; height: 100%;">
 		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
-			<div class='bar1'>
-				ID nhân viên 
-			</div>
 			<div class='bar1'>
 				Trạng thái đơn hàng
 			</div>
@@ -53,16 +46,11 @@
 			</div>
 		</div>
 		<div style="width: 100%; height: 50%;">
-
-			<div class='bar1'>
-				<input type="number" name='s_idmanager' min="1" placeholder="ID" style="text-align: center">
-			</div>
 			<div class='bar1'>
 				<select name="s_status">
 					<option value="">--Tất cả--</option>
 					<option value="3">Giao hàng thành công</option>
-					<option value="4">Khách không nhận</option>
-					<option value="6">Bị xóa</option>
+					<option value="4">Không nhận</option>
 				</select>
 			</div>
 			<div class='bar1'>
@@ -218,7 +206,7 @@
 				echo "</div>";
 					
 				echo "<div class='t42'>";
-					echo $stt[$a['bill_status']]." bởi ".$arr[$type_manager].' với ID : '.$a['id_manager'] ;
+					echo $stt[$a['bill_status']];
 				echo "</div>";
 				
 				echo "</div>";

@@ -1,0 +1,38 @@
+#bill_process{
+	width: 100%;
+	height: 100%;
+}
+
+#select1{
+	width: 100%;
+	height: 7%;
+}
+
+#select2{
+	width: 100%;
+	height: 93%;
+}
+
+.ss1{
+	width: 50%;
+	height: 100%;
+	float: left;
+	border-bottom: 1px solid black;
+}
+
+.ss1 a{
+	width: 100%;
+	height: 100%;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align: center;
+  	font-size: 170%;
+  	text-decoration: none;
+  	color: black;
+}
+
+.ss1 a:hover{
+	background: #d9dad9;
+	color:red;
+}

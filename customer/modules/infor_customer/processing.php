@@ -1,100 +1,30 @@
 <?php 
-	// $manager=$_SESSION['id'];
-	$s_idmanager=$s_status=$s_date=$ss="";
-	if(isset($_POST['s_sub'])){
-		$s_idmanager=$_POST['s_idmanager'];
-		$s_status=$_POST['s_status'];
-		$s_date=$_POST['s_date'];
-		$ss=$_POST['ss'];
-
-		if(!empty($s_idmanager)){
-			$s_idmanager=" and active_bill.id_manager=$s_idmanager ";
-		}
-		if(!empty($s_status)){
-			$s_status=" and bill.bill_status = '$s_status' ";
-		}
-		if(!empty($s_date)){
-			$s_date=" and active_bill.time_receive = '$s_date' ";
-		}
-		if(!empty($ss)){
-			if($ss==1){
-				$ss=" order by active_bill.time_receive ASC";
-			}
-			if($ss==2){
-				$ss=" order by active_bill.time_receive DESC";
-			}
-		}
-
-	}
-	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
-	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận không nhận", 6 =>"Được xóa");
-	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=1 and bill.bill_status!=2 and bill.bill_status!=5 $s_idmanager $s_status $s_date $ss ";
+	require_once("modules/config/connectdb.php");
+	$sql="select * from bill where bill_status=0 and customer_id = $id_customer ";
 	$sql=mysqli_query($conn,$sql);
+	if(isset($_GET['delete'])){
+		$id_b=$_GET['delete'];
+		$v="select id from bill where id = $id_b and customer_id = $id_customer";
+		$v=mysqli_query($conn,$v);
+		if(mysqli_num_rows($v)>0){
+			$sql_delete="delete from bill_detail where id_bill = $id_b";
+			mysqli_query($conn,$sql_delete);
+			$sql_delete="delete from bill where id = $id_b and customer_id = $id_customer";
+			$sql_delete=mysqli_query($conn,$sql_delete);
+			header("Location:index.php?infor=infor&bill&select=processing");
+		}
+		else{
+			header("Location:index.php?infor=infor&bill&select=processing");
+		}
+	}
 ?>
 
-<link rel="stylesheet" type="text/css" href="modules/staff_management_bill/all_bill.css">
-<div style="width: 100%; height: 60px;display: flex;justify-content: center;align-items: center; ">
-	<form action="" method="POST" style="width: 100%; height: 100%;">
-		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
-			<div class='bar1'>
-				ID nhân viên 
-			</div>
-			<div class='bar1'>
-				Trạng thái đơn hàng
-			</div>
-			<div class='bar1'>
-				Ngày nhận hàng
-			</div>
-			<div class='bar1'>
-				Sắp xếp theo
-			</div>
-			<div class='bar1'>
-				*
-			</div>
-		</div>
-		<div style="width: 100%; height: 50%;">
-
-			<div class='bar1'>
-				<input type="number" name='s_idmanager' min="1" placeholder="ID" style="text-align: center">
-			</div>
-			<div class='bar1'>
-				<select name="s_status">
-					<option value="">--Tất cả--</option>
-					<option value="3">Giao hàng thành công</option>
-					<option value="4">Khách không nhận</option>
-					<option value="6">Bị xóa</option>
-				</select>
-			</div>
-			<div class='bar1'>
-				<input type="date" name='s_date'>
-			</div>
-			<div class='bar1'>
-				<select name="ss">
-					<option value="">--Mặc định--</option>
-					<option value="1">Từ trước tới nay</option>
-					<option value="2">Mới nhất</option>
-				</select>
-			</div>
-			<div class='bar1'>
-				<button type="submit" name='s_sub'>Tìm kiếm</button>
-			</div>
-		</div>
-		
-	</form>
-</div>
-
+<link rel="stylesheet" type="text/css" href="modules/infor_customer/processing.css">
 <div id="container_processing">
 	<?php 
 		while ($a=mysqli_fetch_assoc($sql)){
 			$id_bill=$a['id'];
 			$id_cus=$a['customer_id'];
-			// lay type cua manager
-			$type_manager=$a['id_manager'];
-			$type_manager="select user_type from manager where id = $type_manager";
-			$type_manager=mysqli_query($conn,$type_manager);
-			$type_manager=mysqli_fetch_assoc($type_manager);
-			$type_manager=$type_manager['user_type'];
-			
 			// lay type khach hang
 			$type="select customer_type from customer where id = '$id_cus'";
 			$type=mysqli_query($conn,$type);
@@ -106,19 +36,6 @@
 			else{
 				$khuyenmai="Đã giảm 3% khách VIP";
 			}
-			// lay time receive ben active
-			$active="select time_receive from active_bill where id_bill='$id_bill' and id_manager='$manager'";
-			$active=mysqli_query($conn,$active);
-			$active=mysqli_fetch_assoc($active);
-			$active=$active['time_receive'];
-			if(!empty($active)){
-				$date=date_create($active);
-				$date=date_format($date,"Y/m/d");
-			}
-			else{
-				$date="Chưa nhập ngày";
-			}
-			
 			// lay tat ca san pham thuoc bill trong bill_detail
 			$detail="select * from bill_detail where id_bill='$id_bill' ";
 			$detail=mysqli_query($conn,$detail);
@@ -213,14 +130,7 @@
 				echo "</div>";
 
 				echo "<div class='task4'>";
-				echo "<div class='t41'>";
-					echo "Thời gian nhận hàng : ".$date;
-				echo "</div>";
-					
-				echo "<div class='t42'>";
-					echo $stt[$a['bill_status']]." bởi ".$arr[$type_manager].' với ID : '.$a['id_manager'] ;
-				echo "</div>";
-				
+					echo "<a href='index.php?infor=infor&bill&select=processing&delete=$id_bill'>Hủy đơn</a>";
 				echo "</div>";
 			echo "</div>";
 		}
