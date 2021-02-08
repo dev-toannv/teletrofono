@@ -221,3 +221,15 @@
 .bar1 input,select,button{
 	height: 92%;
 }
+
+#result{
+	width: 70%;
+	height: 25px;
+	background-color: #343434;
+	margin-top:5px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	font-size:120%;
+  	color:white;
+}

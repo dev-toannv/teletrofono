@@ -1,35 +1,47 @@
 <?php 
 	// $manager=$_SESSION['id'];
 	$s_idmanager=$s_status=$s_date=$ss="";
+	$flag=0;
 	if(isset($_POST['s_sub'])){
 		$s_idmanager=$_POST['s_idmanager'];
 		$s_status=$_POST['s_status'];
 		$s_date=$_POST['s_date'];
 		$ss=$_POST['ss'];
+		$s_idbill=$_POST['s_idbill'];
+		if(!empty($s_idbill)){
+			$s_idbill=" and bill.id=$s_idbill ";
+			$flag=1;
+		}
 
 		if(!empty($s_idmanager)){
 			$s_idmanager=" and active_bill.id_manager=$s_idmanager ";
+			$flag=1;
 		}
 		if(!empty($s_status)){
 			$s_status=" and bill.bill_status = '$s_status' ";
+			$flag=1;
 		}
 		if(!empty($s_date)){
 			$s_date=" and active_bill.time_receive = '$s_date' ";
+			$flag=1;
 		}
 		if(!empty($ss)){
 			if($ss==1){
 				$ss=" order by active_bill.time_receive ASC";
+				$flag=1;
 			}
 			if($ss==2){
 				$ss=" order by active_bill.time_receive DESC";
+				$flag=1;
 			}
 		}
-
+		$ser="";
 	}
 	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
 	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận không nhận", 6 =>"Được xóa");
-	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=1 and bill.bill_status!=2 and bill.bill_status!=5 $s_idmanager $s_status $s_date $ss ";
+	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=1 and bill.bill_status!=2 and bill.bill_status!=5 $s_idbill $s_idmanager $s_status $s_date $ss ";
 	$sql=mysqli_query($conn,$sql);
+	$num=mysqli_num_rows($sql);
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/all_bill.css">
@@ -37,7 +49,7 @@
 	<form action="" method="POST" style="width: 100%; height: 100%;">
 		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
 			<div class='bar1'>
-				ID nhân viên 
+				ID 
 			</div>
 			<div class='bar1'>
 				Trạng thái đơn hàng
@@ -55,7 +67,8 @@
 		<div style="width: 100%; height: 50%;">
 
 			<div class='bar1'>
-				<input type="number" name='s_idmanager' min="1" placeholder="ID" style="text-align: center">
+				<input type="number" name='s_idbill' min="1" placeholder="ID hóa đơn" style="text-align: center; width: 48%"> &nbsp
+				<input type="number" name='s_idmanager' min="1" placeholder="ID nhân viên" style="text-align: center; width: 48%">
 			</div>
 			<div class='bar1'>
 				<select name="s_status">
@@ -84,6 +97,7 @@
 </div>
 
 <div id="container_processing">
+	<div id="result"><?php if(isset($ser) && $flag==1){echo "Có ". $num." hóa đơn được tìm thấy";}else{echo "Tất cả : ".$num." hóa đơn";}  ?></div>
 	<?php 
 		while ($a=mysqli_fetch_assoc($sql)){
 			$id_bill=$a['id'];
