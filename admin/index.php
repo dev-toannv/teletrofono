@@ -16,4 +16,5 @@
 		$path="modules/common/error404.php";
 		require_once($path);
 	}
+	mysqli_close($conn);
  ?>

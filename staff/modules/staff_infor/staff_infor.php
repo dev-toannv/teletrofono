@@ -120,7 +120,7 @@
 	<p>Mã nhân viên : <?php echo $row['manager_code']?></p>
 	<p>Tên nhân viên : <?php echo $row['manager_name'] ?></p>
 	<p>Email : <?php echo $row['manager_email'] ?></p>
-	<p>Số điện thoại <?php echo $row['manager_phone']; ?> <button type="button" id='ds' onclick="doiso()">Đổi số</button> </p>
+	<p>Số điện thoại : <?php echo $row['manager_phone']; ?> <button type="button" id='ds' onclick="doiso()">Đổi số</button> </p>
 	<form action="" method="POST" id='edit_phone'>
 		<input type="text" name='phone' placeholder="Số điện thoại mới"><br>
 		<input type="text" name="pass" placeholder="Nhập mât khẩu"><br>

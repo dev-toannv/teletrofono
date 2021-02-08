@@ -23,6 +23,7 @@
 	width:82%;
 	height: auto;
 	border:1px red solid;
+	border-bottom:none;
 	float:right;
 	position: relative;
 	z-index: -1;

@@ -29,7 +29,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/infor_customer/private.css">
-<div style="width: 100%; height: 60px;display: flex;justify-content: center;align-items: center; ">
+<div style="width: 100%; height: 7%;display: flex;justify-content: center;align-items: center; ">
 	<form action="" method="POST" style="width: 100%; height: 100%;">
 		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
 			<div class='bar1'>
@@ -78,6 +78,7 @@
 			$id_cus=$a['customer_id'];
 			// lay type cua manager
 			$type_manager=$a['id_manager'];
+			$manager=$type_manager;
 			$type_manager="select user_type from manager where id = $type_manager";
 			$type_manager=mysqli_query($conn,$type_manager);
 			$type_manager=mysqli_fetch_assoc($type_manager);
@@ -104,7 +105,7 @@
 				$date=date_format($date,"Y/m/d");
 			}
 			else{
-				$date="Chưa nhập ngày";
+				$date="Chưa nhập thời gian";
 			}
 			
 			// lay tat ca san pham thuoc bill trong bill_detail

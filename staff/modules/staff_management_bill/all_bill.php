@@ -1,5 +1,4 @@
 <?php 
-	// $manager=$_SESSION['id'];
 	$s_idmanager=$s_status=$s_date=$ss="";
 	$flag=0;
 	if(isset($_POST['s_sub'])){
@@ -45,7 +44,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/all_bill.css">
-<div style="width: 100%; height: 60px;display: flex;justify-content: center;align-items: center; ">
+<div style="width: 100%; height: 6%;display: flex;justify-content: center;align-items: center; ">
 	<form action="" method="POST" style="width: 100%; height: 100%;">
 		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
 			<div class='bar1'>
@@ -104,6 +103,7 @@
 			$id_cus=$a['customer_id'];
 			// lay type cua manager
 			$type_manager=$a['id_manager'];
+			$manager=$type_manager;
 			$type_manager="select user_type from manager where id = $type_manager";
 			$type_manager=mysqli_query($conn,$type_manager);
 			$type_manager=mysqli_fetch_assoc($type_manager);
@@ -125,12 +125,13 @@
 			$active=mysqli_query($conn,$active);
 			$active=mysqli_fetch_assoc($active);
 			$active=$active['time_receive'];
+			
 			if(!empty($active)){
 				$date=date_create($active);
 				$date=date_format($date,"Y/m/d");
 			}
 			else{
-				$date="Chưa nhập ngày";
+				$date="Chưa cập nhật thời gian";
 			}
 			
 			// lay tat ca san pham thuoc bill trong bill_detail

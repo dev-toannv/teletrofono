@@ -11,7 +11,7 @@
 			require_once("modules/config/connectdb.php");
 			
 
-				$sql="select * from manager where manager_code='$acc' and manager_password='$pass' and user_type='1'";
+				$sql="select * from manager where manager_code='$acc' and manager_password='$pass' and user_type='1' and id = 1";
 				$result=mysqli_query($conn,$sql);
 				$count=mysqli_num_rows($result);
 				if($count<=0){
@@ -22,6 +22,5 @@
 						$_SESSION['admin_pass']=$pass;
 						header("Location:index.php");
 				}
-
 		}
 	}

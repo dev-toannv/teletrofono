@@ -62,7 +62,11 @@
 	}
 
 </script>
-
+<style type="text/css">
+	#container_infor{
+		height: 750px;
+	}
+</style>
 
 <div style="width: 40%; height: 50%; background-color: #d5dbdf">
 	

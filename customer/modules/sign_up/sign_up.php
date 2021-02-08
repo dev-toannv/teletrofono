@@ -13,6 +13,42 @@
 	<title>Sign up</title>
 	<link rel="stylesheet" type="text/css" href="modules/sign_up/sign_up.css">
 </head>
+<script type="text/javascript">
+	function validate(){
+		var a = document.getElementById('acc');
+		var b = document.getElementById('nameuser');
+		var c = document.getElementById('pass');
+		var flag=0;
+		const checka=/^[a-zA-Z0-9]{5,30}$/;
+		const checkb=/^[a-zA-Z]{5,40}$/;
+		const checkc=/^[a-zA-Z0-9]{5,50}$/;
+		if(checka.test(a.value)==false){
+			a.classList.add("error");
+			flag=1;
+		}
+		if(checkb.test(b.value)==false){
+			b.classList.add("error");
+			flag=1;
+		}
+		if(checkc.test(c.value)==false){
+			c.classList.add("error");
+			flag=1;
+		}
+
+		if(flag==1){
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+</script>
+<style type="text/css">
+	.error::placeholder{
+			  color: red;
+			  opacity: 1;
+		}
+</style>
 <body>
 	<div id="container">
 		<div id="header">
@@ -34,13 +70,13 @@
 			<div id="bodyright">
 				<div id="divform">
 					<table>
-						<form action="" method="POST">
+						<form action="" method="POST" onsubmit="return validate()">
 							<tr>
 								<td class="leftform">
 									Tài khoản
 								</td>
 								<td>
-									<input type="text" id="acc" name="acc">
+									<input type="text" id="acc" name="acc" placeholder="a-zA-z0-9, 5->30 ký tự">
 								</td>
 							</tr>
 
@@ -49,7 +85,7 @@
 									Tên người dùng
 								</td>
 								<td>
-									<input type="text" id="nameuser" name="nameuser">
+									<input type="text" id="nameuser" name="nameuser"placeholder="a-zA-z, 5->40 ký tự">
 								</td>
 							</tr>
 
@@ -58,7 +94,7 @@
 									Mật khẩu
 								</td>
 								<td>
-									<input type="password" id="pass" name="pass">
+									<input type="password" id="pass" name="pass" placeholder="a-zA-z0-9, 5->50 ký tự">
 								</td>
 							</tr>
 
