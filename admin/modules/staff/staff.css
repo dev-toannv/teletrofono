@@ -51,9 +51,9 @@
 	border-right: 1px solid red; 
 }
 
-#manager_code,#manager_name,#manager_password,#manager_email{
+#manager_code,#manager_name,#manager_password,#manager_email,#manager_phone{
 	width: 80%;
-	height: 10%;
+	height: 8%;
 	margin-top:2%;
 	font-size: 20px;
 	text-align: center;
@@ -61,7 +61,7 @@
 
 #manager_address,#manager_hometown{
 	width: 80%;
-	height: 13%;
+	height: 10%;
 	margin-top: 2%;
 	font-size: 18px;
 	text-align: center;

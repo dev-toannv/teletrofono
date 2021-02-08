@@ -66,6 +66,36 @@
 				header("Location:index.php");
 			}
 		}
+
+		if(isset($_POST['edit_phone'])){
+			$phone=$_POST['phone'];
+			$pass=$_POST['pass'];
+			if(empty($phone) || empty($pass)){
+				header("Location:index.php");
+			}
+			else{
+				if($pass==$staff_password){
+					if(strlen($phone)==10){
+						$ep="update manager set manager_phone = '$phone' where id = $id";
+						mysqli_query($conn,$ep);
+						unset($_SESSION['staff_code']);
+						unset($_SESSION['staff_password']);
+						unset($_SESSION['right_display']);
+						unset($_SESSION['mpr']);
+						unset($_GET['err']);
+						header("Location:index.php");
+
+					}
+					else{
+						header("Location:index.php");
+					}
+				}
+				else{
+					header("Location:index.php");
+				}
+
+			}
+		}
 	?>
 	<style type="text/css">
 		#right{
@@ -90,6 +120,13 @@
 	<p>Mã nhân viên : <?php echo $row['manager_code']?></p>
 	<p>Tên nhân viên : <?php echo $row['manager_name'] ?></p>
 	<p>Email : <?php echo $row['manager_email'] ?></p>
+	<p>Số điện thoại <?php echo $row['manager_phone']; ?> <button type="button" id='ds' onclick="doiso()">Đổi số</button> </p>
+	<form action="" method="POST" id='edit_phone'>
+		<input type="text" name='phone' placeholder="Số điện thoại mới"><br>
+		<input type="text" name="pass" placeholder="Nhập mât khẩu"><br>
+		<button type="submit" name='edit_phone'>Thay đổi</button>
+	</form>
+	<br>
 	<p>Giới tính : 
 		<?php 
 			if($row['manager_sex']==1){

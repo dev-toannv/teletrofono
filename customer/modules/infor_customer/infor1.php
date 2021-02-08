@@ -101,7 +101,7 @@
 				<tr>
 					<td class="f1">Số điện thoại</td>
 					<td class="f2">
-						<input type="text" id="cus_phone" name="customer_phonenumber" readonly="true" value="<?php echo $row['customer_phonenumber']; ?>">
+						<input type="text" id="cus_phone" maxlength="10" name="customer_phonenumber" readonly="true" value="<?php echo $row['customer_phonenumber']; ?>">
 					</td>
 				</tr>
 				<tr>

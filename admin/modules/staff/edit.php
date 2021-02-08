@@ -24,7 +24,8 @@
 		$manager_address=$_POST['manager_address'];
 		$manager_hometown=$_POST['manager_hometown'];
 		$manager_status=$_POST['manager_status'];
-		$sql="update manager set manager_code = '$manager_code',manager_name='$manager_name',manager_password='$manager_password', manager_email='$manager_email',manager_sex='$manager_sex',manager_dob='$manager_dob',manager_address='$manager_address',manager_hometown='$manager_hometown',manager_status='$manager_status' where id = $id";
+		$manager_phone=$_POST['manager_phone'];
+		$sql="update manager set manager_code = '$manager_code',manager_name='$manager_name',manager_password='$manager_password', manager_email='$manager_email',manager_sex='$manager_sex',manager_dob='$manager_dob',manager_address='$manager_address',manager_hometown='$manager_hometown',manager_status='$manager_status', manager_phone='$manager_phone' where id = $id";
 
 		$c=mysqli_query($conn,$sql);
 
@@ -50,9 +51,9 @@
 			  opacity: 1;
 		}
 
-	#manager_code,#manager_name,#manager_password,#manager_email{
+	#manager_code,#manager_name,#manager_password,#manager_email,#manager_phone{
 		width: 80%;
-		height: 8%;
+		height: 7%;
 		margin-top:1%;
 		font-size: 20px;
 		text-align: center;
@@ -64,21 +65,64 @@
 	}
 	#manager_address,#manager_hometown{
 		width: 80%;
-		height: 11%;
+		height: 8%;
 		margin-top: 2%;
 		font-size: 18px;
 		text-align: center;
 	}
 
 </style>
+
+<script type="text/javascript">
+	function validate(){
+		var a= document.getElementById("manager_code");
+		var b= document.getElementById("manager_name");
+		var c = document.getElementById("manager_email");
+		var g =  document.getElementById("manager_phone");
+		var flag = 1;
+		const check = /^[0-9]{12}$/;
+		const check2= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const checkp=/^0[0-9]{9}$/;
+		if(check.test(a.value) == false){
+			a.classList.add("error");
+			flag = 0;
+		}
+
+		if(checkp.test(g.value)==false){
+			g.classList.add("error");
+			flag = 0;
+		}
+
+		if(b.value == "" || b.length <= 0){
+			b.classList.add("error");
+			flag = 0;
+		}
+
+		if(check2.test(c.value)==false){
+			c.classList.add("error");
+			flag = 0;
+		}
+
+		if(flag == 0){
+			
+			alert("Sửa thất bại, vui lòng nhập lại thông tin");
+			return false;
+		}
+		else{
+			return true;
+		}
+
+	}
+</script>
+
 <div id="add">
-	<form action="" method="POST">
+	<form action="" method="POST" onsubmit="return validate()">
 	<div id="add_right">
-		
 			<input type="text" name="manager_code" id="manager_code" placeholder="Mã nhân viên (Số căn cước)" maxlength="12" value="<?php echo $result['manager_code'] ?>"><br>
 			<input type="text" value="<?php echo $result['manager_name']; ?>"  name="manager_name" id="manager_name" placeholder="Tên nhân viên"><br>
 			<input type="text" value="<?php echo $result['manager_password']; ?>" name="manager_password" id="manager_password" required placeholder="Mật khẩu"><br>
 			<input type="text" value="<?php echo $result['manager_email']; ?>" name="manager_email" id="manager_email" placeholder="EMAIL"><br>
+			<input type="text" name="manager_phone" value="<?php echo $result['manager_phone']; ?>" id="manager_phone" placeholder="Số điện thoại" maxlength='10'><br>
 			Giới tính&nbsp&nbsp&nbsp&nbsp<select name="manager_sex" id="manager_sex">
 				<option value="1" <?php if($result['manager_sex']==1) echo "selected"; ?> >Nam</option>
 				<option value="0" <?php if($result['manager_sex']==0) echo "selected"; ?>>Nữ</option>

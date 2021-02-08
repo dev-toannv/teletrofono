@@ -6,11 +6,18 @@
 		var c = document.getElementById("manager_email");
 		var d = document.getElementById("manager_address");
 		var e = document.getElementById("manager_hometown");
+		var g =  document.getElementById("manager_phone");
 		var flag = 1;
 		const check = /^[0-9]{12}$/;
 		const check2= /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		const checkp=/^0[0-9]{9}$/;
 		if(check.test(a) == false){
 			a.classList.add("error");
+			flag = 0;
+		}
+
+		if(checkp.test(g)==false){
+			g.classList.add("error");
 			flag = 0;
 		}
 
@@ -56,8 +63,9 @@
 		$manager_dob=$_POST['manager_dob'];
 		$manager_address=$_POST['manager_address'];
 		$manager_hometown=$_POST['manager_hometown'];
+		$manager_phone=$_POST['manager_phone'];
 
-		$sql="insert into manager(id,manager_code,manager_name,manager_password,manager_email,manager_sex,manager_dob,manager_address,manager_hometown,manager_timestart,user_type,manager_status) values(null,'$manager_code','$manager_name','$manager_password','$manager_email','$manager_sex','$manager_dob','$manager_address','$manager_hometown',now(),2,1)";
+		$sql="insert into manager(id,manager_code,manager_name,manager_password,manager_email,manager_sex,manager_dob,manager_address,manager_hometown,manager_timestart,user_type,manager_status,manager_phone) values(null,'$manager_code','$manager_name','$manager_password','$manager_email','$manager_sex','$manager_dob','$manager_address','$manager_hometown',now(),2,1),'$manager_phone'";
 		$c=mysqli_query($conn,$sql);
 		if(!$c){
 			echo "<script>";
@@ -81,6 +89,7 @@
 			<input type="text" name="manager_name" id="manager_name" placeholder="Tên nhân viên"><br>
 			<input type="text" name="manager_password" id="manager_password" required placeholder="Mật khẩu"><br>
 			<input type="text" name="manager_email" id="manager_email" placeholder="EMAIL"><br>
+			<input type="text" name="manager_phone" id="manager_phone" placeholder="Số điện thoại"><br>
 			Giới tính&nbsp&nbsp&nbsp&nbsp<select name="manager_sex" id="manager_sex">
 				<option value="1">Nam</option>
 				<option value="0">Nữ</option>

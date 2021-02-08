@@ -11,3 +11,8 @@ function myfun(){
             var url = URL.createObjectURL(b.files[0]);
             a.src=url;
 }
+
+function doiso(){
+	document.getElementById('ds').style.display="none";
+	document.getElementById('edit_phone').style.display="block";
+}
