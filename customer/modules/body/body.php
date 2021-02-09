@@ -36,7 +36,8 @@
 		unset($_SESSION['ram_check']);
 		unset($_SESSION['storage_check']);
 		unset($_SESSION['color_check']);
-		unset($_GET['page']);
+		$s=$_SESSION['search_manu'];
+		header("Location:index.php?search_manu=$s");
 
 	}
 	
