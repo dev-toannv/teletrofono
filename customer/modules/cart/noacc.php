@@ -6,7 +6,7 @@
 ?> 
  <div style="width: 100%; height: auto; display: flex;justify-content: center;align-items: center;">
  	<?php 
- 		if($count>0){
+ 		if(isset($count) && $count>0){
  			require_once("modules/cart/noacc1.php");
  		}
  		else{
