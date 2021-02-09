@@ -37,6 +37,12 @@
 	$sql="select * from bill inner join active_bill on bill.id = active_bill.id_bill where bill.bill_status=3 $y $m";
 	$sql=mysqli_query($conn,$sql);
 	$num=mysqli_num_rows($sql);
+	// dem so luong san pham
+	$sql1="select sum(bill_detail.quantity) as count_product from bill_detail inner join bill on bill.id = bill_detail.id_bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status=3 $y $m";
+	$count_product=mysqli_query($conn,$sql1);
+	$count_product=mysqli_fetch_assoc($count_product);
+	$count_product=$count_product['count_product'];
+
 	
 ?>
 
@@ -99,10 +105,10 @@
 		<div id="result">
 				<?php 
 					if(!isset($_SESSION['search']['year']) && !isset($_SESSION['search']['month'])){
-						echo "Tất cả ".$num." hóa đơn";
+						echo "Tất cả : ".$count_product." sản phẩm / ".$num." hóa đơn";
 					}
 					else{
-						echo "Tìm thấy ".$num." hóa đơn";
+						echo "Tìm thấy : ".$count_product." sản phẩm / ".$num." hóa đơn";;
 					}
 
 				?>
