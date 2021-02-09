@@ -42,7 +42,7 @@
 	}
 	
 	// phan nay xu ly session va ra va bo nho trong khi goi cau lenh sql
-	$s_name=$s_manu=$s_ram=$s_storage=$storage_check=$ram_check=$color_check="";
+	$s_name=$s_manu=$s_ram=$s_storage=$s_color=$storage_check=$ram_check=$color_check="";
 	if(isset($_SESSION['s_name'])){
 		$s_name=$_SESSION['s_name'];
 	}
