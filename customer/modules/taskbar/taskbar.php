@@ -21,7 +21,7 @@
 						unset($_SESSION['color_check']);
 						header("Location:index.php");
 					}
-					if(isset($_SESSION['search_manu']) && $_GET['search_manu']){
+					if(isset($_SESSION['search_manu']) && isset($_GET['search_manu'])){
 						$_SESSION['search_manu']=$_GET['search_manu'];
 						$search_manu=$_SESSION['search_manu'];
 					}
