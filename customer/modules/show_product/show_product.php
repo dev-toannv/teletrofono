@@ -252,7 +252,7 @@
 								</tr>
 								<tr>
 									<td>Đèn Flash</td>
-									<td><?php echo $result['product_flash_cameraraer'];  ?></td>
+									<td><?php echo $result['product_flash_camerarear'];  ?></td>
 								</tr>
 								<tr>
 									<td>Tính năng</td>
@@ -272,7 +272,7 @@
 								</tr>
 								<tr>
 									<td>Videl Call</td>
-									<td> <?php echo $result['product_videlcall_frontcamera']; ?></td>
+									<td> <?php echo $result['product_videocall_frontcamera']; ?></td>
 								</tr>
 								<tr>
 									<td>Tính năng</td>
