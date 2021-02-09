@@ -52,7 +52,7 @@
 			<button type="submit" name="subsearch">Tìm kiếm</button>
 		</form>
 			<?php 
-				if($soluong==1){
+				if(isset($soluong) && $soluong==1){
 					$soluong=mysqli_num_rows($re);
 					echo "<span>"."Kết quả tìm kiếm : ".$soluong." kết quả"."</span>";
 				}
