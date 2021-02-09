@@ -272,7 +272,7 @@
 								</tr>
 								<tr>
 									<td>Videl Call</td>
-									<td> <?php echo $result['product_videocall_frontcamera']; ?></td>
+									<td> <?php if($result['product_videocall_frontcamera']==1){ echo "Có";}else{echo "Không";} ?></td>
 								</tr>
 								<tr>
 									<td>Tính năng</td>
