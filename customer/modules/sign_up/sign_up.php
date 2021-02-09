@@ -18,27 +18,32 @@
 		var b = document.getElementById('nameuser');
 		var c = document.getElementById('pass');
 		var flag=0;
+
 		const checka=/^[a-zA-Z0-9]{5,30}$/;
 		const checkb=/^[a-zA-Z]{5,40}$/;
 		const checkc=/^[a-zA-Z0-9]{5,50}$/;
 		if(checka.test(a.value)==false){
 			a.classList.add("error");
 			flag=1;
+			alert("sai a");
 		}
 		if(checkb.test(b.value)==false){
 			b.classList.add("error");
 			flag=1;
+			alert("sai b");
 		}
 		if(checkc.test(c.value)==false){
 			c.classList.add("error");
 			flag=1;
+			alert("sai c");
 		}
 
-		if(flag==1){
-			return false;
+		if(flag==0){
+			
+			return true;
 		}
 		else{
-			return true;
+			return false;
 		}
 	}
 </script>
