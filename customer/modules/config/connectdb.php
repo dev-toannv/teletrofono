@@ -3,3 +3,4 @@
 		if(!$conn){
 			die("Connect error : ".mysqli_connect_error());
 		}
+?>

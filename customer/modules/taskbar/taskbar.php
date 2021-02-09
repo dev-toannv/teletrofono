@@ -1,4 +1,6 @@
-
+<?php 
+require_once("modules/config/connectdb.php");
+?>
 <div id="taskbar">
 	<div id="taskbar_logo">
 		<a href="index.php?basic=basic"><img src="modules/taskbar/img/logo3.png" id="logo"alt=""></a>
@@ -30,10 +32,11 @@
 						$_SESSION['search_manu']="";
 					}
 					$folder="../public/product/";
-					$conn=mysqli_connect('localhost','root','','teletrofono');
-					$hang2="select * from manu_product where manu_name like'%$search_manu%'";
+					// $conn=mysqli_connect('localhost','root','','teletrofono');
+					// require_once("modules/config/connectdb.php");
+					$hang2="select * from manu_product where manu_name ='$search_manu'";
 					$hang22=mysqli_query($conn,$hang2);
-					$j=mysqli_affected_rows($conn);
+					$j=mysqli_num_rows($hang22);
 					if($j>0){
 						$hang222=mysqli_fetch_assoc($hang22);
 						$img=$folder.$hang222['manu_image'];
@@ -44,7 +47,7 @@
 						$_SESSION['search_manu']="all";
 						echo "<p>Sản phẩm</p>";
 					}
-					mysqli_close($conn);
+					// mysqli_close($conn);
 				?>
 			</div>
 			
@@ -54,7 +57,7 @@
 		</div>
 		<?php
 			$folder="../public/product/";
-			$conn=mysqli_connect('localhost','root','','teletrofono');
+			// $conn=mysqli_connect('localhost','root','','teletrofono');
 			$hang1="select * from manu_product";
 			$hang11=mysqli_query($conn,$hang1);
 			while($hang111=mysqli_fetch_assoc($hang11)){
@@ -66,7 +69,7 @@
 					echo "</a>";
 				echo "</div>";
 			}
-			mysqli_close($conn);
+			// mysqli_close($conn);
 		?>
 	</div>
 	<div id="taskbar_search">
