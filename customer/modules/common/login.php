@@ -1,5 +1,4 @@
 <?php 
-	session_start();
 	$error="";
 		if(isset($_SESSION['acc'])&&isset($_SESSION['pass'])){
 			header("Location:index.php");
