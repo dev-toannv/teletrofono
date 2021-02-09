@@ -1,5 +1,5 @@
 <?php 
-	$s_idmanager=$s_status=$s_date=$ss="";
+	$s_idmanager=$s_idbill=$s_status=$s_date=$ss="";
 	$flag=0;
 	if(isset($_POST['s_sub'])){
 		$s_idmanager=$_POST['s_idmanager'];
