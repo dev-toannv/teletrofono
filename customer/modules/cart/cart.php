@@ -1,5 +1,4 @@
 <?php 
-	session_start();
 	require_once("modules/config/connectdb.php");
 	// Thao tac voi gio hang them va xoa
 	if(isset($_GET['id_product'])==true && $_GET['id_product']!=""){
