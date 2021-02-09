@@ -1,6 +1,5 @@
 
 <?php 
-	session_start();
 	require_once("modules/config/connectdb.php");
 	$id_customer=$_SESSION['id_customer'];
 	if(!isset($_SESSION['s'])){
