@@ -1,6 +1,5 @@
 
 <?php
-	session_start();
 	require_once("modules/config/fix_confirm_form_resubmission.php");
 	
 ?>
