@@ -1,5 +1,4 @@
 <?php 
-	session_start();
 	$error="";
 	require_once("modules/config/connectdb.php");
 	require_once("modules/sign_up/config/process_signup_customer.php");
