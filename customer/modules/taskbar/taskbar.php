@@ -10,6 +10,7 @@
 			</div>
 			<div id="hang">
 				<?php 
+					$search_manu='';
 					if(isset($_GET['basic'])){
 						unset($_SESSION['search_manu']);
 						unset($_SESSION['s_name']);
@@ -30,7 +31,7 @@
 					}
 					$folder="../public/product/";
 					$conn=mysqli_connect('localhost','root','','teletrofono');
-					$hang2="select * from manu_product where manu_name='$search_manu'";
+					$hang2="select * from manu_product where manu_name like'%$search_manu%'";
 					$hang22=mysqli_query($conn,$hang2);
 					$j=mysqli_affected_rows($conn);
 					if($j>0){
