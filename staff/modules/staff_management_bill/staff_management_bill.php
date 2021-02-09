@@ -1,20 +1,22 @@
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/container.css">
 <?php 
-	session_start();
 	date_default_timezone_set("Asia/Ho_Chi_Minh");
 	if(!isset($_SESSION['select'])){
 		$_SESSION['select']="waiting";
 	}
 	else{
-		if($_GET['progress']=="waiting"){
+		if(isset($_GET['progress'])){
+			if($_GET['progress']=="waiting"){
 			$_SESSION['select']="waiting";
+			}
+			 if($_GET['progress']=="processing"){
+				$_SESSION['select']="processing";
+			}
+			 if($_GET['progress']=="all"){
+				$_SESSION['select']="all";
+			}
 		}
-		 if($_GET['progress']=="processing"){
-			$_SESSION['select']="processing";
-		}
-		 if($_GET['progress']=="all"){
-			$_SESSION['select']="all";
-		}
+		
 	}
 	require_once("modules/config/connectdb.php");
 	$id_ma=$_SESSION['staff_code'];
