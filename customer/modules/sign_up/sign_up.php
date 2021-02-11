@@ -25,17 +25,17 @@
 		if(checka.test(a.value)==false){
 			a.classList.add("error");
 			flag=1;
-			alert("sai a");
+			alert("Lỗi tên tài khoản, chưa đúng định dạng theo yêu cầu");
 		}
 		if(checkb.test(b.value)==false){
 			b.classList.add("error");
 			flag=1;
-			alert("sai b");
+			alert("Lỗi tên người dùng, chưa đúng định dạng theo yêu cầu");
 		}
 		if(checkc.test(c.value)==false){
 			c.classList.add("error");
 			flag=1;
-			alert("sai c");
+			alert("Lỗi mật khẩu, chưa đúng định dạng theo yêu cầu");
 		}
 
 		if(flag==0){

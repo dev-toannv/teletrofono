@@ -14,6 +14,21 @@
 		$status=$_POST['status'];
 		$sql="update manu_product set manu_name = '$name', manu_status='$status' where id = $id";
 		mysqli_query($conn,$sql);
+
+		if($name!=$row['manu_name']){
+			$old_folder="../public/product/".$row['manu_name'];
+			$new_folder="../public/product/".$name;
+			
+				rename($old_folder,$new_folder);
+				echo "<script>";
+				echo "alert('Tên hãng và thư mục lưu ảnh ".$row['manu_name']."đã được đổi thành ".$name."');";
+				echo "setTimeout(() => {window.location='index.php?supplier';},1 * 100);";
+				echo "</script>";
+			
+
+		}
+
+
 		if($status==0){
 			$mysql="update product set product_status= 0 where product_manu= $id";
 			mysqli_query($conn,$mysql);
