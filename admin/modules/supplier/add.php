@@ -7,7 +7,6 @@
 		$folder="../public/product/";
 		$check=$folder.$imgname;
 		$flag=0;
-
 		$sql_c="select manu_name from manu_product";
 		$o=mysqli_query($conn,$sql_c);
 		while ($t=mysqli_fetch_assoc($o)){
