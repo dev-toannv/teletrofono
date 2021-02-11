@@ -1,24 +1,44 @@
 <?php 
 	require_once("modules/config/connectdb.php");
 	if(isset($_POST['sub_add'])){
-		$name=$_POST['manu_name'];
+		$name=trim($_POST['manu_name']);
 		$img=$_FILES['manu_img'];
 		$imgname=$_FILES['manu_img']['name'];
 		$folder="../public/product/";
 		$check=$folder.$imgname;
-		if(file_exists($check)){
-			header("Location:index.php?supplier&manu");
+		$flag=0;
+
+		$sql_c="select manu_name from manu_product";
+		$o=mysqli_query($conn,$sql_c);
+		while ($t=mysqli_fetch_assoc($o)){
+			if(strcasecmp($name,$t['manu_name'])==0){
+				$flag=1;
+				$g=$t['manu_name'];
+				break;
+			}
+
 		}
-		else{
-			$sql="insert into manu_product values(null,'$name','$imgname',1)";
-			$a=mysqli_query($conn,$sql);
-			if($a){
-				move_uploaded_file($img['tmp_name'], $check);
+		if($flag==0){
+			if(file_exists($check)){
 				header("Location:index.php?supplier&manu");
 			}
 			else{
-				echo mysqli_error($conn);
+				$sql="insert into manu_product values(null,'$name','$imgname',1)";
+				$a=mysqli_query($conn,$sql);
+				if($a){
+					move_uploaded_file($img['tmp_name'], $check);
+					header("Location:index.php?supplier&manu");
+				}
+				else{
+					echo mysqli_error($conn);
+				}
 			}
+		}
+		else{
+			echo "<script>";
+			echo "alert('Hãng ".$name." đã tồn tại dưới tên : ".$g."');";
+			echo "setTimeout(() => {window.location='index.php?supplier';},1 * 100);";
+			echo "</script>";
 		}
 	}
 ?>

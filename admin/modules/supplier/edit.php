@@ -18,14 +18,7 @@
 		if($name!=$row['manu_name']){
 			$old_folder="../public/product/".$row['manu_name'];
 			$new_folder="../public/product/".$name;
-			
-				rename($old_folder,$new_folder);
-				echo "<script>";
-				echo "alert('Tên hãng và thư mục lưu ảnh ".$row['manu_name']."đã được đổi thành ".$name."');";
-				echo "setTimeout(() => {window.location='index.php?supplier';},1 * 100);";
-				echo "</script>";
-			
-
+			rename($old_folder,$new_folder);
 		}
 
 
