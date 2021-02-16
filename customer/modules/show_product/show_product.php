@@ -129,13 +129,13 @@
 						<div id="a2_sale_left">
 							<p align="left"> &nbsp&nbsp- Khách hàng khi thanh toán trên 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
 							<p>
-								 &nbsp- Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết
+								 &nbsp- Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết.
 							</p>
 							<p>
-								&nbsp - Khách hàng V.I.P được giảm giá 3% mọi mặt hàng 
+								&nbsp - Khách hàng V.I.P được giảm giá 3% mọi mặt hàng.
 							</p>
 							<p>
-								&nbsp - Bảo hành <?php echo $result['product_guarantee']?>&nbsp tháng
+								&nbsp - Bảo hành <?php echo $result['product_guarantee']?>&nbsp tháng, chính hãng.
 							</p>
 							<br>
 							<p style="text-align: center">Liên hệ : 037.6886.282</p>

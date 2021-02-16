@@ -7,6 +7,7 @@
 	<div id="page_add">
 	<link rel="stylesheet" type="text/css" href="modules/edit/edit.css">
 <?php
+	$t=array();
 	if(isset($_SESSION['staff_code'])){
 
 		if(isset($_GET['id_edit'])){
@@ -27,7 +28,6 @@
 			$manu_id=$roww['id'];
 			$folder="../public/product/".$manu_name."/";
 			// xu ly ten anh
-			$t=array();
 			$nn="product_".$id."_"."1"."_";
 			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
 			$query_image=mysqli_query($conn,$image);
