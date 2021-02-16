@@ -42,6 +42,9 @@
 	$count_product=mysqli_query($conn,$sql1);
 	$count_product=mysqli_fetch_assoc($count_product);
 	$count_product=$count_product['count_product'];
+	if($count_product<=0){
+		$count_product=0;
+	}
 
 	
 ?>
@@ -123,7 +126,7 @@
 			<div class='t1'>ID nhân viên</div>
 			<div class='t1'>Thời gian tạo hóa đơn</div>
 			<div class='t1'>Thời gian nhận đơn</div>
-			<div class='t1'>Thời gian nhận hàng</div>
+			<div class='t1'>Thời gian khách nhận hàng</div>
 			<div class='t1'>Tổng tiền\hóa đơn</div>
 		</div>
 		<div style="width: 100%; height: 95%; overflow-y:scroll;">
