@@ -46,7 +46,7 @@
 		}
 	</script>
 	<div style="width: 18%; height: 100%; float: left">
-		
+		<!-- <img src="../public/customer/abc.gif" style="width: 100%; max-height: 100%" alt=""> -->
 	</div>
 	<div id='footer1'>
 		<table style="width: 27%;height: 100%">

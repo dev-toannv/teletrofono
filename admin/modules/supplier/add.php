@@ -6,8 +6,8 @@
 		$imgname=$_FILES['manu_img']['name'];
 		$folder="../public/product/";
 		$check=$folder.$imgname;
+		$path_manu=$folder.$name;
 		$flag=0;
-
 		$sql_c="select manu_name from manu_product";
 		$o=mysqli_query($conn,$sql_c);
 		while ($t=mysqli_fetch_assoc($o)){
@@ -27,6 +27,7 @@
 				$a=mysqli_query($conn,$sql);
 				if($a){
 					move_uploaded_file($img['tmp_name'], $check);
+					mkdir($path_manu);
 					header("Location:index.php?supplier&manu");
 				}
 				else{
