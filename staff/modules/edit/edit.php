@@ -7,7 +7,6 @@
 	<div id="page_add">
 	<link rel="stylesheet" type="text/css" href="modules/edit/edit.css">
 <?php
-	$t=array();
 	if(isset($_SESSION['staff_code'])){
 
 		if(isset($_GET['id_edit'])){
@@ -28,6 +27,7 @@
 			$manu_id=$roww['id'];
 			$folder="../public/product/".$manu_name."/";
 			// xu ly ten anh
+			$t=array();
 			$nn="product_".$id."_"."1"."_";
 			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
 			$query_image=mysqli_query($conn,$image);
@@ -45,7 +45,12 @@
 			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
 			$query_image=mysqli_query($conn,$image);
 			$result_img=mysqli_fetch_assoc($query_image);
-			$t[1]=$result_img['image_name'];
+			if(mysqli_num_rows($query_image)>0){
+				$t[1]=$result_img['image_name'];
+			}
+			else{
+				$t[1]="";
+			}
 			if($t[1]==""){
 				$path2="../public/product/product.svg";
 			}
@@ -57,6 +62,12 @@
 			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
 			$query_image=mysqli_query($conn,$image);
 			$result_img=mysqli_fetch_assoc($query_image);
+			if(mysqli_num_rows($query_image)>0){
+				$t[2]=$result_img['image_name'];
+			}
+			else{
+				$t[2]="";
+			}
 			$t[2]=$result_img['image_name'];
 			if($t[2]==""){
 				$path3="../public/product/product.svg";
