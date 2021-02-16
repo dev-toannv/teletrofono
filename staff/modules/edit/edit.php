@@ -68,7 +68,6 @@
 			else{
 				$t[2]="";
 			}
-			$t[2]=$result_img['image_name'];
 			if($t[2]==""){
 				$path3="../public/product/product.svg";
 			}
