@@ -82,7 +82,7 @@
 			$product_color=trim($_POST['product_color']);
 			$product_manu=trim($_POST['product_manu']);
 			$product_os=trim($_POST['product_os']);
-			$product_des=trim($_POST['product_des']);
+			// $product_des=trim($_POST['product_des']);
 			$product_tech_screen=trim($_POST['product_tech_screen']);
 			$product_resolution_screen=trim($_POST['product_resolution_screen']);
 			$product_width_screen=trim($_POST['product_width_screen']);
@@ -128,7 +128,6 @@
 					product_color='$product_color',
 					product_manu='$product_manu',
 					product_os='$product_os',
-					product_des='$product_des',
 					product_tech_screen='$product_tech_screen',
 					product_resolution_screen='$product_resolution_screen',
 					product_width_screen='$product_width_screen',
@@ -718,10 +717,6 @@
 			Thời điểm ra mắt &nbsp<input type="date" value="<?php echo $result_sql11['product_timeoflaunch'] ?>" name="product_timeoflaunch" id="product_timeoflaunch"><br><!--thoi diem ra mat-->
 			<!--them time posting -->
 			<input type="number" value="<?php echo $result_sql11['product_guarantee'] ?>" placeholder="Bảo hành ? tháng" name="product_guarantee" id="product_guarantee">
-		</div>
-		<div>
-			<!--Mo ta san pham--> 
-			<textarea placeholder="Mô tả sản phẩm" value="<?php echo $result_sql11['product_des'] ?>" name="product_des" id="product_des"></textarea>
 		</div>
 		<div>
 			<input type="number" value="<?php echo $result_sql11['product_quantity'] ?>" placeholder="Số lưọng sản phẩm" name="product_quantity" id="product_quantity"><br>

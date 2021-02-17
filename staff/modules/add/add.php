@@ -8,7 +8,6 @@
 		$product_color=trim($_POST['product_color']);
 		$product_manu=trim($_POST['product_manu']);
 		$product_os=trim($_POST['product_os']);
-		$product_des=trim($_POST['product_des']);
 		$product_tech_screen=trim($_POST['product_tech_screen']);
 		$product_resolution_screen=trim($_POST['product_resolution_screen']);
 		$product_width_screen=trim($_POST['product_width_screen']);
@@ -42,7 +41,6 @@
 		$product_batterycapacity=trim($_POST['product_batterycapacity']);
 		$product_batterytype=trim($_POST['product_batterytype']);
 		$product_timeoflaunch=trim($_POST['product_timeoflaunch']);
-		// $product_timeofposting='now()';
 		$product_guarantee=trim($_POST['product_guarantee']);
 		$product_quantity=trim($_POST['product_quantity']);
 		$product_name=trim($_POST['product_name']);
@@ -54,7 +52,6 @@
 			'$product_color',
 			'$product_manu',
 			'$product_os',
-			'$product_des',
 			'$product_tech_screen',
 			'$product_resolution_screen',
 			'$product_width_screen',
@@ -88,7 +85,6 @@
 			'$product_batterycapacity',
 			'$product_batterytype',
 			'$product_timeoflaunch',
-			now(),
 			'$product_guarantee',
 			'$product_quantity',
 			'$product_name',
@@ -418,10 +414,6 @@
 			Thời điểm ra mắt &nbsp<input type="date" name="product_timeoflaunch" id="product_timeoflaunch"><br><!--thoi diem ra mat-->
 			<!--them time posting -->
 			<input type="number" placeholder="Bảo hành ? tháng" name="product_guarantee" id="product_guarantee">
-		</div>
-		<div>
-			<!--Mo ta san pham--> 
-			<textarea placeholder="Mô tả sản phẩm" name="product_des" id="product_des"></textarea>
 		</div>
 		<div>
 			<input type="number" placeholder="Số lưọng sản phẩm" name="product_quantity" id="product_quantity"><br>
