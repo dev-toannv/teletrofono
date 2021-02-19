@@ -26,11 +26,11 @@
 		}
 		if(!empty($ss)){
 			if($ss==1){
-				$ss=" order by active_bill.time_receive ASC";
+				$ss=" order by active_bill.time_active ASC";
 				$flag=1;
 			}
 			if($ss==2){
-				$ss=" order by active_bill.time_receive DESC";
+				$ss=" order by active_bill.time_active DESC";
 				$flag=1;
 			}
 		}
@@ -57,7 +57,7 @@
 				Ngày nhận hàng
 			</div>
 			<div class='bar1'>
-				Sắp xếp theo
+				Sắp xếp theo thời gian đặt hàng
 			</div>
 			<div class='bar1'>
 				*
