@@ -32,12 +32,18 @@
 			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
 			$query_image=mysqli_query($conn,$image);
 			$result_img=mysqli_fetch_assoc($query_image);
-			$t[0]=$result_img['image_name'];
-			if($t[0]==""){
-				$path="../public/product/product.svg";
+
+			if(mysqli_num_rows($query_image)>0){
+				$t[0]=$result_img['image_name'];
 			}
 			else{
-				$path=$folder.$t[0];
+				$t[0]="";
+			}
+			if($t[0]==""){
+				$path2="../public/product/product.svg";
+			}
+			else{
+				$path2=$folder.$t[0];
 			}
 
 
