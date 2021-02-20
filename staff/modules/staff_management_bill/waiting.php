@@ -25,7 +25,7 @@
 	else{
 		if(isset($_GET['idbill'])){
 			$id=$_GET['idbill'];
-			$num="select id from bill where id = $id";
+			$num="select id from bill where id = $id and bill_status=0";
 			$num=mysqli_query($conn,$num);
 			$num=mysqli_num_rows($num);
 			if($num==1){
