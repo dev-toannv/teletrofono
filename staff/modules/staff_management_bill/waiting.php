@@ -3,11 +3,24 @@
 	$sql=mysqli_query($conn,$sql);
 	if(isset($_GET['ernum'])){
 		$z=$_GET['ernum'];
-		echo "<script>";
-			echo "alert('Hóa đơn với ID ".$z." đã bị hủy hoặc được nhận bởi người khác');";
-			echo "setTimeout(() => {window.location='index.php?module=interface&action=interfaceStaff&choose=mbill';},1 * 100);";
-			// echo "window.location='index.php?module=interface&action=interfaceStaff&choose=mbill'";
-		echo "</script>";
+		$sqlll="select id from bill where id = $z";
+		$b=mysqli_query($conn,$sqlll);
+
+		if(mysqli_num_rows($b)>0){
+			echo "<script>";
+				echo "alert('Hóa đơn với ID ".$z." đã được xử lý bởi thành viên khác');";
+				echo "setTimeout(() => {window.location='index.php?module=interface&action=interfaceStaff&choose=mbill';},1 * 100);";
+				// echo "window.location='index.php?module=interface&action=interfaceStaff&choose=mbill'";
+			echo "</script>";
+		}
+		else{
+			echo "<script>";
+				echo "alert('Hóa đơn với ID ".$z." đã bị hủy bởi khách hàng');";
+				echo "setTimeout(() => {window.location='index.php?module=interface&action=interfaceStaff&choose=mbill';},1 * 100);";
+				// echo "window.location='index.php?module=interface&action=interfaceStaff&choose=mbill'";
+			echo "</script>";
+		}
+		
 	}
 	else{
 		if(isset($_GET['idbill'])){
