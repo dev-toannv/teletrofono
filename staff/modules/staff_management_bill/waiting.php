@@ -71,7 +71,7 @@
 					echo '</div>';
 
 					echo "<div class='w32'>";
-						echo "<a href='index.php?module=interface&action=interfaceStaff&choose=mbill&idbill=".$a['id']."'>Nhận hóa đơn /ID: ".$a['id']."</a>";
+						echo "<a href='index.php?module=interface&action=interfaceStaff&choose=mbill&progress=waiting&idbill=".$a['id']."'>Nhận hóa đơn /ID: ".$a['id']."</a>";
 					echo '</div>';
 				echo "</div>";
 			echo "</div>";
