@@ -40,10 +40,10 @@
 				$t[0]="";
 			}
 			if($t[0]==""){
-				$path2="../public/product/product.svg";
+				$path="../public/product/product.svg";
 			}
 			else{
-				$path2=$folder.$t[0];
+				$path=$folder.$t[0];
 			}
 
 
