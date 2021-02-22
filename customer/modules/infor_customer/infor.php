@@ -54,13 +54,17 @@
 	</div>
 	<div id="right_c">
 		<?php 
-			if($_SESSION['select']=="account"){
-				require_once("modules/infor_customer/infor1.php");
+			if(isset($_SESSION['id_customer'])){
+				if($_SESSION['select']=="account"){
+					require_once("modules/infor_customer/infor1.php");
+				}
+				else{
+					require_once("modules/infor_customer/bill.php");
+				}
 			}
 			else{
-				require_once("modules/infor_customer/bill.php");
+				header("Location:index.php");
 			}
-			
 		?>
 	</div>
 </div>

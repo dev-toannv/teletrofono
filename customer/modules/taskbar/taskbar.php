@@ -76,7 +76,21 @@ require_once("modules/config/connectdb.php");
 		<img src="../public/customer/acc.gif"  style="max-height: 100%;width: 100%;"alt="">
 	</div>
 	<div id="taskbar_cart">
-		<a href="index.php?cart=cart"><img src="../public/customer/cart.png" id ='cart1'alt=""></a>
+		<a href="index.php?cart=cart"><img src="../public/customer/cart.png" id ='cart1'alt="">
+		<?php
+			if(isset($_SESSION['cart'])){
+				$cart = $_SESSION['cart'];
+				$total_cart=0;
+				foreach($cart as $key=>$value){
+					$total_cart+=$value;
+				}
+				if($total_cart>0){
+					echo "<span style='font-size:135%; color:red;'>".$total_cart."</span>";
+				}
+			}
+		?>
+		</a>
+		
 	</div>
 	
 </div>

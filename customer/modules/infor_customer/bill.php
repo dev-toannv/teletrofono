@@ -37,12 +37,16 @@
 	</div>
 	<div id='select2'>
 		<?php 
-
-		if($_SESSION['s']=="processing"){
-			require_once("modules/infor_customer/processing.php");
+		if(isset($_SESSION['id_customer'])){
+			if($_SESSION['s']=="processing"){
+				require_once("modules/infor_customer/processing.php");
+			}
+			else{
+				require_once("modules/infor_customer/private.php");
+			}
 		}
 		else{
-			require_once("modules/infor_customer/private.php");
+			header("Location:index.php");
 		}
 		?>
 	</div>
