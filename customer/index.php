@@ -2,7 +2,7 @@
 	session_start();
 	$module = $action ='';
 	if(isset($_GET['module']) && isset($_GET['action'])){
-		if($_GET['module']=="common" || $_GET['module']=="sign_up"  || $_GET['module']=="interface_customer"){
+		if($_GET['module']=="common" || $_GET['module']=="cart" || $_GET['module']=="sign_up"  || $_GET['module']=="interface_customer"){
 			$module=$_GET['module'];
 			$action=$_GET['action'];
 		}
