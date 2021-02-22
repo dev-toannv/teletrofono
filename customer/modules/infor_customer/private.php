@@ -16,7 +16,7 @@
 			
 		}
 		else{
-			$s_status="(bill.bill_status=3 or bill.bill_status=4)";
+			$s_status="(bill.bill_status!=6)";
 		}
 
 
@@ -25,16 +25,16 @@
 		}
 		if(!empty($ss)){
 			if($ss==1){
-				$ss=" order by active_bill.time_receive ASC";
+				$ss=" order by active_bill.time_active ASC";
 			}
 			if($ss==2){
-				$ss=" order by active_bill.time_receive DESC";
+				$ss=" order by active_bill.time_active DESC";
 			}
 		}
 
 	}
 	if(empty($s_status)){
-		$s_status="(bill.bill_status=3 or bill.bill_status=4)";
+		$s_status="(bill.bill_status!=6)";
 	}
 	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
 	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận khách không nhận hàng");
