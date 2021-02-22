@@ -15,6 +15,10 @@
 			 if($_GET['progress']=="all"){
 				$_SESSION['select']="all";
 			}
+
+			if($_GET['progress']=="processing_all"){
+				$_SESSION['select']="processing_all";
+			}
 		}
 		
 	}
@@ -41,12 +45,19 @@
 				color: red;
 			}";
 		}
+		if($_SESSION['select']=="processing_all"){
+			echo "#processing_all a{
+				background-color: #e9e2ec;
+				color: red;
+			}";
+		}
 		if($_SESSION['select']=="all"){
 			echo "#all_bill a{
 				background-color: #e9e2ec;
 				color: red;
 			}";
 		}
+
 	?>
 </style>
 <div id="container_bill" style="width: 100%; height: 100%;">
@@ -56,6 +67,9 @@
 		</div>
 		<div id="processing">
 			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Hóa đơn đang xử lý bởi tôi</a>
+		</div>
+		<div id="processing_all">
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing_all" class="task">Các hóa đơn đang xử lý</a>
 		</div>
 		<div id="all_bill">
 			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=all" class="task">Tất cả hóa đơn đã xử lý</a>
@@ -68,6 +82,9 @@
 			}
 			else if($_SESSION['select']=="processing"){
 				require_once("modules/staff_management_bill/processing.php");
+			}
+			else if($_SESSION['select']=="processing_all"){
+				require_once("modules/staff_management_bill/processing_all.php");
 			}
 			else if($_SESSION['select']=="all"){
 				require_once("modules/staff_management_bill/all_bill.php");

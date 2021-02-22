@@ -14,18 +14,24 @@
 
 #waiting{
 	height: 100%;
-	width: 33.333333333%;
+	width: 25%;
 	float: left;
 	border-right:1px solid black;; 
 }
 #processing{
 	height: 100%;
-	width: 33.333333333%;
+	width: 25%;
+	float: left;
+}
+
+#processing_all{
+	height: 100%;
+	width: 25%;
 	float: left;
 }
 #all_bill{
 	height: 100%;
-	width: 33.333333333%;
+	width: 25%;
 	float: left;
 	border-left:1px solid black;;
 }
