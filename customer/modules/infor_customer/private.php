@@ -7,8 +7,19 @@
 		$ss=$_POST['ss'];
 
 		if(!empty($s_status)){
-			$s_status=" and bill.bill_status = '$s_status' ";
+			if($s_status==7){
+				$s_status="(bill.bill_status=1 or bill.bill_status=2 or bill.bill_status=5)";
+			}
+			else{
+				$s_status="bill.bill_status = '$s_status' ";
+			}
+			
 		}
+		else{
+			$s_status="(bill.bill_status=3 or bill.bill_status=4)";
+		}
+
+
 		if(!empty($s_date)){
 			$s_date=" and active_bill.time_receive = '$s_date' ";
 		}
@@ -22,9 +33,13 @@
 		}
 
 	}
+	if(empty($s_status)){
+		$s_status="(bill.bill_status=3 or bill.bill_status=4)";
+	}
 	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
 	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận khách không nhận hàng");
-	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where (bill.bill_status=3 or bill.bill_status=4) and bill.customer_id = $id_customer $s_status $s_date $ss ";
+	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where $s_status and bill.customer_id = $id_customer  $s_date $ss ";
+	// echo $sql;
 	$sql=mysqli_query($conn,$sql);
 ?>
 
@@ -51,6 +66,7 @@
 					<option value="">--Tất cả--</option>
 					<option value="3">Giao hàng thành công</option>
 					<option value="4">Không nhận</option>
+					<option value="7">Đang xử lý</option>
 				</select>
 			</div>
 			<div class='bar1'>

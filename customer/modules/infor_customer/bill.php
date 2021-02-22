@@ -29,7 +29,7 @@
 <div id="bill_process">
 	<div id='select1'>
 		<div class="ss1">
-			<a href="index.php?infor=infor&bill&select=processing" id='a1'>Hóa đơn đang xử lý</a>
+			<a href="index.php?infor=infor&bill&select=processing" id='a1'>Hóa đơn đang chờ</a>
 		</div>
 		<div class="ss1">
 			<a href="index.php?infor=infor&bill&select=private" id='a2'>Các hóa đơn của tôi</a>
