@@ -1,8 +1,11 @@
 <?php 
 	$module = $action ='';
 	if(isset($_GET['module']) && isset($_GET['action'])){
-		$module=$_GET['module'];
-		$action=$_GET['action'];
+		if($_GET['module']=="common"){
+			$module=$_GET['module'];
+			$action=$_GET['action'];
+		}
+		
 	}
 	if($module=='' || $action==''){
 		$module='interface';

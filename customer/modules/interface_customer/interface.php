@@ -30,6 +30,7 @@
 	else{
 		if(isset($_GET['cart'])){
 			require_once("modules/cart/cart.php");
+			// header("Location:index.php?module=cart&action=cart");
 		}
 		else{
 			if(isset($_GET['product_detail'])){
