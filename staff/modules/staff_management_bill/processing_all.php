@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/processing_all.css">
 <div id="search">
 	<form action="" method="POST">
-		<input type="number" name="se_id" min="1">
+		<input type="number" placeholder="ID hóa đơn" style="text-align: center;" name="se_id" min="1">
 		<button type="submit" name="se">Tìm kiếm</button>
 	</form>
 </div>

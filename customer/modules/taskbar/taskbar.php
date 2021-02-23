@@ -82,7 +82,7 @@ require_once("modules/config/connectdb.php");
 				$cart = $_SESSION['cart'];
 				$total_cart=0;
 				foreach($cart as $key=>$value){
-					$total_cart+=$value;
+					$total_cart++;
 				}
 				if($total_cart>0){
 					echo "<span style='font-size:135%; color:red;'>".$total_cart."</span>";

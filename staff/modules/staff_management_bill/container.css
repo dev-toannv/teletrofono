@@ -28,12 +28,13 @@
 	height: 100%;
 	width: 25%;
 	float: left;
+	border-left:1px solid black;
 }
 #all_bill{
 	height: 100%;
 	width: 25%;
 	float: left;
-	border-left:1px solid black;;
+	border-left:1px solid black;
 }
 
 .task{
