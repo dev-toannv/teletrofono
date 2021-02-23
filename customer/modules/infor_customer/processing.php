@@ -1,4 +1,7 @@
 <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
+<?php 
 	require_once("modules/config/connectdb.php");
 	$sql="select * from bill where bill_status=0 and customer_id = $id_customer ";
 	$sql=mysqli_query($conn,$sql);

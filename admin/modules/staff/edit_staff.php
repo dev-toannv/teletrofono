@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	$s_id="";
 	$s_code="";

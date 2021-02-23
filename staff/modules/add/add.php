@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <div id="page_add">
 	<link rel="stylesheet" type="text/css" href="modules/add/add.css">
 <?php

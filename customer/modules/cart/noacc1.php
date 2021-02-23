@@ -1,4 +1,6 @@
-
+<?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	// kiem tra khi vao gio hang, neu so luong hang con lai lon hon so luong san pham trong gio hang
 	foreach ($_SESSION['cart'] as $key => $value) {

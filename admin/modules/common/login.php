@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	require_once("modules/common/config/processlogin.php");
 	require_once("modules/config/fix_confirm_form_resubmission.php");

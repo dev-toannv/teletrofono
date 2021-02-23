@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	$img='';
 	if(isset($_GET['edit_id'])){

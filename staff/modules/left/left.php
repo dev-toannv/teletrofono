@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <link rel="stylesheet" type="text/css" href="modules/left/left.css">
 <div id="left_infor" class="leftA">
 	<img src="modules/left/img/id-card.png" alt=""><a href="index.php?module=interface&action=interfaceStaff&choose=infor">Thông tin cá nhân</a>

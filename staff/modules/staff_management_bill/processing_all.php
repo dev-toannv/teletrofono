@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	$id_bill='';
 	if(isset($_POST['se'])){

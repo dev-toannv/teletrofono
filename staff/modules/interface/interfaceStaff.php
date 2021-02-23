@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	session_start();
 	if(isset($_SESSION['staff_code'])==false || isset($_SESSION['staff_password'])==false){

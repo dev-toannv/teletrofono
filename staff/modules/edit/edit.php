@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <link rel="stylesheet" href="modules/edit/edit.css">
 <div>
 	<h1>Chỉnh sửa sản phẩm</h1>

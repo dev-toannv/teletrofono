@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	session_start();
 	if(isset($_SESSION['admin_acc'])==false || isset($_SESSION['admin_pass'])==false){

@@ -1,3 +1,6 @@
+<?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <link rel="stylesheet" type="text/css" href="modules/show_product/show_product.css">
 <?php
 	require_once("modules/config/connectdb.php");

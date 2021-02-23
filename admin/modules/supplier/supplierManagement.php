@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <link rel="stylesheet" type="text/css" href="modules/supplier/sup.css">
 <div id="supplier_color">
 	<div id="head_sup">

@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <div id="staff_infor">
 	
 	<link rel="stylesheet" type="text/css" href="modules/staff_infor/staff_infor.css">

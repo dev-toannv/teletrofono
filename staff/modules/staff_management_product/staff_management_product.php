@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <link rel="stylesheet" type="text/css" href="modules/staff_management_product/staff_management_product.css">
 <div id="mproduct">
 	<?php

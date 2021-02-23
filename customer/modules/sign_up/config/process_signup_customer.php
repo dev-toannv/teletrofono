@@ -1,4 +1,7 @@
 <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
+<?php 
 		if(isset($_POST['sub'])){
 			$acc=$_POST['acc'];
 			$pass=$_POST['pass'];

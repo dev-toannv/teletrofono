@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <script type="text/javascript">
 	function validate(){
 		var a= document.getElementById("manager_code");

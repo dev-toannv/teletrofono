@@ -1,4 +1,7 @@
 <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
+<?php 
 	
 	$s_status=$s_date=$ss="";
 	if(isset($_POST['s_sub'])){

@@ -1,3 +1,6 @@
+<?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <div id='footer'>
 	<style rel="stylesheet" type="text/css">
 		#footer{

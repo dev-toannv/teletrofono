@@ -1,3 +1,6 @@
+<?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <div id="header">
 	<?php
 	if(isset($_POST['logout'])){

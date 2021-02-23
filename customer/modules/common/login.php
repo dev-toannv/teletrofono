@@ -1,4 +1,7 @@
 <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
+<?php 
 	$error="";
 		if(isset($_SESSION['acc'])&&isset($_SESSION['pass'])){
 			header("Location:index.php");

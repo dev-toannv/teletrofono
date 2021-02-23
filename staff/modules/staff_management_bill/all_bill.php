@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	$s_idmanager=$s_idbill=$s_status=$s_date=$ss="";
 	$flag=0;

@@ -1,4 +1,8 @@
 <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
+
+<?php 
 	if(!isset($_SESSION['select'])){
 		$_SESSION['select']="account";
 	}

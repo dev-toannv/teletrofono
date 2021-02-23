@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <script>
 		if ( window.history.replaceState ) {
     		window.history.replaceState( null, null, window.location.href );

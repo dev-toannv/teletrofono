@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	$sql="select * from bill where bill_status =0";
 	$sql=mysqli_query($conn,$sql);

@@ -1,4 +1,6 @@
-
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <form action='' method='POST' style='width:100%; height:100%'>
 	<div class='form1'>
 		Thời gian giao hàng : &nbsp

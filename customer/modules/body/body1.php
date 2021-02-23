@@ -1,4 +1,6 @@
-
+<?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <div id="page">
 	<marquee scrollamount="9"  style="padding:0;font-size:30px">I.STORE cam kết mang đến cho quý khách chất lượng sản phẩm và dịch vụ hỗ trợ tốt nhất</marquee>
 </div>

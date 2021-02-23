@@ -13,6 +13,7 @@
 	}
 	$path="modules/$module/$action.php";
 	if(file_exists($path)){
+		define("MY_PROJECT", true);
 		require_once($path);
 	}
 	else{
@@ -20,3 +21,7 @@
 		require_once($path);
 	}
  ?>
+
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>

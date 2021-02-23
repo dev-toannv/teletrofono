@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	$manager=$_SESSION['id'];
 	// lay type cua manager de them neu manager xoa bill

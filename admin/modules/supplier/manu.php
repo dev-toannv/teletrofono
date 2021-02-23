@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	require_once("modules/config/connectdb.php");
 	$sql="select * from manu_product";

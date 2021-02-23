@@ -1,4 +1,7 @@
 <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
+<?php 
 		if(isset($_POST['sub_bill'])){
 			$cus_id=$_POST['cus_id'];
 			$cus_address=trim($_POST['cus_address']);

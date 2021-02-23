@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/container.css">
 <?php 
 	date_default_timezone_set("Asia/Ho_Chi_Minh");

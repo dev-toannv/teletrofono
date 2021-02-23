@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php 
 	require_once("modules/config/connectdb.php");
 	if(isset($_POST['sub_c'])){

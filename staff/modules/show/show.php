@@ -1,3 +1,6 @@
+ <?php 
+	if(!defined("MY_PROJECT")) die("Connect error");
+?>
 <?php
 	require_once("modules/config/connectdb.php");
 	// lay thong tin hang san xuat de search
