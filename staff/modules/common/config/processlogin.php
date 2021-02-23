@@ -20,7 +20,7 @@
 			$result=mysqli_query($conn,$sql);
 			$count=mysqli_num_rows($result);
 			if($count<=0 || $count>1){
-				$error="You are not a staff";
+				$error="Lỗi đăng nhập, vui lòng điền lại thông tin !";
 			}
 			else{	
 					$_SESSION['staff_code']=$acc;
