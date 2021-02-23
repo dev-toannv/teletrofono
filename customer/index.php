@@ -21,7 +21,3 @@
 		require_once($path);
 	}
  ?>
-
- <?php 
-	if(!defined("MY_PROJECT")) die("Connect error");
-?>
