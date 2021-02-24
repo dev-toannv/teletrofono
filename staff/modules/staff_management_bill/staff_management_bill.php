@@ -31,7 +31,13 @@
 	$p=mysqli_query($conn,$p);
 	$p=mysqli_fetch_assoc($p);
 	$_SESSION['id']=$p['id'];
-	
+	$sql_bill="select * from bill where bill_status =0";
+	$number_bill=mysqli_num_rows(mysqli_query($conn,$sql_bill));
+
+	$manager1=$_SESSION['id'];
+	$sql_private="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=3 and bill.bill_status!=4 and bill.bill_status!=6 and active_bill.id_manager='$manager1' ";
+	$private=mysqli_num_rows(mysqli_query($conn,$sql_private));
+
 ?>
 
 <style rel="stylesheet" type="text/css">
@@ -66,10 +72,10 @@
 <div id="container_bill" style="width: 100%; height: 100%;">
 	<div id="task">
 		<div id="waiting">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=waiting" class="task">Hóa đơn đang chờ</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=waiting" class="task">Hóa đơn đang chờ (<?php echo $number_bill ?>)</a>
 		</div>
 		<div id="processing">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Hóa đơn đang xử lý bởi tôi</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Hóa đơn đang xử lý bởi tôi (<?php echo $private ?>)</a>
 		</div>
 		<div id="processing_all">
 			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing_all" class="task">Các hóa đơn đang xử lý</a>
