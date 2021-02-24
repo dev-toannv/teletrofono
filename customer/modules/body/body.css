@@ -69,6 +69,9 @@
 	display: inline-block ;
 	border:solid black 1px;
 	position: relative;
+	/*box-shadow: 5px 5px #666;*/
+	box-shadow: 4px 4px 5px 0px #666;
+	/*box-shadow: 0 8px 6px -6px black;*/
 }
 
 .show_product_name{
