@@ -25,6 +25,8 @@ require_once("modules/config/connectdb.php");
 						unset($_SESSION['storage_check']);
 						unset($_SESSION['s_color']);
 						unset($_SESSION['color_check']);
+						unset($_SESSION['price']);
+						unset($_SESSION['price2']);
 						header("Location:index.php");
 					}
 					if(isset($_SESSION['search_manu']) && isset($_GET['search_manu'])){

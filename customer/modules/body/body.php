@@ -38,13 +38,15 @@
 		unset($_SESSION['ram_check']);
 		unset($_SESSION['storage_check']);
 		unset($_SESSION['color_check']);
+		unset($_SESSION['price']);
+		unset($_SESSION['price2']);
 		$s=$_SESSION['search_manu'];
 		header("Location:index.php?search_manu=$s");
 
 	}
 	
 	// phan nay xu ly session va ra va bo nho trong khi goi cau lenh sql
-	$s_name=$s_manu=$s_ram=$s_storage=$s_color=$storage_check=$ram_check=$color_check="";
+	$s_name=$s_manu=$s_ram=$s_storage=$s_color=$storage_check=$ram_check=$color_check=$price1="";
 	if(isset($_SESSION['s_name'])){
 		$s_name=$_SESSION['s_name'];
 	}
@@ -60,6 +62,9 @@
 		$s_storage=$_SESSION['s_storage'];
 	}
 
+	if(isset($_SESSION['price'])){
+		$price1=$_SESSION['price2'];
+	}
 
 	//-------------------------------------------------------------------
 	// phan nay de check xem ram va bo nho minh da chon la gi
@@ -126,13 +131,38 @@
 			$s_color=$_SESSION['s_color'];
 		}
 
+		if(!empty($_POST['s_price'])){
+			if($_POST['s_price']==1){
+				$price1=" and product_price<=5000000 " ;
+				$_SESSION['price']=1;
+				$_SESSION['price2']=$price1;
+
+			}
+			else if($_POST['s_price']==2){
+				$price1=" and product_price >= 5000000 and product_price<= 10000000 ";
+				$_SESSION['price']=2;
+				$_SESSION['price2']=$price1;
+			}
+			else if($_POST['s_price']==3){
+				$price1=" and product_price >= 10000000 and product_price<= 20000000 ";
+				$_SESSION['price']=3;
+				$_SESSION['price2']=$price1;
+			}
+
+			else{
+				$price1=" and product_price>20000000 ";
+				$_SESSION['price']=4;
+				$_SESSION['price2']=$price1;
+			}
+		}
+
+
 	}
 	//----------------------------------------------------
 
-	$sql19="select id,product_name,product_price,product_manu,product_status,product_quantity from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu $s_color";
+	$sql19="select id,product_name,product_price,product_manu,product_status,product_quantity from product where product_name like '%$s_name%' $s_ram $s_storage $s_manu $s_color $price1";
 	$query_sql19=mysqli_query($conn,$sql19);
 	$aff=mysqli_num_rows($query_sql19);
-	// echo $sql19;
 	$limit=9;
 	$pages=ceil($aff/$limit);
 	if(isset($_GET['page'])){
@@ -161,57 +191,68 @@
 		<div style="height:68%; width: 100%;">
 			<div id="fo1">
 				<form action="" id="fo" method="POST" style="display:inline-block">
-				<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:100%;height: 22%; text-align: center;"><br>
-				<select name="s_ram" style="width:30%;height: 18%; text-align: center;">
-						<option value="">Ram</option>
-						<?php 
-							while($result_ram=mysqli_fetch_assoc($query_ram)){
-								$product_ram=$result_ram['product_ram'];
-								if($product_ram==$ram_check){
-									echo "<option value='$product_ram' selected>";
-										echo $result_ram['product_ram'];
-									echo "</option>";
-								}
-								echo "<option value='$product_ram'>";
-									echo $result_ram['product_ram'];
-								echo "</option>";
-							}
-						?>
-				</select>
-				<br>
-				<select name="s_storage" style="width:30%;height: 18%; text-align: center;">
-						<option value="">Bộ nhớ trong</option>
-						<?php 
-							while($result_storage=mysqli_fetch_assoc($query_storage)){
-								$product_storage=$result_storage['product_storage'];
-								if($product_storage==$storage_check){
-									echo "<option value='$product_storage' selected>";
-										echo $result_storage['product_storage'];
-									echo "</option>";
-								}
-								echo "<option value='$product_storage'>";
-									echo $result_storage['product_storage'];
-								echo "</option>";
-							}
-						?>
-				</select>
-				<br>
-				<select name="s_color" style="width:30%;height: 18%; text-align: center;">
-					<option value="">Màu sắc</option>
-					<?php 
-						while ($co=mysqli_fetch_assoc($cos)){
-								$id_co=$co['product_color'];
-							if($id_co==$color_check){
-							echo "<option value='$id_co' selected>";
-								echo $cor[$id_co];
-							echo "</option>";
-							}
-							echo "<option value='$id_co'>";
-								echo $cor[$id_co];
-							echo "</option>";
-						}
-					?>
-				</select>
+					<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:100%;height: 22%; text-align: center;"><br>
+					<div style="width: 100%;height:78%">
+						<div style="width: 50%;height: 100%;float: left;">
+							<select name="s_ram" style="width:80%;height: 25%; text-align: center;">
+								<option value="">Ram</option>
+								<?php 
+									while($result_ram=mysqli_fetch_assoc($query_ram)){
+										$product_ram=$result_ram['product_ram'];
+										if($product_ram==$ram_check){
+											echo "<option value='$product_ram' selected>";
+												echo $result_ram['product_ram'];
+											echo "</option>";
+										}
+										echo "<option value='$product_ram'>";
+											echo $result_ram['product_ram'];
+										echo "</option>";
+									}
+								?>
+							</select>
+							<br>
+							<select name="s_storage" style="width:80%;height: 25%; text-align: center;">
+									<option value="">Bộ nhớ trong</option>
+									<?php 
+										while($result_storage=mysqli_fetch_assoc($query_storage)){
+											$product_storage=$result_storage['product_storage'];
+											if($product_storage==$storage_check){
+												echo "<option value='$product_storage' selected>";
+													echo $result_storage['product_storage'];
+												echo "</option>";
+											}
+											echo "<option value='$product_storage'>";
+												echo $result_storage['product_storage'];
+											echo "</option>";
+										}
+									?>
+							</select>
+							<br>
+							<select name="s_color" style="width:80%;height: 25%; text-align: center;">
+								<option value="">Màu sắc</option>
+								<?php 
+									while ($co=mysqli_fetch_assoc($cos)){
+											$id_co=$co['product_color'];
+										if($id_co==$color_check){
+										echo "<option value='$id_co' selected>";
+											echo $cor[$id_co];
+										echo "</option>";
+										}
+										echo "<option value='$id_co'>";
+											echo $cor[$id_co];
+										echo "</option>";
+									}
+								?>
+							</select>
+						</div>
+						<div style="width: 50%;height: 100%;float: left;display: flex;flex-direction: column;">
+							<span><input type="radio" <?php if($_SESSION['price']==1) echo "checked"; ?> value="1" name='s_price'> Dưới 5 triệu</span> <br>
+							<span><input type="radio" <?php if($_SESSION['price']==2) echo "checked"; ?>  value="2" name='s_price'> Từ 5 -> 10 triệu</span> <br>
+							<span><input type="radio" <?php if($_SESSION['price']==3) echo "checked"; ?> value="3" name='s_price'> Từ 10 -> 20 triệu</span> <br>
+							<span><input type="radio" <?php if($_SESSION['price']==4) echo "checked"; ?> value="4" name='s_price'> Trên 20 triệu</span>
+						</div>
+						
+					</div>
 			</div>
 			<div id="fo2">
 				<div class="fo21">
