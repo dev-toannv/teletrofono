@@ -184,6 +184,7 @@
     $sql19=$sql19."LIMIT $offset,$limit";
 	// Cau lenh thuc thi
 	$query_sql19=mysqli_query($conn,$sql19);
+	$num_chia=mysqli_num_rows($query_sql19);
 
 ?>
 <div id="body">

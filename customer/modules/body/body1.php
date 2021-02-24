@@ -67,8 +67,12 @@
 				echo "</div>";
 			$dem=$dem+1;
             if($dem%3==0 && $dem!=0 && $dem<$limit){
-                echo "</div>";
-                echo "<div class='div_product'>";
+            	if($dem<$num_chia){
+            		echo "</div>";
+                	echo "<div class='div_product'>";
+            	}
+            		
+                
             }
 		}
 	?>
