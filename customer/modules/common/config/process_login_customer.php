@@ -14,6 +14,9 @@
 			$_SESSION['pass']=$row['customer_password'];
 			$_SESSION['id_customer']=$row['id'];
 			$_SESSION['username']=$row['customer_name'];
+			if(isset($_SESSION['cart'])){
+				unset($_SESSION['cart']);
+			}
 			header("Location:index.php");
 		}
 		else{

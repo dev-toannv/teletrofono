@@ -9,10 +9,38 @@
 	$manager_type=mysqli_fetch_assoc($manager_type);
 	$manager_type=$manager_type['user_type'];
 
-	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=3 and bill.bill_status!=4 and bill.bill_status!=6 and active_bill.id_manager='$manager' ";
+	// search
+	$id_bill=$bill_time=$phone='';
+	if(isset($_POST['se'])){
+		$id_bill=$_POST['se_id'];
+		$date_s=$_POST['date_s'];
+		$phone_s=$_POST['phone_s'];
+		if(!empty(trim($id_bill))){
+			$id_bill=" and bill.id= $id_bill";
+			$check="a";
+		}
+
+		if(!empty($date_s)){
+			$l=explode('-',$date_s );
+			$y=$l[0];
+			$m=$l[1];
+			$d=$l[2];
+			$bill_time=" and year(bill.bill_time) = $y and month(bill.bill_time)=$m and day(bill.bill_time)=$d";
+			$check="a";
+		}
+
+		if(!empty(trim($phone_s))){
+			$phone=" and bill.bill_phonenumber=$phone_s";
+			$check="a";
+		}
+	}
+
+
+	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where bill.bill_status!=0 and bill.bill_status!=3 and bill.bill_status!=4 and bill.bill_status!=6 and active_bill.id_manager='$manager' $id_bill $bill_time $phone ";
 	date_default_timezone_set("Asia/Ho_Chi_Minh");
 
 	$sql=mysqli_query($conn,$sql);
+	$c=mysqli_num_rows($sql);
 	$t=time();
 	$t=date("Y-m-d",$t);
 
@@ -111,6 +139,27 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/processing.css">
+<div id="search">
+	<div id="search1">
+		<form action="" method="POST" >
+			<input type="date" style="text-align: center;" name='date_s'>
+			<input type="text" style="text-align: center;" name="phone_s" placeholder="Số điện thoại">
+			<input type="number" placeholder="ID hóa đơn" style="text-align: center;" name="se_id" min="1">
+			<button type="submit" name="se">Tìm kiếm</button>
+		</form>
+	</div>
+	<div id="search2">
+		<?php 
+			if(isset($check)){
+				echo "Kết quả tìm kiếm : ".$c." kết quả";
+			}
+			else{
+				echo "Có : ".$c." đơn đang xử lý";
+			}
+		?>
+	</div>
+
+</div>
 <div id="container_processing">
 	<?php 
 		while ($a=mysqli_fetch_assoc($sql)){

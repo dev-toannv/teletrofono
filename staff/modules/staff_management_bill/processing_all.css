@@ -212,3 +212,22 @@
 	width: 50%;
 	height: 80%;
 }
+
+#search1{
+	width: 50%;
+	height: 100%;
+	float: left;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+
+#search2{
+	width: 50%;
+	height: 100%;
+	float: left;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
