@@ -130,7 +130,7 @@
 					</div>
 					<div id="a2_sale">
 						<div id="a2_sale_left">
-							<p align="left"> &nbsp&nbsp- Khách hàng khi thanh toán trên 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
+							<p align="left"> &nbsp&nbsp- Khách hàng với tổng thanh toán theo tài khoản >= 100.000.000VNĐ sẽ được nâng cấp lên V.I.P</p>
 							<p>
 								 &nbsp- Khuyến mại chỉ áp dụng đối với khách hàng đã tạo tài khoản và đúng thông tin chi tiết.
 							</p>

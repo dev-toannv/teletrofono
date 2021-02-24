@@ -9,7 +9,7 @@
 	<img src="modules/left/img/more.png" alt=""><a href="index.php?module=interface&action=interfaceStaff&choose=mproduct">Quản lý sản phẩm</a>
 </div>
 <div id="left_bill" class="leftA">
-	<img src="modules/left/img/notepad.png" alt=""><a href="index.php?module=interface&action=interfaceStaff&choose=mbill">Quản lý hóa đơn</a>
+	<img src="modules/left/img/notepad.png" alt=""><a href="index.php?module=interface&action=interfaceStaff&choose=mbill">Quản lý đơn hàng</a>
 </div>
 
 <div id="left_logout" class="leftA">

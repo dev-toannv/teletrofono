@@ -72,16 +72,16 @@
 <div id="container_bill" style="width: 100%; height: 100%;">
 	<div id="task">
 		<div id="waiting">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=waiting" class="task">Hóa đơn đang chờ (<?php echo $number_bill ?>)</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=waiting" class="task">Đơn hàng đang chờ (<?php echo $number_bill ?>)</a>
 		</div>
 		<div id="processing">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Hóa đơn đang xử lý bởi tôi (<?php echo $private ?>)</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing" class="task">Đơn hàng đang xử lý bởi tôi (<?php echo $private ?>)</a>
 		</div>
 		<div id="processing_all">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing_all" class="task">Các hóa đơn đang xử lý</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=processing_all" class="task">Các đơn hàng đang xử lý</a>
 		</div>
 		<div id="all_bill">
-			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=all" class="task">Tất cả hóa đơn đã xử lý</a>
+			<a href="index.php?module=interface&action=interfaceStaff&choose=mbill&progress=all" class="task">Tất cả đơn hàng đã xử lý</a>
 		</div>
 	</div>
 	<div id="body_bill">

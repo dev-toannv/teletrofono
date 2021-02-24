@@ -51,7 +51,7 @@
 					<img src="../public/customer/invoices.png" style="max-height: 90%; max-width: 90%" alt="">
 				</div>
 				<div style="width: 70%; height: 100%; float: left;float: left;display: flex;justify-content: center;align-items: center;font-size: 150%; color:black">
-					Hóa đơn
+					Đơn hàng
 				</div>
 			</a>
 		</div>
