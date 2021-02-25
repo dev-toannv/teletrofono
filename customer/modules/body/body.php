@@ -275,7 +275,7 @@
 					Trang : 
 				</div>
 
-				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: right;align-items: center;">
+				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: right;align-items: center;flex-wrap:wrap;">
 					<?php 
 						for($i=1;$i<=$pages;$i++){
 							echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";
