@@ -6,7 +6,7 @@
 	// phan display
 	$ram="select product_ram from product group by product_ram";
 	$query_ram=mysqli_query($conn,$ram);
-
+ 
 	$storage="select product_storage from product group by product_storage";
 	$query_storage=mysqli_query($conn,$storage);
 
@@ -275,7 +275,7 @@
 					Trang : 
 				</div>
 
-				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: right;align-items: center;flex-wrap:wrap;">
+				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: right;align-items: center;flex-wrap:wrap;" id="g">
 					<?php 
 						for($i=1;$i<=$pages;$i++){
 							echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";
@@ -284,9 +284,9 @@
 				</div>
 				
 			</div>
-			<div style="width: 100%;height: 25%; display: flex;justify-content: center;align-items: center;">
+			<div style="width: 100%;height: 25%; display: flex;justify-content: center;align-items: center;font-size: 120%;">
 				<?php 
-					echo "Trang hiện tại : ".$page;
+					echo "Trang hiện tại : &nbsp&nbsp<span style='color:green; font-size:120%'>".$page."</span>";
 				 ?>
 			</div>
 

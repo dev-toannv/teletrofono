@@ -22,7 +22,7 @@
 #body_show_product{
 	width:82%;
 	height: auto;
-	border:1px red solid;
+	border:1px #474747 solid;
 	border-bottom:none;
 	float:right;
 	position: relative;
@@ -32,8 +32,8 @@
 #page{
 	height: 40px;
 	width: 100%;
-	background: #ebebeb;
-	border-bottom:red 1px solid;
+	background: #474747;
+	/*border-bottom:red 1px solid;*/
 	vertical-align: middle;
 	display: flex;
   	justify-content: center;
@@ -209,3 +209,7 @@
 	font-size: 15px;
 }
 
+
+#g a{
+	color:black;
+	}
