@@ -195,7 +195,7 @@
 					<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:100%;height: 22%; text-align: center;"><br>
 					<div style="width: 100%;height:78%">
 						<div style="width: 50%;height: 100%;float: left;">
-							<select name="s_ram" style="width:80%;height: 25%; text-align: center;">
+							<select name="s_ram" style="width:80%;height: 25%; text-align: center; margin-bottom: 2%; ">
 								<option value="">Ram</option>
 								<?php 
 									while($result_ram=mysqli_fetch_assoc($query_ram)){
@@ -212,7 +212,7 @@
 								?>
 							</select>
 							<br>
-							<select name="s_storage" style="width:80%;height: 25%; text-align: center;">
+							<select name="s_storage" style="width:80%;height: 25%; text-align: center;margin-bottom: 2%; ">
 									<option value="">Bộ nhớ trong</option>
 									<?php 
 										while($result_storage=mysqli_fetch_assoc($query_storage)){
