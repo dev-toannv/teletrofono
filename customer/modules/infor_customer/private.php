@@ -1,53 +1,104 @@
 <?php 
 	if(!defined("MY_PROJECT")) die("Connect error");
 ?>
-<?php 
-	
+<?php 	
 	$s_status=$s_date=$ss="";
+
+	if(isset($_POST['delete'])){
+			if(isset($_SESSION['s1']) && isset($_SESSION['s2'])){
+				unset($_SESSION['s1']);
+				unset($_SESSION['s2']);
+				
+			}
+	}
+
 	if(isset($_POST['s_sub'])){
 		$s_status=$_POST['s_status'];
 		$s_date=$_POST['s_date'];
 		$ss=$_POST['ss'];
-
 		if(!empty($s_status)){
 			if($s_status==7){
+				$_SESSION['s1']['status']=$s_status;
 				$s_status="(bill.bill_status=1 or bill.bill_status=2 or bill.bill_status=5)";
+				$_SESSION['s2']['status']=$s_status;
+				$_SESSION['s2']['check']="";
+			}
+			else if($s_status==8){
+				$_SESSION['s1']['status']=$s_status;
+				$s_status="bill.bill_status = 6 ";
+				$_SESSION['s2']['status']=$s_status;
+				$_SESSION['s2']['check']="";
+				
 			}
 			else{
+				$_SESSION['s1']['status']=$s_status;
 				$s_status="bill.bill_status = '$s_status' ";
+				$_SESSION['s2']['status']=$s_status;
+				$_SESSION['s2']['check']="";
+				
 			}
 			
 		}
 		else{
-			$s_status="(bill.bill_status!=6)";
+			$_SESSION['s1']['status']=$s_status;
+			$s_status="(bill.bill_status!=9)";
+			$_SESSION['s2']['status']=$s_status;
+			$_SESSION['s2']['check']="";
+			
 		}
 
 
 		if(!empty($s_date)){
+			$_SESSION['s1']['date']=$s_date;
 			$s_date=" and active_bill.time_receive = '$s_date' ";
+			$_SESSION['s2']['date']=$s_date;
+			$_SESSION['s2']['check']="";
+			
+			
 		}
 		if(!empty($ss)){
 			if($ss==1){
+				$_SESSION['s1']['sort']=$ss;
 				$ss=" order by active_bill.time_active ASC";
+				$_SESSION['s2']['sort']=$ss;
+				$_SESSION['s2']['check']="";
 			}
 			if($ss==2){
+				$_SESSION['s1']['sort']=$ss;
 				$ss=" order by active_bill.time_active DESC";
+				$_SESSION['s2']['sort']=$ss;
+				$_SESSION['s2']['check']="";
 			}
 		}
 
+		
+
 	}
+	if(isset($_SESSION['s2']) && isset($_SESSION['s1'])){
+		if(empty($_SESSION['s2'])){
+			$s_status="";
+		}
+		else{
+			$s_status=$_SESSION['s2']['status'];
+		}
+		
+		$s_date=$_SESSION['s2']['date'];
+		$ss=$_SESSION['s2']['sort'];
+	}
+	
+
 	if(empty($s_status)){
-		$s_status="(bill.bill_status!=6)";
+		$s_status="(bill.bill_status!=9)";
 	}
 	$arr=array(1=>"ADMIN", 2=>"STAFF", 3=>"CUSTOMER");
-	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận khách không nhận hàng");
+	$stt=array(3=>"Xác nhận thanh toán thành công", 4=>"Xác nhận khách không nhận hàng", 6 => "Xác nhận hủy đơn hàng");
 	$sql="select * from bill inner join active_bill on bill.id=active_bill.id_bill where $s_status and bill.customer_id = $id_customer  $s_date $ss ";
-	// echo $sql;
 	$sql=mysqli_query($conn,$sql);
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/infor_customer/private.css">
 <div style="width: 100%; height: 7%;display: flex;justify-content: center;align-items: center; ">
+	<div style="width: 75%; height: 100%; float: left;">
 	<form action="" method="POST" style="width: 100%; height: 100%;">
 		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
 			<div class='bar1'>
@@ -66,28 +117,40 @@
 		<div style="width: 100%; height: 50%;">
 			<div class='bar1'>
 				<select name="s_status">
-					<option value="">--Tất cả--</option>
-					<option value="3">Giao hàng thành công</option>
-					<option value="4">Không nhận</option>
-					<option value="7">Đang xử lý</option>
+					<option value="" >--Tất cả--</option>
+					<option value="3" <?php if(isset($_SESSION['s1']) && $_SESSION['s1']['status']==3)  echo "selected" ?>>Giao hàng thành công</option>
+					<option value="4" <?php if(isset($_SESSION['s1']) && $_SESSION['s1']['status']== 4) echo "selected" ?>>Không nhận</option>
+					<option value="8" <?php if(isset($_SESSION['s1']) && $_SESSION['s1']['status']== 8) echo "selected" ?>>Hủy đơn hàng</option>
+					<option value="7" <?php if(isset($_SESSION['s1']) && $_SESSION['s1']['status']== 7) echo "selected" ?>>Đang xử lý</option>
+
 				</select>
 			</div>
 			<div class='bar1'>
-				<input type="date" name='s_date'>
+				<input type="date" value= '<?php if(isset($_SESSION['s1']) && $_SESSION['s1']['date']!="") echo $_SESSION['s1']['date']; else echo "" ?>' name='s_date'>
 			</div>
 			<div class='bar1'>
 				<select name="ss">
-					<option value="">--Mặc định--</option>
-					<option value="1">Từ trước tới nay</option>
-					<option value="2">Mới nhất</option>
+					<option value="1"<?php if(isset($_SESSION['s1']['sort']) && $_SESSION['s1']['sort']==1) echo "selected"; ?>>Từ trước tới nay</option>
+					<option value="2"<?php if(isset($_SESSION['s1']['sort']) && $_SESSION['s1']['sort']==2) echo "selected"; ?>>Mới nhất</option>
 				</select>
 			</div>
 			<div class='bar1'>
-				<button type="submit" name='s_sub'>Tìm kiếm</button>
+				<button type="submit" name='s_sub'>Tìm kiếm</button> &nbsp&nbsp&nbsp&nbsp&nbsp
+				<button type="submit" name='delete'>Xóa tìm kiếm</button>
 			</div>
 		</div>
-		
 	</form>
+	</div>
+	<div style="width: 25%; height: 100%; float: left;display: flex;justify-content: center;align-items: center;">
+		<?php 
+			if(!isset($_SESSION['s2']['check'])){
+				echo "Tổng : ".mysqli_num_rows($sql)." đơn hàng";
+			}
+			else{
+				echo "Kết quả tìm kiếm : ".mysqli_num_rows($sql)." kết quả";
+			}
+		?>
+	</div>
 </div>
 
 <div id="container_processing">

@@ -63,6 +63,10 @@
 					require_once("modules/infor_customer/infor1.php");
 				}
 				else{
+					// if(isset($_SESSION['s1']) && isset($_SESSION['s2'])){
+					// 	unset($_SESSION['s1']);
+					// 	unset($_SESSION['s2']);
+					// }
 					require_once("modules/infor_customer/bill.php");
 				}
 			}
@@ -72,9 +76,3 @@
 		?>
 	</div>
 </div>
-<?php 
-	// echo $_SESSION['username']."<br>";
-	// echo $_SESSION['acc'] . " va ". $_SESSION['pass'];
-	
-
-?>
