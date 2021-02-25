@@ -13,6 +13,7 @@
 			$_SESSION['acc']=$row['customer_account'];
 			$_SESSION['pass']=$row['customer_password'];
 			$_SESSION['id_customer']=$row['id'];
+			$_SESSION['type']=$row['customer_type'];
 			$_SESSION['username']=$row['customer_name'];
 			if(isset($_SESSION['cart'])){
 				unset($_SESSION['cart']);

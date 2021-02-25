@@ -47,7 +47,18 @@
 
 		header("Location:index.php?cart=cart");
 	}
+	if(isset($_SESSION['type']) && isset($_SESSION['id_customer'])){
+					if($_SESSION['type']==1){
+						$type= "Khuyến mãi 3%";
+					}
+					else{
+						$type= "Khuyến mãi 0%";
+						}
 
+	}
+	else{
+		$type= "Khuyến mãi 0%";
+		}
 
  ?>
  <?php 
@@ -147,12 +158,47 @@
 				
 			echo "</tr>";
 		}
+		//
+		echo "<tr>";
+			echo "<td colspan='3' align='right' height='40px' style='font-size:30px; color:red'>";
+				echo "Tạm tính : ";
+			echo "</td>";
+
+			echo "<td height='40px' style='font-size:30px; color:red'>";
+				echo number_format($money,0,'','.')." VNĐ";
+			echo "</td>";
+		echo "</tr>";
+		//
+
+		//
+		echo "<tr>";
+			echo "<td colspan='3' align='right' height='40px' style='font-size:30px; color:red'>";
+				echo "Ưu đãi : ";
+			echo "</td>";
+
+			echo "<td height='40px' style='font-size:30px; color:red'>";
+				echo $type;
+			echo "</td>";
+		echo "</tr>";
+		
+		//
 		echo "<tr>";
 			echo "<td colspan='3' align='right' height='40px' style='font-size:30px; color:red'>";
 				echo "Tổng tiền : ";
 			echo "</td>";
 
 			echo "<td height='40px' style='font-size:30px; color:red'>";
+				if(isset($_SESSION['type']) && isset($_SESSION['id_customer'])){
+					if($_SESSION['type']==1){
+						$money=$money-(($money*3)/100);
+					}
+					else{
+						$money=$money;
+					}
+				}
+				else{
+					$money=$money;
+				}
 				echo number_format($money,0,'','.')." VNĐ";
 			echo "</td>";
 		echo "</tr>";
