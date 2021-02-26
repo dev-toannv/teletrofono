@@ -262,9 +262,12 @@
 											echo $cor[$id_co];
 										echo "</option>";
 										}
-										echo "<option value='$id_co'>";
+										else{
+											echo "<option value='$id_co'>";
 											echo $cor[$id_co];
-										echo "</option>";
+											echo "</option>";
+										}
+										
 									}
 								?>
 							</select>
