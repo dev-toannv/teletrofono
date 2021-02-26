@@ -111,6 +111,12 @@
 			$_SESSION['s_ram']=$s_ram;
 			$s_ram=$_SESSION['s_ram'];
 		}
+		else{
+			unset($_SESSION['s_ram']);
+			unset($_SESSION['ram_check']);
+			header("Location:index.php?search_manu=$s");
+
+		}
 
 		$s_storage=$_POST['s_storage'];
 		if($s_storage !=""){
@@ -121,6 +127,11 @@
 			$_SESSION['s_storage']=$s_storage;
 			$s_storage=$_SESSION['s_storage'];
 		}
+		else{
+			unset($_SESSION['s_storage']);
+			unset($_SESSION['storage_check']);
+			header("Location:index.php?search_manu=$s");
+		}
 
 		$s_color=$_POST['s_color'];
 		if($s_color!=""){
@@ -130,6 +141,13 @@
 			$_SESSION['s_color']=$s_color;
 			$s_color=$_SESSION['s_color'];
 		}
+		else{
+			unset($_SESSION['s_color']);
+			unset($_SESSION['color_check']);
+			header("Location:index.php?search_manu=$s");
+		}
+
+
 
 		if(!empty($_POST['s_price'])){
 			if($_POST['s_price']==1){
@@ -196,7 +214,7 @@
 					<div style="width: 100%;height:78%">
 						<div style="width: 50%;height: 100%;float: left;">
 							<select name="s_ram" style="width:80%;height: 25%; text-align: center; margin-bottom: 2%; ">
-								<option value="">Ram</option>
+								<option value="">Ram (GB)</option>
 								<?php 
 									while($result_ram=mysqli_fetch_assoc($query_ram)){
 										$product_ram=$result_ram['product_ram'];
@@ -213,7 +231,7 @@
 							</select>
 							<br>
 							<select name="s_storage" style="width:80%;height: 25%; text-align: center;margin-bottom: 2%; ">
-									<option value="">Bộ nhớ trong</option>
+									<option value="">Bộ nhớ trong (GB)</option>
 									<?php 
 										while($result_storage=mysqli_fetch_assoc($query_storage)){
 											$product_storage=$result_storage['product_storage'];
