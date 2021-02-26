@@ -122,7 +122,6 @@
 		if($s_storage !=""){
 			$storage_check=$s_storage;
 			$_SESSION['storage_check']=$storage_check;
-			// xu ly cau lenh sql tim kiem dung luong bo nho trong
 			$s_storage=" and product_storage = '$s_storage'";
 			$_SESSION['s_storage']=$s_storage;
 			$s_storage=$_SESSION['s_storage'];
@@ -223,9 +222,12 @@
 												echo $result_ram['product_ram'];
 											echo "</option>";
 										}
-										echo "<option value='$product_ram'>";
+										else{
+											echo "<option value='$product_ram'>";
 											echo $result_ram['product_ram'];
-										echo "</option>";
+											echo "</option>";
+										}
+										
 									}
 								?>
 							</select>
@@ -240,9 +242,12 @@
 													echo $result_storage['product_storage'];
 												echo "</option>";
 											}
-											echo "<option value='$product_storage'>";
+											else{
+												echo "<option value='$product_storage'>";
 												echo $result_storage['product_storage'];
-											echo "</option>";
+												echo "</option>";
+											}
+											
 										}
 									?>
 							</select>
