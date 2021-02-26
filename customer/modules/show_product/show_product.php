@@ -159,7 +159,7 @@
 					<div id="a2_price">
 						<p>
 							<?php 
-								echo number_format($result['product_price'],0,'','.')." VNĐ";;
+								echo number_format($result['product_price'],0,'','.')." VNĐ";
 							?>
 						</p>
 					</div>
