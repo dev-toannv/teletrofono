@@ -71,7 +71,7 @@
 						</form>
 						<tr align="right">
 							<td colspan="2">
-								<p>
+								<p style="margin-top:10px">
 									Bạn chưa có tài khoản? <a href='index.php?module=sign_up&action=sign_up'> Đăng ký tài khoản</a>
 					  			</p>
 							</td>
