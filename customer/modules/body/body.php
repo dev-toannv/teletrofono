@@ -272,11 +272,14 @@
 								?>
 							</select>
 						</div>
-						<div style="width: 50%;height: 100%;float: left;display: flex;flex-direction: column;">
-							<span style="font-size: 100%;height:20%;margin-top: 5%"><input type="radio" <?php if($_SESSION['price']==1) echo "checked"; ?> value="1" name='s_price'> Dưới 5 triệu</span> <br>
-							<span style="font-size: 100%;height:20%;"> <input type="radio" <?php if($_SESSION['price']==2) echo "checked"; ?>  value="2" name='s_price'> Từ 5 -> 10 triệu</span> <br>
-							<span style="font-size: 100%;height:20%;"><input type="radio" <?php if($_SESSION['price']==3) echo "checked"; ?> value="3" name='s_price'> Từ 10 -> 20 triệu</span> <br>
-							<span style="font-size: 100%;height:20%;"><input type="radio" <?php if($_SESSION['price']==4) echo "checked"; ?> value="4" name='s_price'> Trên 20 triệu</span>
+						<div style="width: 50%;height: 100%;float: left;">
+							<select name="s_price" style="width: 80%; height: 25%;text-align: center;">
+								<option value="">--Khoảng giá--</option>
+								<option value="1" <?php if($_SESSION['price']==1) echo "selected"; ?> >Dưới 5 triệu</option>
+								<option value="2" <?php if($_SESSION['price']==2) echo "selected"; ?>>Từ 5 -> 10 triệu</option>
+								<option value="3" <?php if($_SESSION['price']==3) echo "selected"; ?>>Từ 10 -> 20 triệu</option>
+								<option value="4" <?php if($_SESSION['price']==4) echo "selected"; ?>>Trên 20 triệu</option>
+							</select>
 						</div>
 						
 					</div>
