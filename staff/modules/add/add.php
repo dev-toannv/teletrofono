@@ -311,10 +311,7 @@
 			<p style="margin:3px;">Hãng sản xuất</p>
 			<select name="product_manu" id="product_manu">
 				<?php 
-					$conn=mysqli_connect('localhost','root','','teletrofono');
-					if(!$conn){
-						die("Connect error : ".mysqli_connect_error());
-					}
+					require_once("modules/config/connectdb.php");
 					$sql6="select * from manu_product";
 					$c=mysqli_query($conn,$sql6);
 					while($row = mysqli_fetch_assoc($c)){
