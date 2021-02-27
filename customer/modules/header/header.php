@@ -1,6 +1,20 @@
 <?php 
 	if(!defined("MY_PROJECT")) die("Connect error");
 ?>
+<style>
+	body{
+		max-width: 1920px;
+		min-width: 1652px;
+	}
+	#body{
+		max-width: 1920px;
+		min-width: 1652px;
+	}
+	#body_search{
+		max-width: 480px;
+		min-width: 296px;
+	}
+</style>
 <div id="header">
 	<?php
 	if(isset($_POST['logout'])){

@@ -14,6 +14,16 @@
 	<link rel="stylesheet" type="text/css" href="modules/common/common_css/login.css">
 </head>
 <body>
+	<style>
+		body{
+		max-width: 1920px;
+		min-width: 1652px;
+	}
+	#body{
+		max-width: 1920px;
+		min-width: 1652px;
+	}
+	</style>
 	<div id="head">
 			<a href="index.php"><img src="modules/common/img/logo3.png" id="logo"></a>
 	</div>

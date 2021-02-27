@@ -273,10 +273,10 @@
 							</select>
 						</div>
 						<div style="width: 50%;height: 100%;float: left;display: flex;flex-direction: column;">
-							<span><input type="radio" <?php if($_SESSION['price']==1) echo "checked"; ?> value="1" name='s_price'> Dưới 5 triệu</span> <br>
-							<span><input type="radio" <?php if($_SESSION['price']==2) echo "checked"; ?>  value="2" name='s_price'> Từ 5 -> 10 triệu</span> <br>
-							<span><input type="radio" <?php if($_SESSION['price']==3) echo "checked"; ?> value="3" name='s_price'> Từ 10 -> 20 triệu</span> <br>
-							<span><input type="radio" <?php if($_SESSION['price']==4) echo "checked"; ?> value="4" name='s_price'> Trên 20 triệu</span>
+							<span style="font-size: 100%;height:20%;margin-top: 5%"><input type="radio" <?php if($_SESSION['price']==1) echo "checked"; ?> value="1" name='s_price'> Dưới 5 triệu</span> <br>
+							<span style="font-size: 100%;height:20%;"> <input type="radio" <?php if($_SESSION['price']==2) echo "checked"; ?>  value="2" name='s_price'> Từ 5 -> 10 triệu</span> <br>
+							<span style="font-size: 100%;height:20%;"><input type="radio" <?php if($_SESSION['price']==3) echo "checked"; ?> value="3" name='s_price'> Từ 10 -> 20 triệu</span> <br>
+							<span style="font-size: 100%;height:20%;"><input type="radio" <?php if($_SESSION['price']==4) echo "checked"; ?> value="4" name='s_price'> Trên 20 triệu</span>
 						</div>
 						
 					</div>
@@ -301,7 +301,7 @@
 					Trang : 
 				</div>
 
-				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: right;align-items: center;flex-wrap:wrap;" id="g">
+				<div align="center" style="font-size:20px;width: 50%;height: 100%;float: left;display: flex;justify-content: center;align-items: center;flex-wrap:wrap;" id="g">
 					<?php 
 						for($i=1;$i<=$pages;$i++){
 							echo "<a href='index.php?search_manu=".$_SESSION['search_manu']."&page=$i'>$i</a>"."&nbsp";

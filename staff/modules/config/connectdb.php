@@ -6,3 +6,4 @@
 		if(!$conn){
 			die("Connect error : ".mysqli_connect_error());
 		}
+		mysqli_query($conn,"set names 'utf8'"); 

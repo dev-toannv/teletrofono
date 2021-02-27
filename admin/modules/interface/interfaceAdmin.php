@@ -22,6 +22,16 @@
 </head>
 <body>
 	<div id="header">
+		<style type="text/css">
+			body{
+				max-width: 1920px;
+				min-width: 1652px;
+			}
+			#body{
+				max-width: 1920px;
+				min-width: 1652px;
+			}
+		</style>
 		<a href="index.php"><img src="modules/common/img/logo3.png" id="logo"></a>
 	</div>
 	<!--Đây là khu vực giao diện của admin-->
