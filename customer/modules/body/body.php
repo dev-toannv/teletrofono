@@ -92,6 +92,7 @@
 	//------------------------------------
 	// phan nay kiem tra xem nut tim kiem co duoc an hay ko
 	if(isset($_POST['subsearch'])){
+		$s=$_SESSION['search_manu'];
 		$_SESSION['s_ram']="";
 		$_SESSION['s_storage']="";
 		$_SESSION['s_color']="";
