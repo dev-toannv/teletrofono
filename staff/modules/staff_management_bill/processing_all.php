@@ -44,7 +44,7 @@
 			<input type="date" style="text-align: center;" name='date_s'>
 			<input type="text" style="text-align: center;" name="phone_s" placeholder="Số điện thoại">
 			<input type="number" placeholder="ID hóa đơn" style="text-align: center;" name="se_id" min="1">
-			<button type="submit" name="se">Tìm kiếm</button>
+			<button type="submit" style="height: 100%" name="se">Tìm kiếm</button>
 		</form>
 	</div>
 	<div id="search2">

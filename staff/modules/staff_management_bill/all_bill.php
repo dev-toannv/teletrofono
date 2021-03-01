@@ -47,7 +47,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/all_bill.css">
-<div style="width: 100%; height: 6%;display: flex;justify-content: center;align-items: center; ">
+<div style="width: 100%; height: 6%;">
 	<form action="" method="POST" style="width: 100%; height: 100%;">
 		<div style="width: 100%; height: 50%; border-bottom:1px dotted green">
 			<div class='bar1'>
