@@ -16,11 +16,11 @@
 <body>
 	<style>
 		body{
-		max-width: 1920px;
+		
 		min-width: 1652px;
 	}
 	#body{
-		max-width: 1920px;
+		
 		min-width: 1652px;
 	}
 	</style>

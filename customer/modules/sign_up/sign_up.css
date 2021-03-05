@@ -1,155 +1,158 @@
-*{
-	box-sizing: border-box;
-	margin:0;
-}
-body{
-		max-width: 1920px;
-		min-width: 1652px;
-	}
-	#body{
-		max-width: 1920px;
-		min-width: 1652px;
-	}
-#container{
-	width:100%;
-	height:975px;
-	border-style: solid;
-	border-color: red;
-	border-width: 1px;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-#header{
-	width:100%;
-	height:180px;
-	border-style: solid;
-	border-color: skyblue;
-	border-width: 1px;
-}
-#body{
-	width:100%;
-	height:795px;
-	border-style: solid;
-	border-color: black;
-	border-width: 1px;
+body {
+    min-width: 1652px;
 }
 
-
-#logo{
-	max-width: 73%;
-	max-height: 73%;
-}
-.ff{
-	height: 100%;
-	float: left;
-	border:solid 1px green;
-	text-align:center;
+#body {
+    min-width: 1652px;
 }
 
-#lg{
-	width:20%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+#container {
+    width: 100%;
+    height: 975px;
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
 }
 
- #chu{
- 	width: 80%;
- 	display: flex;
-  	justify-content: center;
-  	align-items: center;
- }
-
- #chu1{
- 	text-align: center;
- 	font-weight: 700;
- 	font-size:60px;
- }
-
-
-#bodyleft{
-	width:20%;
-	height: 100%;
-	border-style: solid;
-	border-color: green;
-	border-width: 1px;
-	float: left;
-}
-#bodyright{
-	width:80%;
-	border-style: solid;
-	border-color: #ffff00;
-	border-width: 1px;
-	float: left;
-	height: 100%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-
+#header {
+    width: 100%;
+    height: 180px;
+    border-style: solid;
+    border-color: skyblue;
+    border-width: 1px;
 }
 
-#divform{
-	width:780px;
-	height: 620px;
-	border-style: solid;
-	border-color: red;
-	border-width: 1px;
-	text-align:center;
-	margin:auto;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+#body {
+    width: 100%;
+    height: 795px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
 }
 
-#acc{
-	width:280px;
-	height:40px;
-	/*margin-right:-250px;*/
-	margin-bottom:15px;
-}
-#nameuser{
-	width:280px;
-	height:40px;
-	/*margin-right:-250px;*/
-	margin-bottom:15px;
-}
-#pass{
-	width:280px;
-	height:40px;
-	/*margin-right:-250px;*/
+#logo {
+    max-width: 73%;
+    max-height: 73%;
 }
 
-.formll{
-	width:260px;
-	height:40px;
-	margin-bottom:15px;
+.ff {
+    height: 100%;
+    float: left;
+    border: solid 1px green;
+    text-align: center;
 }
 
-.leftform{
-	width:150px;
-	text-align:left;
+#lg {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#sub{
-	display: none;
+#chu {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#label_sub{
-	width: 100px;
-	height: 40px;
-	border:solid 1px red;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+#chu1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 60px;
 }
 
-#label_sub:hover{
-	background-color: red;
+#bodyleft {
+    width: 20%;
+    height: 100%;
+    border-style: solid;
+    border-color: green;
+    border-width: 1px;
+    float: left;
 }
 
-#bot div{
-	text-align:bottom;
+#bodyright {
+    width: 80%;
+    border-style: solid;
+    border-color: #ffff00;
+    border-width: 1px;
+    float: left;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#lb{
-	display: inline-block;
+#divform {
+    width: 780px;
+    height: 620px;
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#acc {
+    width: 280px;
+    height: 40px;
+    /*margin-right:-250px;*/
+    margin-bottom: 15px;
+}
+
+#nameuser {
+    width: 280px;
+    height: 40px;
+    /*margin-right:-250px;*/
+    margin-bottom: 15px;
+}
+
+#pass {
+    width: 280px;
+    height: 40px;
+    /*margin-right:-250px;*/
+}
+
+.formll {
+    width: 260px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.leftform {
+    width: 150px;
+    text-align: left;
+}
+
+#sub {
+    display: none;
+}
+
+#label_sub {
+    width: 100px;
+    height: 40px;
+    border: solid 1px red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#label_sub:hover {
+    background-color: red;
+}
+
+#bot div {
+    text-align: bottom;
+}
+
+#lb {
+    display: inline-block;
 }

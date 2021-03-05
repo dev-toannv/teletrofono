@@ -3,15 +3,12 @@
 ?>
 <style>
 	body{
-		max-width: 1920px;
 		min-width: 1652px;
 	}
 	#body{
-		max-width: 1920px;
 		min-width: 1652px;
 	}
 	#body_search{
-		max-width: 480px;
 		min-width: 296px;
 	}
 </style>
@@ -58,5 +55,5 @@
 		echo "</div>";
 	}
 	?>
-</div>	
+</div>
  
