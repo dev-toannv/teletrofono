@@ -6,14 +6,27 @@
 	// Thao tac voi gio hang them va xoa
 	if(isset($_GET['id_product'])==true && $_GET['id_product']!=""){
 		$id_p=$_GET['id_product'];
-		if($_SESSION['cart'][$id_p]){
-			$_SESSION['cart'][$id_p]+=1;
-			header("Location:index.php");
+		if(isset($_GET['detail'])){
+			if($_SESSION['cart'][$id_p]){
+				$_SESSION['cart'][$id_p]+=1;
+				header("Location:index.php?search_manu=all&product_detail=$id_p");
+			}
+			else{
+				$_SESSION['cart'][$id_p]=1;
+				header("Location:index.php?search_manu=all&product_detail=$id_p");
+			}
 		}
 		else{
-			$_SESSION['cart'][$id_p]=1;
-			header("Location:index.php");
+			if($_SESSION['cart'][$id_p]){
+				$_SESSION['cart'][$id_p]+=1;
+				header("Location:index.php?cart=cart");
+			}
+			else{
+				$_SESSION['cart'][$id_p]=1;
+				header("Location:index.php?cart=cart");
+			}
 		}
+		
 		
 	}
 ?>
@@ -28,7 +41,7 @@
 		}
 	</style>
 
-	<link rel="stylesheet" typep="text/css" href="modules/cart/cart.css">
+	<link rel="stylesheet" type="text/css" href="modules/cart/cart.css">
 <div id="global">
 	<div id="local1">
 		<div id="local11">

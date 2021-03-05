@@ -173,7 +173,7 @@
 									echo "<p>"."Đang kinh doanh, hết hàng"."</p>";
 								}
 								else{
-									echo "<a href='index.php?module=cart&action=cart&id_product=".$id."'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
+									echo "<a href='index.php?module=cart&action=cart&id_product=".$id."&detail'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
 								}
 							}
 
