@@ -1,4 +1,4 @@
-<html>
+
 	<style>
 		body{
 		min-width: 1652px;
@@ -7,7 +7,6 @@
 		min-width: 1652px;
 	}
 	</style>
-</html>
 <?php 
 	$module = $action ='';
 	if(isset($_GET['module']) && isset($_GET['action'])){
