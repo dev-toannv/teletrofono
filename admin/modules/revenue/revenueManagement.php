@@ -86,7 +86,7 @@
 						<?php 
 						if(isset($_SESSION['search']['year'])){
 							$ye=$_SESSION['search']['year'];
-							$sql_month="SELECT month(bill_time) as month FROM `bill` where year(bill_time)=$ye GROUP BY month(bill_time)";
+							$sql_month="SELECT month(bill_time) as month FROM `bill` where year(bill_time)=$ye and bill_status=3 GROUP BY month(bill_time)";
 							$sql_month=mysqli_query($conn,$sql_month);
 							while ($m=mysqli_fetch_assoc($sql_month)){
 									if($_SESSION['search']['month']==$m['month']){
@@ -183,7 +183,7 @@
 							echo $time_receive;
 						echo "</div>";
 						// tien
-						echo "<div class='t22'>";
+						echo "<div class='t22' >";
 							echo $money;
 						echo "</div>";
 					echo "</div>";
