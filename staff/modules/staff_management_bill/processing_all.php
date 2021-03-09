@@ -40,7 +40,7 @@
 <link rel="stylesheet" type="text/css" href="modules/staff_management_bill/processing_all.css">
 <div id="search">
 	<div id="search1">
-		<form action="" method="POST" >
+		<form action="" method="POST" style="height: 100%;width: 100%;" >
 			<input type="date" style="text-align: center;" name='date_s'>
 			<input type="text" style="text-align: center;" name="phone_s" placeholder="Số điện thoại">
 			<input type="number" placeholder="ID hóa đơn" style="text-align: center;" name="se_id" min="1">

@@ -210,7 +210,7 @@
 		<div style="height:68%; width: 100%;">
 			<div id="fo1">
 				<form action="" id="fo" method="POST" style="display:inline-block">
-					<input type="text" id="s_name" name="s_name" placeholder="Tìm theo tên sản phẩm" style="width:100%;height: 22%; text-align: center;"><br>
+					<input type="text" id="s_name" name="s_name" value="<?php if(isset($_SESSION['s_name'])&&!empty($_SESSION['s_name'])) echo $_SESSION['s_name']; ?>" placeholder="Tìm theo tên sản phẩm" style="width:100%;height: 22%; text-align: center;"><br>
 					<div style="width: 100%;height:78%">
 						<div style="width: 50%;height: 100%;float: left;">
 							<select name="s_ram" style="width:80%;height: 25%; text-align: center; margin-bottom: 2%; ">

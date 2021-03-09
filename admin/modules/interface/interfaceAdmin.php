@@ -61,7 +61,7 @@
 	</div>
 	<div id="center">
 		<?php
-			if(!isset($_GET['infor']) && !isset($_GET['staff']) && !isset($_GET['supplier']) && !isset($_GET['bill']) && !isset($_GET['revenue'])){
+			if(!isset($_GET['infor']) && !isset($_GET['staff']) && !isset($_GET['supplier']) && !isset($_GET['bill']) && !isset($_GET['revenue']) && !isset($_GET['chart'])){
 				require_once("modules/interface/main.php");
 			}
 			else{
@@ -76,6 +76,9 @@
 				}
 				else if(isset($_GET['revenue'])){
 					require_once("modules/revenue/revenueManagement.php");
+				}
+				else if(isset($_GET['chart'])){
+					require_once("modules/chart/chart.php");
 				}
 				else{
 					require_once("modules/interface/main.php");

@@ -20,10 +20,12 @@
 					if($_SESSION['cart'][$key]>$delete){
 						$_SESSION['cart'][$key]=$delete;
 						$flag=0;
+						header("Location:index.php?cart=cart&err1");
 					}
 					if($delete==0){
 						unset($_SESSION['cart'][$key]);
 						$flag=0;
+						header("Location:index.php?cart=cart&err1");
 					}
 				}
 				if($flag<=0){

@@ -58,7 +58,7 @@
 	<div id="t_search">
 		<div id="s">
 			<?php 
-			$sql_year="SELECT year(bill_time) as year FROM `bill` GROUP BY year(bill_time)";
+			$sql_year="SELECT year(bill_time) as year FROM `bill` where bill_status=3 GROUP BY year(bill_time)";
 				$sql_year=mysqli_query($conn,$sql_year);
 			?>
 			<div id="form_search">
@@ -109,6 +109,10 @@
 		</div>
 
 		<div id="result">
+				<div style="width:20%;height:100%;display: flex;justify-content: center;align-items: center;border-right:1px black solid">
+						<a href="index.php?chart">Biểu đồ</a>
+				</div>
+				<div style="width: 80%;height:100%;display: flex;justify-content: center;align-items: center">
 				<?php 
 					if(!isset($_SESSION['search']['year']) && !isset($_SESSION['search']['month'])){
 						echo "Tất cả : ".$count_product." sản phẩm / ".$num." hóa đơn";
@@ -118,6 +122,8 @@
 					}
 
 				?>
+				</div>
+				
 		</div>
 		
 
