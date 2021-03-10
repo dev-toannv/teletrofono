@@ -52,7 +52,9 @@
 			</div>
 		</div>
 		<div id="body">
-			<div id="bodyleft"></div>
+			<div id="bodyleft">
+				<!-- <img src="../public/customer/abc.gif" style="max-width: 100%;max-height:100%;" alt=""> -->
+			</div>
 			<div id="bodyright">
 				<div id="divform">
 					<table>

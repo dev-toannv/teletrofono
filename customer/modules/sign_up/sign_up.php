@@ -2,10 +2,8 @@
 	if(!defined("MY_PROJECT")) die("Connect error");
 ?>
 <?php 
-	$error="";
 	require_once("modules/config/connectdb.php");
 	require_once("modules/sign_up/config/process_signup_customer.php");
-	require_once("modules/config/fix_confirm_form_resubmission.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,7 +94,7 @@
 					<table>
 						<form action="" method="POST" onsubmit="return validate()">
 							<tr>
-								<td class="leftform">
+								<td class="leftform" style="font-weight: bold;">
 									Tài khoản
 								</td>
 								<td>
@@ -105,7 +103,7 @@
 							</tr>
 
 							<tr>
-								<td class="leftform">
+								<td class="leftform" style="font-weight: bold;">
 									Tên người dùng
 								</td>
 								<td>
@@ -114,7 +112,7 @@
 							</tr>
 
 							<tr>
-								<td class="leftform">
+								<td class="leftform" style="font-weight: bold;">
 									Mật khẩu
 								</td>
 								<td>
@@ -125,7 +123,7 @@
 							<tr align="right">
 								<td colspan="2" id="bot">
 									<label for="sub" id="lb">
-										<div id="label_sub">
+										<div id="label_sub" style="font-weight: bold;">
 											Đăng ký
 										</div>
 									</label>
