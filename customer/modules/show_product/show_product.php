@@ -86,6 +86,10 @@
         	document.getElementById("product_detail").style.display = "none";
         	document.getElementById("product_container").style.height = "770px";
         }
+
+		function comeback(){
+			history.back();
+		}
     </script>
 </head>
 <body>
@@ -176,17 +180,12 @@
 									echo "<a href='index.php?module=cart&action=cart&id_product=".$id."&detail'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
 								}
 							}
-
-
-							// if($result['product_status']>0){
-							// 	echo "<a href='index.php?module=cart&action=cart&id_product=".$id."'><img src='../public/customer/add_cart.png' id='i2'>&nbsp&nbspThêm vào giỏ hàng</a>";
-							// }
-							// else{
-							// 	echo "<p>"."Ngừng kinh doanh"."</p>";
-							// }
 						 ?>
 					</div>
 				</div>
+			</div>
+			<div style="width:100%; height:5%;">
+				<button type="button" style="width: 15%;height:100%;color:red; font-size:109%" onclick="comeback()"><-- Quay lại</button>
 			</div>
 			<div id="b">
 				<!-- An de xem chi tiet san pham -->
@@ -197,9 +196,6 @@
 				</label>
 				<button type="button" id="aa" style="display: none;" onclick="abc()"></button>
 			</div>
-			<!-- <div id="c">
-				Danh gia va binh luan
-			</div> -->
 		</div>
 
 		<div id="product_detail">

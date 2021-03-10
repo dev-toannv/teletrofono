@@ -46,8 +46,7 @@
                         data:{
                             labels:bienx,
                             datasets:[{
-                                label:'Doanh thu',
-                                borderColor:'#55ffff',
+                                label:'Doanh thu trong năm ".$year."',"."borderColor:'#55ffff',
                                 borderWidth:2,
                                 data:bieny,
                             }]
@@ -90,7 +89,7 @@
                         data:{
                             labels:bienx,
                             datasets:[{
-                                label:'Doanh thu',
+                                label:'Doanh thu hàng năm',
                                 borderColor:'#55ffff',
                                 borderWidth:2,
                                 data:bieny,
