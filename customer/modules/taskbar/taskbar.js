@@ -11,7 +11,10 @@ function hienthi(){
 		b[f].style.width="100%";
 	}
 	e.style.background="#ebebeb";
-	l.style.zIndex="-1";
+	
+	if(l){
+		l.style.zIndex="-1";
+	}
 
 }
 
@@ -29,5 +32,14 @@ function close1(){
 		b[f].style.width="0%";
 	}
 	e.style.background="none";
-	l.style.zIndex="0";
+	if(l){
+		setTimeout(
+  () => {
+    l.style.zIndex="0";
+  },
+  3 * 1000
+);
+		
+	}
+	
 }
