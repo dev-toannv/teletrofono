@@ -15,6 +15,9 @@ require_once("modules/config/connectdb.php");
 			</div>
 			<div id="hang">
 				<?php 
+					if(isset($_SESSION['search_manu'])==false){
+						$_SESSION['search_manu']="";
+					}
 					$search_manu='';
 					if(isset($_GET['basic'])){
 						unset($_SESSION['search_manu']);
@@ -30,15 +33,22 @@ require_once("modules/config/connectdb.php");
 						header("Location:index.php");
 					}
 					if(isset($_SESSION['search_manu']) && isset($_GET['search_manu'])){
+						if($_SESSION['search_manu']!=$_GET['search_manu']){
+							unset($_SESSION['s_name']);
+							unset($_SESSION['s_ram']);
+							unset($_SESSION['s_storage']);
+							unset($_SESSION['s_color']);
+							unset($_SESSION['ram_check']);
+							unset($_SESSION['storage_check']);
+							unset($_SESSION['color_check']);
+							unset($_SESSION['price']);
+							unset($_SESSION['price2']);
+						}
 						$_SESSION['search_manu']=$_GET['search_manu'];
 						$search_manu=$_SESSION['search_manu'];
-					}
-					if(isset($_SESSION['search_manu'])==false){
-						$_SESSION['search_manu']="";
+						
 					}
 					$folder="../public/product/";
-					// $conn=mysqli_connect('localhost','root','','teletrofono');
-					// require_once("modules/config/connectdb.php");
 					$hang2="select * from manu_product where manu_name ='$search_manu'";
 					$hang22=mysqli_query($conn,$hang2);
 					$j=mysqli_num_rows($hang22);
@@ -52,7 +62,6 @@ require_once("modules/config/connectdb.php");
 						$_SESSION['search_manu']="all";
 						echo "<p>Sản phẩm</p>";
 					}
-					// mysqli_close($conn);
 				?>
 			</div>
 			

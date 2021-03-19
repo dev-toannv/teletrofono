@@ -206,7 +206,8 @@
 		$result=mysqli_query($conn,$sql3);
 		$rr=mysqli_fetch_assoc($result);
 		$code1=$rr['id'];
-		$sql4="insert into add_edit_product values('$idsanpham','$code1','$code1',now(),now())";
+		$am=date('Y:m:d H:i:s');
+		$sql4="insert into add_edit_product values('$idsanpham','$code1','$code1','$am','$am')";
 		mysqli_query($conn,$sql4);
 	}
 ?>

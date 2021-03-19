@@ -4,10 +4,32 @@
 <?php 
 	require_once("modules/config/connectdb.php");
 	// phan display
-	$ram="select product_ram from product group by product_ram";
+	
+	if($_SESSION['search_manu']!="" && $_SESSION['search_manu']!="all"){
+		$pi=$_SESSION['search_manu'];
+		$k="select id from manu_product where manu_name = '$pi'";
+		$k=mysqli_query($conn,$k);
+		$k=mysqli_fetch_assoc($k);
+		$k=$k['id'];
+
+	}
+
+
+	if(isset($k)){
+		$ram="select product_ram from product where product_manu = '$k' group by product_ram";
+	}
+	else{
+		$ram="select product_ram from product group by product_ram";
+	}
 	$query_ram=mysqli_query($conn,$ram);
- 
-	$storage="select product_storage from product group by product_storage";
+ 	
+
+ 	if(isset($k)){
+ 		$storage="select product_storage from product where product_manu='$k' group by product_storage";
+ 	}
+ 	else{
+ 		$storage="select product_storage from product group by product_storage";
+ 	}
 	$query_storage=mysqli_query($conn,$storage);
 
 	$manuu=array();// xu ly ten hang
@@ -27,7 +49,12 @@
 		$cor[$f['id']]=$f['color_name'];
 	}
 
-	$cos="select product_color from product group by product_color";
+	if(isset($k)){
+		$cos="select product_color from product where product_manu='$k' group by product_color";
+	}
+	else{
+		$cos="select product_color from product group by product_color";
+	}
 	$cos=mysqli_query($conn,$cos);
 	//--------------------------------------------------------------------------
 	if(isset($_POST['reset'])){

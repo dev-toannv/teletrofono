@@ -32,7 +32,8 @@
 		$c=mysqli_query($conn,$sql);
 
 		if(isset($_POST['manager_timestart']) && $_POST['manager_timestart']==1 && $c==true){
-			$sql2="update manager set manager_timestart = now() where id = $id";
+			$am=date('Y:m:d H:i:s');
+			$sql2="update manager set manager_timestart = '$am' where id = $id";
 			mysqli_query($conn,$sql2);
 		}
 

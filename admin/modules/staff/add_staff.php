@@ -66,8 +66,8 @@
 		$manager_address=$_POST['manager_address'];
 		$manager_hometown=$_POST['manager_hometown'];
 		$manager_phone=$_POST['manager_phone'];
-
-		$sql="insert into manager(id,manager_code,manager_name,manager_password,manager_email,manager_sex,manager_dob,manager_address,manager_hometown,manager_timestart,user_type,manager_status,manager_phone) values(null,'$manager_code','$manager_name','$manager_password','$manager_email','$manager_sex','$manager_dob','$manager_address','$manager_hometown',now(),2,1),'$manager_phone'";
+		$am=date('Y:m:d H:i:s');
+		$sql="insert into manager(id,manager_code,manager_name,manager_password,manager_email,manager_sex,manager_dob,manager_address,manager_hometown,manager_timestart,user_type,manager_status,manager_phone) values(null,'$manager_code','$manager_name','$manager_password','$manager_email','$manager_sex','$manager_dob','$manager_address','$manager_hometown','$am',2,1),'$manager_phone'";
 		$c=mysqli_query($conn,$sql);
 		if(!$c){
 			echo "<script>";

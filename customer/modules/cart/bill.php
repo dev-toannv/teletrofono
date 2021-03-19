@@ -32,7 +32,8 @@
 					header("Location:index.php?cart=cart&err1");
 				}
 				else{
-					$sql_bill="insert into bill(id,customer_id,bill_time,bill_status,bill_namecustomer,bill_address,bill_phonenumber) values(null,$cus_id,now(),0,'$cus_name','$cus_address','$cus_phone')";
+					$am=date('Y:m:d H:i:s');
+					$sql_bill="insert into bill(id,customer_id,bill_time,bill_status,bill_namecustomer,bill_address,bill_phonenumber) values(null,$cus_id,'$am',0,'$cus_name','$cus_address','$cus_phone')";
 	
 					mysqli_query($conn,$sql_bill);
 					// lay ra id bill moi tao

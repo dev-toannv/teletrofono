@@ -505,7 +505,8 @@
 			$sql99="select id from manager where manager_code = '$staff_code'";
 			$staff_code=mysqli_fetch_assoc(mysqli_query($conn,$sql99));
 			$staff_code=$staff_code['id'];
-			$last_update="update add_edit_product set id_user_edit_last = '$staff_code', time_edit_last=now() where id_product='$id'";
+			$am=date('Y:m:d H:i:s');
+			$last_update="update add_edit_product set id_user_edit_last = '$staff_code', time_edit_last='$am' where id_product='$id'";
 			mysqli_query($conn,$last_update);
 			header("Location:index.php?module=interface&action=interfaceStaff&choose=mproduct&mpr=show&id_edit=$id");
 		}

@@ -8,6 +8,7 @@
 	}
 	</style>
 <?php 
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 	$module = $action ='';
 	if(isset($_GET['module']) && isset($_GET['action'])){
 		$module=$_GET['module'];

@@ -7,7 +7,7 @@
 	if(isset($_GET['id_product'])==true && $_GET['id_product']!=""){
 		$id_p=$_GET['id_product'];
 		if(isset($_GET['detail'])){
-			if($_SESSION['cart'][$id_p]){
+			if(isset($_SESSION['cart'][$id_p])){
 				$_SESSION['cart'][$id_p]+=1;
 				header("Location:index.php?search_manu=all&product_detail=$id_p");
 			}
@@ -17,18 +17,19 @@
 			}
 		}
 		else{
-			if($_SESSION['cart'][$id_p]){
+			if(isset($_SESSION['cart'][$id_p])){
 				$_SESSION['cart'][$id_p]+=1;
 				header("Location:index.php?cart=cart");
+				
 			}
 			else{
 				$_SESSION['cart'][$id_p]=1;
 				header("Location:index.php?cart=cart");
 			}
+			
 		}
-		
-		
 	}
+
 ?>
 <div id="lz">
 	<style type="text/css">
