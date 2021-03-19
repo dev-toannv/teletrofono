@@ -11,78 +11,93 @@
 	<link rel="stylesheet" type="text/css" href="modules/edit/edit.css">
 <?php
 	if(isset($_SESSION['staff_code'])){
-
+		
 		if(isset($_GET['id_edit'])){
 			$id=$_GET['id_edit'];
+			$id=trim($id);
+			$id=(int)$id;
+
 			$sql11="select*from product where id='$id'";
+			$check = preg_match('/^[0-9]+$/',$id);
+			if(!$check){
+				header("Location:index.php?module=interface&action=interfaceStaff&choose=mproduct");
+				die();
+			}
 			$query_sql11=mysqli_query($conn,$sql11);
-			$result_sql11=mysqli_fetch_assoc($query_sql11);
+			
+			if(mysqli_num_rows($query_sql11)==1){
+				$result_sql11=mysqli_fetch_assoc($query_sql11);
+				$product_videocall_frontcamera = $result_sql11['product_videocall_frontcamera'];
+				// xu ly mau sac
+				$color_id=$result_sql11['product_color'];
+				// xu ly ten hang
+				$product_manu=$result_sql11['product_manu'];
+				$sql10="select * from manu_product where id ='$product_manu'";
+				$n=mysqli_query($conn,$sql10);
+				$roww=mysqli_fetch_assoc($n);
+				$manu_name =$roww['manu_name'];
+				$manu_id=$roww['id'];
+				$folder="../public/product/".$manu_name."/";
+				// xu ly ten anh
+				$t=array();
+				$nn="product_".$id."_"."1"."_";
+				$image="select * from image where product_id='$id' and image_name like'%$nn%'";
+				$query_image=mysqli_query($conn,$image);
+				$result_img=mysqli_fetch_assoc($query_image);
 
-			$product_videocall_frontcamera = $result_sql11['product_videocall_frontcamera'];
-			// xu ly mau sac
-			$color_id=$result_sql11['product_color'];
-			// xu ly ten hang
-			$product_manu=$result_sql11['product_manu'];
-			$sql10="select * from manu_product where id ='$product_manu'";
-			$n=mysqli_query($conn,$sql10);
-			$roww=mysqli_fetch_assoc($n);
-			$manu_name =$roww['manu_name'];
-			$manu_id=$roww['id'];
-			$folder="../public/product/".$manu_name."/";
-			// xu ly ten anh
-			$t=array();
-			$nn="product_".$id."_"."1"."_";
-			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
-			$query_image=mysqli_query($conn,$image);
-			$result_img=mysqli_fetch_assoc($query_image);
-
-			if(mysqli_num_rows($query_image)>0){
-				$t[0]=$result_img['image_name'];
-			}
-			else{
-				$t[0]="";
-			}
-			if($t[0]==""){
-				$path="../public/product/product.svg";
-			}
-			else{
-				$path=$folder.$t[0];
-			}
+				if(mysqli_num_rows($query_image)>0){
+					$t[0]=$result_img['image_name'];
+				}
+				else{
+					$t[0]="";
+				}
+				if($t[0]==""){
+					$path="../public/product/product.svg";
+				}
+				else{
+					$path=$folder.$t[0];
+				}
 
 
-			$nn="product_".$id."_"."2"."_";
-			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
-			$query_image=mysqli_query($conn,$image);
-			$result_img=mysqli_fetch_assoc($query_image);
-			if(mysqli_num_rows($query_image)>0){
-				$t[1]=$result_img['image_name'];
-			}
-			else{
-				$t[1]="";
-			}
-			if($t[1]==""){
-				$path2="../public/product/product.svg";
-			}
-			else{
-				$path2=$folder.$t[1];
-			}
+				$nn="product_".$id."_"."2"."_";
+				$image="select * from image where product_id='$id' and image_name like'%$nn%'";
+				$query_image=mysqli_query($conn,$image);
+				$result_img=mysqli_fetch_assoc($query_image);
+				if(mysqli_num_rows($query_image)>0){
+					$t[1]=$result_img['image_name'];
+				}
+				else{
+					$t[1]="";
+				}
+				if($t[1]==""){
+					$path2="../public/product/product.svg";
+				}
+				else{
+					$path2=$folder.$t[1];
+				}
 
-			$nn="product_".$id."_"."3"."_";
-			$image="select * from image where product_id='$id' and image_name like'%$nn%'";
-			$query_image=mysqli_query($conn,$image);
-			$result_img=mysqli_fetch_assoc($query_image);
-			if(mysqli_num_rows($query_image)>0){
-				$t[2]=$result_img['image_name'];
+				$nn="product_".$id."_"."3"."_";
+				$image="select * from image where product_id='$id' and image_name like'%$nn%'";
+				$query_image=mysqli_query($conn,$image);
+				$result_img=mysqli_fetch_assoc($query_image);
+				if(mysqli_num_rows($query_image)>0){
+					$t[2]=$result_img['image_name'];
+				}
+				else{
+					$t[2]="";
+				}
+				if($t[2]==""){
+					$path3="../public/product/product.svg";
+				}
+				else{
+					$path3=$folder.$t[2];
+				}
 			}
 			else{
-				$t[2]="";
+				header("Location:index.php?module=interface&action=interfaceStaff&choose=mproduct");
+				die();
 			}
-			if($t[2]==""){
-				$path3="../public/product/product.svg";
-			}
-			else{
-				$path3=$folder.$t[2];
-			}
+			
 
 		}
 		//Lay du lieu tu POST

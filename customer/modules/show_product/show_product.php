@@ -16,6 +16,8 @@
 	$pic=array();
 	if(isset($_GET['product_detail'])){
 		$id=$_GET['product_detail'];
+		$id=trim($id);
+		$id=(int)$id;
 		$sql50="select*from product where id='$id'";
 		$query_sql50=mysqli_query($conn,$sql50);
 		if(mysqli_num_rows($query_sql50)>0){
@@ -199,12 +201,7 @@
 		</div>
 
 		<div id="product_detail">
-			<div id="left_detail">
-				<div id="x">
-					<button style="width:100%;height:100%;" onclick="cba()">
-						<img src="../public/customer/log-out.png" style="max-width:100%; max-height: 100%;">
-					</button>
-				</div>
+			<div id="left_detail" onclick="cba()">
 			</div>
 			<div id="center_detail">
 				<h2>Thông số kỹ thuật chi tiết <?php echo $result['product_name'] ?></h2>
@@ -427,7 +424,7 @@
 					</table>
 				</div>
 			</div>
-			<div id="right_detail">
+			<div id="right_detail" onclick="cba()">
 				
 			</div>
 		</div>

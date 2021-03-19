@@ -74,16 +74,6 @@ td {
     opacity: 0.6;
 }
 
-#x {
-    width: 15%;
-    height: 15%;
-    background-color: #8d8f90;
-    text-align: right;
-}
-
-#x:hover button {
-    background-color: white;
-}
 
 #a {
     width: 100%;
