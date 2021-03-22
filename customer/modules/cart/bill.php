@@ -100,6 +100,7 @@
 		}
 	
 ?>
+
 <link rel="stylesheet" type="text/css" href="modules/cart/bill.css">
 <div style="position: relative; left:5%; top : 5%">
 			<a href="index.php?cart=cart"> <-- Quay về giỏ hàng</a>

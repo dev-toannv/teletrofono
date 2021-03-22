@@ -76,6 +76,7 @@
  		echo "</script>";
  	}
  ?>
+
 <div style="width: 80%; height: auto; margin-top: 19px;">
 	<link rel="stylesheet" type="text/css" href="modules/cart/noacc1.css">
 	<form action="" method="POST">

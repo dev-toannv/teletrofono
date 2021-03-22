@@ -43,23 +43,23 @@
 	</style>
 
 	<link rel="stylesheet" type="text/css" href="modules/cart/cart.css">
-<div id="global">
-	<div id="local1">
-		<div id="local11">
-			<a href="index.php"><img src="../public/customer/logo3.png" alt=""></a>
-		</div>
-		<div id="local12">
-			<?php 
-				if(isset($_GET['bill'])){
-					require_once("modules/cart/bill.php");
-				}
-				else{
-					require_once("modules/cart/noacc.php");
-				}
-				
-	 		?>
+	<div id="global">
+		<div id="local1">
+			<div id="local11">
+				<a href="index.php"><img src="../public/customer/logo3.png" alt=""></a>
+			</div>
+			<div id="local12">
+				<?php 
+					if(isset($_GET['bill'])){
+						require_once("modules/cart/bill.php");
+					}
+					else{
+						require_once("modules/cart/noacc.php");
+					}
+					
+		 		?>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 	
