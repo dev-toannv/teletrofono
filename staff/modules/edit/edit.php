@@ -1,5 +1,5 @@
  <?php 
-	if(!defined("MY_PROJECT")) die("Connect error");
+	if(!defined("MY_PROJECT")) {die("Connect error");};
 ?>
 <link rel="stylesheet" href="modules/edit/edit.css">
 <div>
@@ -523,7 +523,9 @@
 			$am=date('Y:m:d H:i:s');
 			$last_update="update add_edit_product set id_user_edit_last = '$staff_code', time_edit_last='$am' where id_product='$id'";
 			mysqli_query($conn,$last_update);
-			header("Location:index.php?module=interface&action=interfaceStaff&choose=mproduct&mpr=show&id_edit=$id");
+			echo "<script>";
+			echo "location.reload()";
+			echo "</script>";
 		}
 	}
 	else{
