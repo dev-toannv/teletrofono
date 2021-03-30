@@ -198,17 +198,19 @@
 				}
 				mysqli_query($conn,$sql7);
 			}
+
+			// lay id de them vao add_edit_product
+			$sql3="select id from manager where manager_code='$code'";
+			$result=mysqli_query($conn,$sql3);
+			$rr=mysqli_fetch_assoc($result);
+			$code1=$rr['id'];
+			$am=date('Y:m:d H:i:s');
+			$sql4="insert into add_edit_product values($idsanpham,'$code1','$code1','$am','$am')";
+			mysqli_query($conn,$sql4);
 		}
 		
 
-		// lay id de them vao add_edit_product
-		$sql3="select id from manager where manager_code='$code' and user_type=2";
-		$result=mysqli_query($conn,$sql3);
-		$rr=mysqli_fetch_assoc($result);
-		$code1=$rr['id'];
-		$am=date('Y:m:d H:i:s');
-		$sql4="insert into add_edit_product values('$idsanpham','$code1','$code1','$am','$am')";
-		mysqli_query($conn,$sql4);
+		
 	}
 ?>
 <!--Duoi day la nhung dong code danh cho front-->
