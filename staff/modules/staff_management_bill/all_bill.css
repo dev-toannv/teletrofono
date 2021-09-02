@@ -1,235 +1,236 @@
-#container_processing{
-	width: 100%;
-	height: 94%;
-	overflow-y: scroll;
-	border:1px solid black;
-	display: flex;
-  	/*justify-content: center;*/
-  	align-items: center;
-  	flex-direction: column;
+#container_processing {
+    width: 100%;
+    height: 94%;
+    overflow-y: scroll;
+    border: 1px solid black;
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
 }
 
-.task1{
-	width: 100%;
-	height: 20%;
+.task1 {
+    width: 100%;
+    height: 20%;
 }
 
-.task2{
-		width: 100%;
-		height: 50%
+.task2 {
+    width: 100%;
+    height: 50%
 }
 
-.task3{
-	width: 100%;
-	height: 15%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	border-bottom:2px solid #068604;
+.task3 {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #068604;
 }
 
-.task4{
-	width: 100%;
-	height: 15%;
+.task4 {
+    width: 100%;
+    height: 15%;
 }
 
-
-.time{
-	float: left;
-	height: 100%;
-	width: 30%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	flex-direction: column;
-  	border-bottom:2px solid #068604;
-}
-.name_customer{
-	float: left;
-	height: 100%;
-	width: 30%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	flex-direction: column;
-  	border-bottom:2px solid #068604;
-}
-.phonenumber{
-	float: left;
-	height: 100%;
-	width: 25%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	flex-direction: column;
-  	border-bottom:2px solid #068604;
-}
-.id_bill{
-	float: left;
-	height: 100%;
-	width: 15%;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	flex-direction: column;
-  	border-bottom:2px solid #068604;
+.time {
+    float: left;
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 2px solid #068604;
 }
 
-.scroll::-webkit-scrollbar{
- 	width: 6px;
-	background-color: #F5F5F5;
+.name_customer {
+    float: left;
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 2px solid #068604;
 }
 
-.scroll::-webkit-scrollbar-track{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5; 
+.phonenumber {
+    float: left;
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 2px solid #068604;
 }
 
-.scroll::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555; 
+.id_bill {
+    float: left;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 2px solid #068604;
 }
 
-.scroll::-webkit-scrollbar-thumb:hover{
-  background: #555; 
+.scroll::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
 }
 
-
-#gh{
-	overflow-y:scroll; 
-}
-#gh::-webkit-scrollbar{
- 	width: 6px;
-	background-color: #F5F5F5;
+.scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
-#gh::-webkit-scrollbar-track{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5; 
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
 }
 
-#gh::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555; 
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
-#gh::-webkit-scrollbar-thumb:hover{
-  background: #555; 
+#gh {
+    overflow-y: scroll;
 }
 
-
-
-
-
-
-#container_processing::-webkit-scrollbar{
- 	width: 6px;
-	background-color: #F5F5F5;
+#gh::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
 }
 
-#container_processing::-webkit-scrollbar-track{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5; 
+#gh::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
-#container_processing::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555; 
+#gh::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
 }
 
-#container_processing::-webkit-scrollbar-thumb:hover{
-  background: #555; 
+#gh::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
-
-.idpr{
-	height:30%;
-	width: 15%;
-	float: left;
-	border-bottom:1px solid #e2f1ea;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	border-right:1px solid black;
-}
-.namepr{
-	height:30%;
-	width: 45%;
-	float: left;
-	border-bottom:1px solid #e2f1ea;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	border-right:1px solid black;
-}
-.quanpr{
-	height:30%;
-	width: 15%;
-	float: left;
-	border-bottom:1px solid #e2f1ea;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	border-right:1px solid black;
-}
-.monpr{
-	height:30%;
-	width: 25%;
-	float: left;
-	border-bottom:1px solid #e2f1ea;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+#container_processing::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
 }
 
-.t41{
-	width: 40%;
-	height:100%;
-	float:left;
-	border-right:1px solid #e2f1ea;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+#container_processing::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
-.t42{
-	width: 60%;
-	height:100%; 
-	float:left;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
+#container_processing::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
 }
 
-.bar1{
-	width: 20%;
-	height: 100%; 
-	float: left;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	border-right:1px black solid;
-  	border-left:1px black solid;
+#container_processing::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
-.bar1 input,select,button{
-	height: 92%;
+.idpr {
+    height: 30%;
+    width: 15%;
+    float: left;
+    border-bottom: 1px solid #e2f1ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid black;
 }
 
-#result{
-	width: 70%;
-	height: 25px;
-	background-color: #343434;
-	margin-top:5px;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	font-size:120%;
-  	color:white;
+.namepr {
+    height: 30%;
+    width: 45%;
+    float: left;
+    border-bottom: 1px solid #e2f1ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid black;
+}
+
+.quanpr {
+    height: 30%;
+    width: 15%;
+    float: left;
+    border-bottom: 1px solid #e2f1ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid black;
+}
+
+.monpr {
+    height: 30%;
+    width: 25%;
+    float: left;
+    border-bottom: 1px solid #e2f1ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t41 {
+    width: 40%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid #e2f1ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t42 {
+    width: 60%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar1 {
+    width: 20%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px black solid;
+    border-left: 1px black solid;
+}
+
+.bar1 input,
+select,
+button {
+    height: 92%;
+}
+
+#result {
+    width: 70%;
+    height: 25px;
+    background-color: #343434;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120%;
+    color: white;
 }
