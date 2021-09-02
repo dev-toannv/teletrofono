@@ -141,7 +141,7 @@
 			$detail="select * from bill_detail where id_bill='$id_bill' ";
 			$detail=mysqli_query($conn,$detail);
 			//--------
-			echo "<div style='width:70%;height:350px;border:4px solid #068604; margin-top:7px; margin-bottom:12px;'>";
+			echo "<div style='width:70%;min-height:350px;border:4px solid #068604; margin-top:7px; margin-bottom:12px;'>";
 				echo "<div class='task1'>";
 					// thoi gian dat hang
 					echo "<div class='time'>";
